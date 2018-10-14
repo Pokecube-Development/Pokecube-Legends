@@ -1,0 +1,15 @@
+[
+{
+  "modid": "pokecube-legends",
+  "name": "Pokecube Legends",
+  "description": "Legendary Spawns For Pokecube",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [""],
+  "credits": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
