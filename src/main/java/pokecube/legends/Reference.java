@@ -1,4 +1,4 @@
-package pokecube.pokeplayer;
+package pokecube.legends;
 
 public class Reference
 {
