@@ -3,7 +3,6 @@ package pokecube.legends.conditions;
 import java.util.ArrayList;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import pokecube.core.database.Database;
