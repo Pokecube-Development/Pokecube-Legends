@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import pokecube.core.database.PokedexEntry;
 import pokecube.core.database.stats.CaptureStats;
@@ -98,24 +98,24 @@ public abstract class Condition implements ISpecialCaptureCondition, ISpecialSpa
     public void sendNoTrust(Entity trainer)
     {
         String message = "msg.notrust.txt";
-        ITextComponent component = new TextComponentTranslation(message,
-                new TextComponentTranslation(getEntry().getUnlocalizedName()));
+        ITextComponent component = new TranslationTextComponent(message,
+                new TranslationTextComponent(getEntry().getUnlocalizedName()));
         trainer.sendMessage(component);
     }
 
     public void sendNoHere(Entity trainer)
     {
         String message = "msg.nohere.txt";
-        ITextComponent component = new TextComponentTranslation(message,
-                new TextComponentTranslation(getEntry().getUnlocalizedName()));
+        ITextComponent component = new TranslationTextComponent(message,
+                new TranslationTextComponent(getEntry().getUnlocalizedName()));
         trainer.sendMessage(component);
     }
 
     public void sendAngered(Entity trainer)
     {
         String message = "msg.angeredlegend.txt";
-        ITextComponent component = new TextComponentTranslation(message,
-                new TextComponentTranslation(getEntry().getUnlocalizedName()));
+        ITextComponent component = new TranslationTextComponent(message,
+                new TranslationTextComponent(getEntry().getUnlocalizedName()));
         trainer.sendMessage(component);
     }
 }

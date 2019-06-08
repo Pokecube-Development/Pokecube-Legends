@@ -5,7 +5,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLCommonSetupEvent;
 import pokecube.core.PokecubeCore;
 import pokecube.core.events.PostPostInit;
 import pokecube.legends.conditions.LegendaryConditions;
@@ -24,7 +24,7 @@ public class PokecubeLegends
     }
 
     @EventHandler
-    public void preInit(FMLPreInitializationEvent event)
+    public void preInit(FMLCommonSetupEvent event)
     {
         Configuration config = PokecubeCore.instance.getPokecubeConfig(event);
         config.load();

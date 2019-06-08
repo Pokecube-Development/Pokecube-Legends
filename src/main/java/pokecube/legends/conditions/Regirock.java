@@ -3,7 +3,7 @@ package pokecube.legends.conditions;
 import java.util.ArrayList;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import pokecube.core.database.Database;
 import pokecube.core.database.PokedexEntry;
@@ -93,7 +93,7 @@ public class Regirock extends Condition
         if (!check)
         {
             String message = "msg.reginotlookright.txt";
-            trainer.sendMessage(new TextComponentTranslation(message));
+            trainer.sendMessage(new TranslationTextComponent(message));
             return false;
         }
         return true;

@@ -2,8 +2,8 @@ package pokecube.legends.spawns;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -32,11 +32,11 @@ public class LegendarySpawns
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public void interactRightClickBlock(PlayerInteractEvent.RightClickBlock evt)
     {
-        boolean invalid = !evt.getEntityPlayer().isSneaking() || !CompatWrapper.isValid(evt.getItemStack())
+        boolean invalid = !evt.getPlayerEntity().isSneaking() || !CompatWrapper.isValid(evt.getItemStack())
                 || !(evt.getItemStack().getItem() instanceof ItemPokedex) || evt.getWorld().isRemote;
         if (invalid) return;
         Block block = null;
-        EntityPlayer playerIn = evt.getEntityPlayer();
+        PlayerEntity playerIn = evt.getPlayerEntity();
         World worldIn = evt.getWorld();
         BlockPos pos = evt.getPos();
         IBlockState state = evt.getWorld().getBlockState(evt.getPos());
@@ -57,7 +57,7 @@ public class LegendarySpawns
                 Vector3 location = Vector3.getNewVector().set(pos);
                 if (spawnCondition.canSpawn(playerIn, location))
                 {
-                    EntityLiving entity = (EntityLiving) PokecubeMod.core.createPokemob(entry, worldIn);
+                    MobEntity entity = (MobEntity) PokecubeMod.core.createPokemob(entry, worldIn);
                     IPokemob pokemob = CapabilityPokemob.getPokemobFor(entity);
                     if (captureCondition != null && !captureCondition.canCapture(playerIn, pokemob))
                     {
