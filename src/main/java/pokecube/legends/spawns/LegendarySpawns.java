@@ -1,7 +1,7 @@
 package pokecube.legends.spawns;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.BlockPos;
@@ -39,7 +39,7 @@ public class LegendarySpawns
         PlayerEntity playerIn = evt.getPlayerEntity();
         World worldIn = evt.getWorld();
         BlockPos pos = evt.getPos();
-        IBlockState state = evt.getWorld().getBlockState(evt.getPos());
+        BlockState state = evt.getWorld().getBlockState(evt.getPos());
         block = state.getBlock();
         String name = PokecubePlayerDataHandler.getCustomDataTag(playerIn).getString("WEntry");
         PokedexEntry entry = Database.getEntry(name);
