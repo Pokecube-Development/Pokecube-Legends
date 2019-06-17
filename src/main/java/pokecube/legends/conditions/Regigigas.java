@@ -12,17 +12,19 @@ import pokecube.core.database.stats.CaptureStats;
 import pokecube.core.interfaces.IPokemob;
 import thut.api.maths.Vector3;
 
-public class Regirock extends Condition
+public class Regigigas extends Condition
 {
     @Override
     public boolean canCapture(Entity trainer, IPokemob pokemon)
     {
         if (!canCapture(trainer)) return false;
-        boolean relicanth = CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(),
-                Database.getEntry("relicanth")) > 0;
-        boolean wailord = CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(),
-                Database.getEntry("wailord")) > 0;
-        if ((relicanth && wailord)) return true;
+        boolean regice = CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(),
+                Database.getEntry("regice")) > 0;
+        boolean registeel = CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(),
+                Database.getEntry("registeel")) > 0;
+        boolean regirock = CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(),
+                Database.getEntry("regirock")) > 0;
+        if ((regice && registeel && regirock)) return true;
         if (pokemon != null && !trainer.getEntityWorld().isRemote)
         {
             sendNoTrust(trainer);
@@ -33,7 +35,7 @@ public class Regirock extends Condition
     @Override
     public void onSpawn(IPokemob mob)
     {
-        mob = mob.setForSpawn(54);
+        mob = mob.setForSpawn(54500);
         Vector3 location = Vector3.getNewVector().set(mob.getEntity()).add(0, -1, 0);
         ArrayList<Vector3> locations = new ArrayList<Vector3>();
         World world = mob.getEntity().getEntityWorld();
@@ -73,7 +75,7 @@ public class Regirock extends Condition
             locations.clear();
             locations.add(location.add(-1, 0, 0));
             locations.add(location.add(1, 0, 0));
-            check = isBlock(world, locations, Blocks.HARDENED_CLAY);
+            check = isBlock(world, locations, Blocks.END_BRICKS);
         }
         else
         {
@@ -88,7 +90,7 @@ public class Regirock extends Condition
                 locations.clear();
                 locations.add(location.add(0, 0, 1));
                 locations.add(location.add(0, 0, -1));
-                check = isBlock(world, locations, Blocks.HARDENED_CLAY);
+                check = isBlock(world, locations, Blocks.END_BRICKS);
             }
         }
         if (!check)
@@ -103,7 +105,7 @@ public class Regirock extends Condition
     @Override
     public PokedexEntry getEntry()
     {
-        return Database.getEntry("regirock");
+        return Database.getEntry("regigigas");
     }
 
 }

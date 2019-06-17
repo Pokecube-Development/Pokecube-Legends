@@ -41,7 +41,7 @@ public class LegendarySpawns
         World worldIn = evt.getWorld();
         BlockPos pos = evt.getPos();
         IBlockState state = evt.getWorld().getBlockState(evt.getPos());
-        block = state.getBlock();
+       block = state.getBlock();
         String name = PokecubePlayerDataHandler.getCustomDataTag(playerIn).getString("WEntry");
         PokedexEntry entry = Database.getEntry(name);
         if (block == Blocks.DIAMOND_BLOCK && entry != null)
@@ -66,8 +66,8 @@ public class LegendarySpawns
                         return;
                     }
                     entity.setHealth(entity.getMaxHealth());
-                    location.add(0, 1, 0).moveEntity(entity);
-                    spawnCondition.onSpawn(pokemob);
+                   location.add(0, 1, 0).moveEntity(entity);
+                   spawnCondition.onSpawn(pokemob);
                     if (pokemob.getExp() < 100)
                     {
                         entity = pokemob.setForSpawn(Tools.levelToXp(entry.getEvolutionMode(), 50)).getEntity();

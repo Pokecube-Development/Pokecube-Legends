@@ -7,3 +7,23 @@ msg.noknowhowmakeregi.txt=§cNothing happened
 msg.reginotlookright.txt=§cThis does not look like it was built correctly.
 msg.notrust.txt=%s §cdoes not trust you enough to be captured.
 msg.angeredlegend.txt=§cYou have angered %s and need to re-gain its trust.
+
+//Orbs
+item.blueorb.name=Blue Orb
+item.greenorb.name=Green Orb
+item.grayorb.name=Gray Orb
+item.redorb.name=Red Orb
+item.legendaryorb.name=Legendary Orb
+
+//Ores Gen
+item.ruby.name=Ruby
+item.sapphire.name=Sapphire
+
+//Itens
+item.silver_wing.name=Silver Wing
+item.rainbow_wing.name=Rainbow Wing
+item.rainbow_sword.name=Rainbow Sword
+
+//Blocks
+tile.ruby_block.name=Ruby Block
+tile.sapphire_block.name=Sapphire Block
