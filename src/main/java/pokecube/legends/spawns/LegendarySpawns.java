@@ -4,7 +4,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -22,6 +21,7 @@ import pokecube.core.interfaces.PokecubeMod;
 import pokecube.core.interfaces.capabilities.CapabilityPokemob;
 import pokecube.core.items.ItemPokedex;
 import pokecube.core.utils.Tools;
+import pokecube.legends.init.BlockInit;
 import thut.api.maths.Vector3;
 import thut.lib.CompatWrapper;
 
@@ -41,10 +41,10 @@ public class LegendarySpawns
         World worldIn = evt.getWorld();
         BlockPos pos = evt.getPos();
         IBlockState state = evt.getWorld().getBlockState(evt.getPos());
-       block = state.getBlock();
+        block = state.getBlock();
         String name = PokecubePlayerDataHandler.getCustomDataTag(playerIn).getString("WEntry");
         PokedexEntry entry = Database.getEntry(name);
-        if (block == Blocks.DIAMOND_BLOCK && entry != null)
+        if (block == BlockInit.LEGENDARY_SPAWN && entry != null)
         {
             SpawnData data = entry.getSpawnData();
             if (data != null) for (SpawnBiomeMatcher matcher : data.matchers.keySet())

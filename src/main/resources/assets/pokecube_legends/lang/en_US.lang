@@ -23,7 +23,23 @@ item.sapphire.name=Sapphire
 item.silver_wing.name=Silver Wing
 item.rainbow_wing.name=Rainbow Wing
 item.rainbow_sword.name=Rainbow Sword
+item.crystal_shard.name=Crystal Shard
+
+//Portal
+tile.distorced_portal.name=Distorted Portal
 
 //Blocks
 tile.ruby_block.name=Ruby Block
 tile.sapphire_block.name=Sapphire Block
+tile.ruby_ore.name=Ruby Ore
+tile.sapphire_ore.name=Sapphire Ore
+tile.distorced_block.name=Distorted Stone
+tile.distorced_cobblestone.name=Distorted Cobblestone
+tile.distorced_crystal.name=Distorted Crystal
+tile.distorced_dirt.name=Distorted Dirt
+tile.temporalblock.name=Temporal Brick
+tile.legendaryspawn.name=Spawn Lengendary
+tile.ultra_block.name=UltraSpace Stone
+tile.oceanblock.name=Ocean Brick
+tile.spatianblock.name=Spatial Brick
+tile.skyblock.name=Sky Brick

@@ -4,7 +4,7 @@ import net.minecraft.item.ItemSword;
 import pokecube.core.interfaces.PokecubeMod;
 import pokecube.legends.IHasModel;
 import pokecube.legends.PokecubeLegends;
-import pokecube.legends.init.ModItems;
+import pokecube.legends.init.ItemInit;
 
 public class ToolSword extends ItemSword implements IHasModel
 {
@@ -15,7 +15,7 @@ public class ToolSword extends ItemSword implements IHasModel
 		setRegistryName(name);
 		setCreativeTab(PokecubeMod.creativeTabPokecube);
 		
-		ModItems.ITEMS.add(this);
+		ItemInit.ITEMS.add(this);
 	}
 	
 	@Override

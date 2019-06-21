@@ -10,7 +10,7 @@ import net.minecraftforge.common.util.EnumHelper;
 import pokecube.legends.items.ItemBase;
 import pokecube.legends.items.tools.ToolSword;
 
-public class ModItems 
+public class ItemInit 
 {
 	
 	public static final List<Item> ITEMS = new ArrayList<Item>();
@@ -32,6 +32,7 @@ public class ModItems
 	//Extra
 	public static final Item SILVER_WING = new ItemBase("silver_wing");
 	public static final Item RAINBOW_WING = new ItemBase("rainbow_wing");
+	public static final Item CRYSTAL_SHARD = new ItemBase("crystal_shard");
 
 	//Tools
 	public static final ItemSword RAINBOW_SWORD = new ToolSword("rainbow_sword", MATERIAL_RAINBOW);

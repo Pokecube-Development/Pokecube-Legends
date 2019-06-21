@@ -7,8 +7,8 @@ import net.minecraft.item.ItemBlock;
 import pokecube.core.interfaces.PokecubeMod;
 import pokecube.legends.IHasModel;
 import pokecube.legends.PokecubeLegends;
-import pokecube.legends.init.ModBlocks;
-import pokecube.legends.init.ModItems;
+import pokecube.legends.init.BlockInit;
+import pokecube.legends.init.ItemInit;
 
 public class BlockBase extends Block implements IHasModel
 {
@@ -19,8 +19,8 @@ public class BlockBase extends Block implements IHasModel
 		setRegistryName(name);
 		setCreativeTab(PokecubeMod.creativeTabPokecubeBlocks);
 		
-		ModBlocks.BLOCKS.add(this);
-		ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+		BlockInit.BLOCKS.add(this);
+		ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 		
 	}
 
