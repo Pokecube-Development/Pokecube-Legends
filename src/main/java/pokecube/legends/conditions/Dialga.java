@@ -4,7 +4,6 @@ import net.minecraft.entity.Entity;
 import pokecube.core.database.Database;
 import pokecube.core.database.PokedexEntry;
 import pokecube.core.database.stats.CaptureStats;
-import pokecube.core.database.stats.KillStats;
 import pokecube.core.interfaces.IPokemob;
 
 public class Dialga extends Condition
@@ -14,21 +13,17 @@ public class Dialga extends Condition
     {
         if (!canCapture(trainer)) return false;
         boolean uxie = CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(),
-                Database.getEntry("articuno")) > 0;
-        if ((uxie)) return true;
+                Database.getEntry("uxie")) > 0;
+        boolean mesprit = CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(),
+                Database.getEntry("mesprit")) > 0;
+        boolean azelf = CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(),
+                Database.getEntry("azelf")) > 0;
+        if ((uxie && mesprit && azelf)) return true;
         if (pokemon != null && !trainer.getEntityWorld().isRemote)
         {
             sendNoTrust(trainer);
         }
         return false;
-    }
-
-    @Override
-    public boolean canSpawn(Entity trainer)
-    {
-        if (CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(), getEntry()) > 0) return false;
-        if (KillStats.getTotalNumberOfPokemobKilledBy(trainer.getUniqueID(), getEntry()) > 0) return false;
-        return true;
     }
 
     @Override

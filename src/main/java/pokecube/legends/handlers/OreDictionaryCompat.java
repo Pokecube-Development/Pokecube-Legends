@@ -12,8 +12,9 @@ public class OreDictionaryCompat
          * Look in the OreDictionary class to check the strings for vanilla items.
          */
         OreDictionary.registerOre("oreRuby", BlockInit.RUBY_ORE);
-        OreDictionary.registerOre("oresapphire", BlockInit.SAPPHIRE_ORE);
-        OreDictionary.registerOre("genRuby", ItemInit.RUBY);
-        OreDictionary.registerOre("genSapphire", ItemInit.SAPPHIRE);
+        OreDictionary.registerOre("oreSapphire", BlockInit.SAPPHIRE_ORE);
+        OreDictionary.registerOre("gemRuby", ItemInit.RUBY);
+        OreDictionary.registerOre("gemSapphire", ItemInit.SAPPHIRE);
+        OreDictionary.registerOre("plankWood", BlockInit.PLANKS_DESCONSTRUTED);
     }
 }

@@ -1,0 +1,32 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "GRG",
+        "RAR",
+        "GRG"
+    ],
+    
+    "key":
+    {
+        "G":
+        {
+            "item": "minecraft:gold_block"
+        },
+		"A":
+        {
+            "item": "minecraft:stone_button"
+        },
+		"R":
+        {
+            "item": "pokecube_legends:temporal_crystal"
+        }
+    },
+    
+    "result":
+    {
+        "item": "pokecube_legends:beastcube",
+        "count": 1
+    }
+}

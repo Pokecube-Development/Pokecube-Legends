@@ -53,8 +53,7 @@ dependencies {
     deobfCompile "thut-wearables:thut-wearables:release:deobf"
     //Open Computers API
     deobfCompile "li.cil.oc:OpenComputers:MC1.12.+:api"
-    
-    //Pokecube Core
+	//Pokecube Core
     deobfCompile "pokecube-core:pokecube-core:release:deobf"
     //Pokecube Revival
     deobfCompile "pokecube-revival:pokecube-revival:release:deobf"

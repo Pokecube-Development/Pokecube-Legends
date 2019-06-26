@@ -4,7 +4,6 @@ import net.minecraft.entity.Entity;
 import pokecube.core.database.Database;
 import pokecube.core.database.PokedexEntry;
 import pokecube.core.database.stats.CaptureStats;
-import pokecube.core.database.stats.KillStats;
 import pokecube.core.interfaces.IPokemob;
 
 public class Lugia extends Condition
@@ -25,14 +24,6 @@ public class Lugia extends Condition
             sendNoTrust(trainer);
         }
         return false;
-    }
-
-    @Override
-    public boolean canSpawn(Entity trainer)
-    {
-        if (CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(), getEntry()) > 0) return false;
-        if (KillStats.getTotalNumberOfPokemobKilledBy(trainer.getUniqueID(), getEntry()) > 0) return false;
-        return true;
     }
 
     @Override

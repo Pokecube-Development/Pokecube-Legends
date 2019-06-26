@@ -9,6 +9,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.Item;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -19,7 +20,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import pokecube.legends.init.DimensionInit;
-import pokecube.legends.worldgen.dimension.library.TeleportFuncionCrystal;
+import pokecube.legends.worldgen.dimensions.TeleportFuncionCrystal;
 
 public class TeleportBlockCrystal extends BlockBase
 {	
@@ -33,6 +34,11 @@ public class TeleportBlockCrystal extends BlockBase
 		setHarvestLevel("pickace", 2);
 		setLightLevel(0.8F);
 		setLightOpacity(5);
+	}
+	
+	@Override
+	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+		return Item.getByNameOrId("minecraft:glass");
 	}
 	
 	@Override
@@ -57,7 +63,7 @@ public class TeleportBlockCrystal extends BlockBase
 	
     @Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer playerIn,
-    		EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+    	EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!playerIn.isRiding() && !playerIn.isBeingRidden() && playerIn.isNonBoss()) {
             if (!playerIn.world.isRemote && playerIn instanceof EntityPlayerMP) {
                 EntityPlayerMP player = (EntityPlayerMP) playerIn;
@@ -69,10 +75,10 @@ public class TeleportBlockCrystal extends BlockBase
                     player.timeUntilPortal = 10;
                 } else {
                     player.isInvulnerableDimensionChange();
-                    if (dimensionId == DimensionInit.DISTORTED_PLACE.getId()) {
+                    if (dimensionId == DimensionInit.TEMPORAL_PLACE.getId()) {
                         dimensionIn = 0;
                     } else {
-                        dimensionIn = DimensionInit.DISTORTED_PLACE.getId();
+                        dimensionIn = DimensionInit.TEMPORAL_PLACE.getId();
                     }
 
                     player.timeUntilPortal = 10;
@@ -87,28 +93,7 @@ public class TeleportBlockCrystal extends BlockBase
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
         if (rand.nextInt(100) == 0) {
-            world.playSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.BLOCK_PORTAL_AMBIENT, SoundCategory.BLOCKS, 0.5F, rand.nextFloat() * 0.4F + 0.8F, false);
-        }
-
-        for (int i = 0; i < 4; ++i) {
-            double x = pos.getX() + rand.nextFloat();
-            double y = pos.getY() + rand.nextFloat();
-            double z = pos.getZ() + rand.nextFloat();
-            double d3 = (rand.nextFloat() - 0.5) * 0.5;
-            double d4 = (rand.nextFloat() - 0.5) * 0.5;
-            double d5 = (rand.nextFloat() - 0.5) * 0.5;
-            int j = rand.nextInt(2) * 2 - 1;
-
-            if (world.getBlockState(pos.west()).getBlock() != this && world.getBlockState(pos.east()).getBlock() != this) {
-                x = pos.getX() + 0.5 + 0.25 * j;
-                d3 = rand.nextFloat() * 2 * j;
-            } else {
-                z = pos.getZ() + 0.5 + 0.25 * j;
-                d5 = rand.nextFloat() * 2 * j;
-            }
-
-            
-			world.spawnParticle(EnumParticleTypes.FIREWORKS_SPARK, x, y, z, d3, d4, d5);
+            world.playSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.AMBIENT_CAVE, SoundCategory.BLOCKS, 0.5F, rand.nextFloat() * 0.4F + 0.8F, false);
         }
     }
 }

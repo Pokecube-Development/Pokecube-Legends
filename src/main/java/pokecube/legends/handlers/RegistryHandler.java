@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import pokecube.legends.IHasModel;
 import pokecube.legends.init.BlockInit;
@@ -38,5 +39,11 @@ public class RegistryHandler
 				((IHasModel)block).registerModels();
 			}
 		}
+	}
+	
+	public static void initRegistries(FMLInitializationEvent event)
+	{
+		//OreDictionary
+    	OreDictionaryCompat.registerOreDictionaryEntries();
 	}
 }

@@ -1,0 +1,15 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "#table": "pokecube_legends:blocks/temporal_portal" //the identifier must be a name of a material defined by the "model" obj's .mtl file
+        },
+        "model": "pokecube_legends:temporal_portal.obj"
+     },
+    "variants": {
+        "normal": [{}],
+        "inventory": [{
+            "transform": "forge:default-block"
+        }]
+    }
+}

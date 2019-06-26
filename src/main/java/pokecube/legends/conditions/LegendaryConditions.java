@@ -11,7 +11,17 @@ import pokecube.core.database.stats.ISpecialCaptureCondition;
 import pokecube.core.database.stats.ISpecialSpawnCondition;
 import pokecube.core.database.stats.SpecialCaseRegister;
 import pokecube.core.interfaces.PokecubeMod;
-import pokecube.legends.spawns.LegendarySpawns;
+import pokecube.legends.spawns.CelebiSpawn;
+import pokecube.legends.spawns.DialgaSpawn;
+import pokecube.legends.spawns.GroudonSpawn;
+import pokecube.legends.spawns.HoohSpawn;
+import pokecube.legends.spawns.KyogreSpawn;
+import pokecube.legends.spawns.LugiaSpawn;
+import pokecube.legends.spawns.PalkiaSpawn;
+import pokecube.legends.spawns.RegiceSpawn;
+import pokecube.legends.spawns.RegigigasSpawn;
+import pokecube.legends.spawns.RegirockSpawn;
+import pokecube.legends.spawns.RegisteelSpawn;
 import thut.lib.CompatParser.ClassFinder;
 
 public class LegendaryConditions
@@ -21,7 +31,20 @@ public class LegendaryConditions
     @SuppressWarnings("unchecked")
     public LegendaryConditions()
     {
-        MinecraftForge.EVENT_BUS.register(new LegendarySpawns());
+    	//Registring Event Lengendary Spawns
+        MinecraftForge.EVENT_BUS.register(new HoohSpawn());
+        MinecraftForge.EVENT_BUS.register(new LugiaSpawn());
+        MinecraftForge.EVENT_BUS.register(new DialgaSpawn());
+        MinecraftForge.EVENT_BUS.register(new RegisteelSpawn());
+        MinecraftForge.EVENT_BUS.register(new RegirockSpawn());
+        MinecraftForge.EVENT_BUS.register(new RegiceSpawn());
+        MinecraftForge.EVENT_BUS.register(new RegigigasSpawn());
+        MinecraftForge.EVENT_BUS.register(new CelebiSpawn());
+        MinecraftForge.EVENT_BUS.register(new PalkiaSpawn());
+        MinecraftForge.EVENT_BUS.register(new GroudonSpawn());
+        MinecraftForge.EVENT_BUS.register(new KyogreSpawn());
+        //
+        
         List<Class<?>> foundClasses;
         List<Class<? extends Condition>> conditionclasses = Lists.newArrayList();
         try

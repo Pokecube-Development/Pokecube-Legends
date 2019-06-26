@@ -16,7 +16,7 @@
         },
 		"A":
         {
-            "item": "pokecube_legends:grayorb"
+            "item": "pokecube_legends:temporal_crystal"
         },
 		"R":
         {
@@ -32,7 +32,7 @@
         },
 		"W":
 		{
-			"item": "pokecube_legends:rainbow_wing"
+			"item": "pokecube_legends:grayorb"
 		}
     },
     

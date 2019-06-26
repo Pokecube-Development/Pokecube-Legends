@@ -17,7 +17,6 @@ package pokecube.legends.worldgen.biome;
 
 import java.util.Random;
 import com.google.common.base.Predicate;
-import net.minecraft.block.BlockStone;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -35,54 +34,36 @@ import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
 import pokecube.legends.init.BlockInit;
 
-// TODO: Auto-generated Javadoc
 public class BiomeDecoratorDist extends BiomeDecorator
 { 
     // This predicate is used by WorldGen constructors to define
     // whether a block can be replaced by ore generation.
-    Predicate<IBlockState> replaceablePredicate = new CloudPredicate();
+    Predicate<IBlockState> replaceablePredicate = new TempPredicate();
     
     // If you want to make these configurable, you'll need a ChunkGeneratorSettings
     // instance and use the fields from there instead.
-    private int dirtSize = 33;
     private int gravelSize = 33;
     private int graniteSize = 33;
-    private int dioriteSize = 33;
-    private int andesiteSize = 33;
+    private int andesiteSize = 25;
     private int coalSize = 17;
     private int ironSize = 9;
-    private int goldSize = 9;
-    private int redstoneSize = 9;
-    private int diamondSize = 8;
-    private int lapisSize = 8;
+    private int goldSize = 5;
 
-    private int dirtCount = 10;
     private int gravelCount = 8;
-    private int dioriteCount = 10;
     private int graniteCount = 10;
     private int andesiteCount = 10;
     private int coalCount = 20;
     private int ironCount = 20;
     private int goldCount = 2;
-    private int redstoneCount = 8;
-    private int diamondCount = 1;
-    private int lapisCount = 1;
-    
-    private int lapisCenterHeight =6;
-    private int lapisSpread = 16;
 
     private int oreGenMinHeight = 0;
 
-    private int dirtMaxHeight = 255;
     private int gravelMaxHeight = 255;
-    private int dioriteMaxHeight = 80;
     private int graniteMaxHeight = 80;
     private int andesiteMaxHeight = 80;
     private int coalMaxHeight = 126;
     private int ironMaxHeight = 64;
-    private int goldMaxHeight = 32;
-    private int redstoneMaxHeight = 16;
-    private int diamondMaxHeight = 16;
+    private int goldMaxHeight = 22;
 
     /**
      * Instantiates a new biome decorator cloud.
@@ -93,17 +74,12 @@ public class BiomeDecoratorDist extends BiomeDecorator
         
         // Must use predicate version if you wnat to replace custom blocks, otherwise will
         // only replace Blocks.STONE.
-        dirtGen = new WorldGenMinable(Blocks.DIRT.getDefaultState(), dirtSize, replaceablePredicate);
-        gravelOreGen = new WorldGenMinable(Blocks.GRAVEL.getDefaultState(), gravelSize, replaceablePredicate);
-        graniteGen = new WorldGenMinable(Blocks.STONE.getDefaultState().withProperty(BlockStone.VARIANT, BlockStone.EnumType.GRANITE), graniteSize, replaceablePredicate);
-        dioriteGen = new WorldGenMinable(Blocks.STONE.getDefaultState().withProperty(BlockStone.VARIANT, BlockStone.EnumType.DIORITE), dioriteSize, replaceablePredicate);
-        andesiteGen = new WorldGenMinable(Blocks.STONE.getDefaultState().withProperty(BlockStone.VARIANT, BlockStone.EnumType.ANDESITE), andesiteSize, replaceablePredicate);
+        gravelOreGen = new WorldGenMinable(BlockInit.TEMPORAL_STONE.getDefaultState(), gravelSize, replaceablePredicate);
+        graniteGen = new WorldGenMinable(BlockInit.TEMPORAL_STONE.getDefaultState(), graniteSize, replaceablePredicate);
+        andesiteGen = new WorldGenMinable(BlockInit.TEMPORAL_STONE.getDefaultState(), andesiteSize, replaceablePredicate);
         coalGen = new WorldGenMinable(Blocks.COAL_ORE.getDefaultState(), coalSize, replaceablePredicate);
-        ironGen = new WorldGenMinable(Blocks.IRON_ORE.getDefaultState(), ironSize, replaceablePredicate);
-        goldGen = new WorldGenMinable(Blocks.GOLD_ORE.getDefaultState(), goldSize, replaceablePredicate);
-        redstoneGen = new WorldGenMinable(Blocks.REDSTONE_ORE.getDefaultState(), redstoneSize, replaceablePredicate);
-        diamondGen = new WorldGenMinable(Blocks.DIAMOND_ORE.getDefaultState(), diamondSize, replaceablePredicate);
-        lapisGen = new WorldGenMinable(Blocks.LAPIS_ORE.getDefaultState(), lapisSize, replaceablePredicate);
+        ironGen = new WorldGenMinable(BlockInit.TEMPORAL_CRYSTAL.getDefaultState(), ironSize, replaceablePredicate);
+        goldGen = new WorldGenMinable(BlockInit.ULTRA_BLOCK.getDefaultState(), goldSize, replaceablePredicate);
     }
 
     /**
@@ -137,7 +113,8 @@ public class BiomeDecoratorDist extends BiomeDecorator
      * @param worldIn the world in
      * @param random the random
      */
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     protected void genDecorations(Biome biomeIn, World worldIn, Random random)
     {
         MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Pre(worldIn, random, chunkPos));
@@ -148,7 +125,6 @@ public class BiomeDecoratorDist extends BiomeDecorator
         generate(worldIn, random, chunkPos, DecorateBiomeEvent.Decorate.EventType.CLAY, clayGen, clayPerChunk);
         generate(worldIn, random, chunkPos, DecorateBiomeEvent.Decorate.EventType.SAND_PASS2, gravelGen, gravelPatchesPerChunk);
         generate(worldIn, random, chunkPos, DecorateBiomeEvent.Decorate.EventType.SAND_PASS2, gravelGen, gravelPatchesPerChunk);
-        generateTrees(worldIn, biomeIn, random, chunkPos);
         generateFlowers(worldIn, biomeIn, random, chunkPos);
         generateGrass(worldIn, biomeIn, random, chunkPos);
 
@@ -159,7 +135,8 @@ public class BiomeDecoratorDist extends BiomeDecorator
         MinecraftForge.EVENT_BUS.post(new DecorateBiomeEvent.Post(worldIn, random, chunkPos));
     }
     
-    private void generateTrees(World worldIn, Biome biomeIn, Random random, BlockPos chunkPos)
+    @SuppressWarnings({ "unused", "deprecation" })
+	private void generateTrees(World worldIn, Biome biomeIn, Random random, BlockPos chunkPos)
     {
         int treesToGen = treesPerChunk;
 
@@ -183,8 +160,8 @@ public class BiomeDecoratorDist extends BiomeDecorator
             }
         }
     }
-    
-    private void generateFlowers(World worldIn, Biome biomeIn, Random random, BlockPos chunkPos)
+    @SuppressWarnings("deprecation")
+	private void generateFlowers(World worldIn, Biome biomeIn, Random random, BlockPos chunkPos)
     {
         if(TerrainGen.decorate(worldIn, random, chunkPos, DecorateBiomeEvent.Decorate.EventType.FLOWERS))
         for (int numFlowersGenerated = 0; numFlowersGenerated < flowersPerChunk; ++numFlowersGenerated)
@@ -202,7 +179,8 @@ public class BiomeDecoratorDist extends BiomeDecorator
         }
     }
     
-    private void generateGrass(World worldIn, Biome biomeIn, Random random, BlockPos chunkPos)
+    @SuppressWarnings("deprecation")
+	private void generateGrass(World worldIn, Biome biomeIn, Random random, BlockPos chunkPos)
     {
         if(TerrainGen.decorate(worldIn, random, chunkPos, DecorateBiomeEvent.Decorate.EventType.GRASS))
         for (int numGrassPerChunk = 0; numGrassPerChunk < grassPerChunk; ++numGrassPerChunk)
@@ -219,7 +197,8 @@ public class BiomeDecoratorDist extends BiomeDecorator
         }
     }
     
-    private void generateFalls(World worldIn, Random random, BlockPos chunkPos)
+    @SuppressWarnings("deprecation")
+	private void generateFalls(World worldIn, Random random, BlockPos chunkPos)
     {
         if(TerrainGen.decorate(worldIn, random, chunkPos, DecorateBiomeEvent.Decorate.EventType.LAKE_WATER))
         for (int k5 = 0; k5 < 50; ++k5)
@@ -247,7 +226,8 @@ public class BiomeDecoratorDist extends BiomeDecorator
         }
     }
 
-    private void generate(World worldIn, Random random, BlockPos chunkPos, EventType eventType, WorldGenerator generator, int countPerChunk)
+    @SuppressWarnings("deprecation")
+	private void generate(World worldIn, Random random, BlockPos chunkPos, EventType eventType, WorldGenerator generator, int countPerChunk)
     {
         if(TerrainGen.decorate(worldIn, random, chunkPos, eventType))
         {
@@ -270,12 +250,8 @@ public class BiomeDecoratorDist extends BiomeDecorator
     protected void generateOres(World worldIn, Random random)
     {
         MinecraftForge.ORE_GEN_BUS.post(new OreGenEvent.Pre(worldIn, random, chunkPos));
-        if (TerrainGen.generateOre(worldIn, random, dirtGen, chunkPos, OreGenEvent.GenerateMinable.EventType.DIRT))
-        genStandardOre1(worldIn, random, dirtCount, dirtGen, oreGenMinHeight, dirtMaxHeight);
         if (TerrainGen.generateOre(worldIn, random, gravelOreGen, chunkPos, OreGenEvent.GenerateMinable.EventType.GRAVEL))
         genStandardOre1(worldIn, random, gravelCount, gravelOreGen, oreGenMinHeight, gravelMaxHeight);
-        if (TerrainGen.generateOre(worldIn, random, dioriteGen, chunkPos, OreGenEvent.GenerateMinable.EventType.DIORITE))
-        genStandardOre1(worldIn, random, dioriteCount, dioriteGen, oreGenMinHeight, dioriteMaxHeight);
         if (TerrainGen.generateOre(worldIn, random, graniteGen, chunkPos, OreGenEvent.GenerateMinable.EventType.GRANITE))
         genStandardOre1(worldIn, random, graniteCount, graniteGen, oreGenMinHeight, graniteMaxHeight);
         if (TerrainGen.generateOre(worldIn, random, andesiteGen, chunkPos, OreGenEvent.GenerateMinable.EventType.ANDESITE))
@@ -286,18 +262,12 @@ public class BiomeDecoratorDist extends BiomeDecorator
         genStandardOre1(worldIn, random, ironCount, ironGen, oreGenMinHeight, ironMaxHeight);
         if (TerrainGen.generateOre(worldIn, random, goldGen, chunkPos, OreGenEvent.GenerateMinable.EventType.GOLD))
         genStandardOre1(worldIn, random, goldCount, goldGen, oreGenMinHeight, goldMaxHeight);
-        if (TerrainGen.generateOre(worldIn, random, redstoneGen, chunkPos, OreGenEvent.GenerateMinable.EventType.REDSTONE))
-        genStandardOre1(worldIn, random, redstoneCount, redstoneGen, oreGenMinHeight, redstoneMaxHeight);
-        if (TerrainGen.generateOre(worldIn, random, diamondGen, chunkPos, OreGenEvent.GenerateMinable.EventType.DIAMOND))
-        genStandardOre1(worldIn, random, diamondCount, diamondGen, oreGenMinHeight, diamondMaxHeight);
-        if (TerrainGen.generateOre(worldIn, random, lapisGen, chunkPos, OreGenEvent.GenerateMinable.EventType.LAPIS))
-        genStandardOre2(worldIn, random, lapisCount, lapisGen, lapisCenterHeight, lapisSpread);
         MinecraftForge.ORE_GEN_BUS.post(new OreGenEvent.Post(worldIn, random, chunkPos));
     }
 
-    static class CloudPredicate implements Predicate<IBlockState>
+    static class TempPredicate implements Predicate<IBlockState>
     {
-        private CloudPredicate()
+        private TempPredicate()
         {
         }
 
@@ -307,7 +277,7 @@ public class BiomeDecoratorDist extends BiomeDecorator
         @Override
         public boolean apply(IBlockState parBlockState)
         {
-            if (parBlockState != null && parBlockState.getBlock() == BlockInit.DISTORCED_DIRT)
+            if (parBlockState != null && parBlockState.getBlock() == BlockInit.TEMPORAL_DIRT)
             {
                 return true;
             }

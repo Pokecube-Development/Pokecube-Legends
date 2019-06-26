@@ -10,7 +10,6 @@ import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.entity.monster.EntityGiantZombie;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -30,13 +29,12 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import pokecube.legends.init.BiomeInit;
 import pokecube.legends.init.BlockInit;
-import pokecube.legends.worldgen.worldgen.WorldGenOceanTree;
 
 public class ChunkGeneratorExp implements IChunkGenerator
 {
 	//Block that replaces End Stone
-	protected static final IBlockState MAIN_BLOCK = BlockInit.DISTORCED_DIRT.getDefaultState();
-	protected static final IBlockState BACK_BLOCK = BlockInit.DISTORCED_BLOCK.getDefaultState();
+	protected static final IBlockState MAIN_BLOCK = BlockInit.TEMPORAL_DIRT.getDefaultState();
+	protected static final IBlockState BACK_BLOCK = BlockInit.TEMPORAL_STONE.getDefaultState();
     protected static final IBlockState AIR = Blocks.AIR.getDefaultState();
     
     //List of all the mobs you want to spawn
@@ -47,7 +45,7 @@ public class ChunkGeneratorExp implements IChunkGenerator
     private final World world;
     private final boolean mapFeaturesEnabled;
     private final BlockPos spawnPoint;
-    private Biome[] biomesForGeneration;
+    //private Biome[] biomesForGeneration;
     private int chunkX = 0, chunkZ = 0;
     
     private NoiseGeneratorOctaves lperlinNoise1, lperlinNoise2, perlinNoise1, noiseGen5, noiseGen6;
@@ -81,7 +79,7 @@ public class ChunkGeneratorExp implements IChunkGenerator
         this.perlinNoise1 = ctx.getPerlin();
         this.noiseGen5 = ctx.getDepth();
         this.noiseGen6 = ctx.getScale();
-        this.islandNoise = ctx.getIsland();
+        //this.islandNoise = ctx.getIsland();
         
         //Set the map features to be something
         //e.g. this.endCityGen = (MapGenEndCity) TerrainGen.getModdedMapGen(this.endCityGen,InitMapGenEvent.EventType.END_CITY);
@@ -90,10 +88,10 @@ public class ChunkGeneratorExp implements IChunkGenerator
 
     public void setBlocksInChunk(int x, int z, ChunkPrimer primer)
     {
-        int i = 2;
-        int j = 3;
-        int k = 33;
-        int l = 3;
+        //int i = 2;
+        //int j = 3;
+        //int k = 33;
+        //int l = 3;
         this.buffer = this.getHeights(this.buffer, x * 2, 0, z * 2, 3, 33, 3);
 
         for (int i1 = 0; i1 < 2; ++i1)
@@ -102,7 +100,7 @@ public class ChunkGeneratorExp implements IChunkGenerator
             {
                 for (int k1 = 0; k1 < 32; ++k1)
                 {
-                    double d0 = 0.25D;
+                    //double d0 = 0.25D;
                     double d1 = this.buffer[((i1 + 0) * 3 + j1 + 0) * 33 + k1 + 0];
                     double d2 = this.buffer[((i1 + 0) * 3 + j1 + 1) * 33 + k1 + 0];
                     double d3 = this.buffer[((i1 + 1) * 3 + j1 + 0) * 33 + k1 + 0];
@@ -114,7 +112,7 @@ public class ChunkGeneratorExp implements IChunkGenerator
 
                     for (int l1 = 0; l1 < 4; ++l1)
                     {
-                        double d9 = 0.125D;
+                       // double d9 = 0.125D;
                         double d10 = d1;
                         double d11 = d2;
                         double d12 = (d3 - d1) * 0.125D;
@@ -122,7 +120,7 @@ public class ChunkGeneratorExp implements IChunkGenerator
 
                         for (int i2 = 0; i2 < 8; ++i2)
                         {
-                            double d14 = 0.125D;
+                           // double d14 = 0.125D;
                             double d15 = d10;
                             double d16 = (d11 - d10) * 0.125D;
 
@@ -163,7 +161,7 @@ public class ChunkGeneratorExp implements IChunkGenerator
         {
             for (int j = 0; j < 16; ++j)
             {
-                int k = 1;
+                //int k = 1;
                 int l = -1;
                 IBlockState iblockstate = MAIN_BLOCK;
                 IBlockState iblockstate1 = BACK_BLOCK;
@@ -252,7 +250,7 @@ public class ChunkGeneratorExp implements IChunkGenerator
                 long k = (long)(x + i);
                 long l = (long)(z + j);
 
-                if (k * k + l * l > 4096L && ChunkGeneratorExp.islandNoise.getValue((double)k, (double)l) < -0.8999999761581421D)
+                if (k * k + l * l > 1000L /*4096L*/ && ChunkGeneratorExp.islandNoise.getValue((double)k, (double)l) < -0.8999999761581421D)
                 {
                     float f3 = (MathHelper.abs((float)k) * 3439.0F + MathHelper.abs((float)l) * 147.0F) % 13.0F + 9.0F;
                     f = (float)(p_185960_3_ - i * 2);
@@ -282,7 +280,7 @@ public class ChunkGeneratorExp implements IChunkGenerator
 
     public boolean isIslandChunk(int x, int z)
     {
-        return (long)x * (long)x + (long)z * (long)z > 1096L && this.getIslandHeightValue(x, z, 1, 1) >= 0.0F;
+        return (long)x * (long)x + (long)z * (long)z > 1000L && ChunkGeneratorExp.getIslandHeightValue(x, z, 1, 1) >= 0.0F;
     }
 
     private double[] getHeights(double[] noiseField, int x, int y, int z, int xSize, int ySize, int zSize)
@@ -293,7 +291,7 @@ public class ChunkGeneratorExp implements IChunkGenerator
         if (noiseField == null) noiseField = new double[xSize * ySize * zSize];
 
         double d0 = 684.412D;
-        double d1 = 684.412D;
+        //double d1 = 684.412D;
         d0 = d0 * 2.0D;
         this.pnr = this.perlinNoise1.generateNoiseOctaves(this.pnr, x, y, z, xSize, ySize, zSize, d0 / 80.0D, 4.277575000000001D, d0 / 80.0D);
         this.ar = this.lperlinNoise1.generateNoiseOctaves(this.ar, x, y, z, xSize, ySize, zSize, d0, 684.412D, d0);
@@ -306,7 +304,7 @@ public class ChunkGeneratorExp implements IChunkGenerator
         {
             for (int i1 = 0; i1 < zSize; ++i1)
             {
-                float f = this.getIslandHeightValue(i, j, l, i1);
+                float f = ChunkGeneratorExp.getIslandHeightValue(i, j, l, i1);
 
                 for (int j1 = 0; j1 < ySize; ++j1)
                 {
@@ -374,9 +372,9 @@ public class ChunkGeneratorExp implements IChunkGenerator
 
         if (i > 4096L)
         {
-            float f = this.getIslandHeightValue(x, z, 1, 1);
+            //float f = ChunkGeneratorExp.getIslandHeightValue(x, z, 1, 1);
 
-            if (this.getIslandHeightValue(x, z, 1, 1) > 40.0F)
+            if (ChunkGeneratorExp.getIslandHeightValue(x, z, 1, 1) > 40.0F)
             {
                 int j = this.rand.nextInt(5);
 

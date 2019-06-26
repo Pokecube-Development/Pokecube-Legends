@@ -8,12 +8,21 @@ msg.reginotlookright.txt=§cThis does not look like it was built correctly.
 msg.notrust.txt=%s §cdoes not trust you enough to be captured.
 msg.angeredlegend.txt=§cYou have angered %s and need to re-gain its trust.
 
+//pokecubes
+item.beastcube.name=Beastcube
+
 //Orbs
 item.blueorb.name=Blue Orb
 item.greenorb.name=Green Orb
 item.grayorb.name=Gray Orb
 item.redorb.name=Red Orb
-item.legendaryorb.name=Legendary Orb
+item.legendaryorb.name=RainBow Orb
+item.griseousorb.name=Griseous Orb
+item.lustrousorb.name=Lustrous Orb
+item.adamantorb.name=Adamant Orb
+item.oceanorb.name=Ocean Orb
+item.darkstone.name=Dark Stone
+item.lightstone.name=Light Stone
 
 //Ores Gen
 item.ruby.name=Ruby
@@ -24,22 +33,40 @@ item.silver_wing.name=Silver Wing
 item.rainbow_wing.name=Rainbow Wing
 item.rainbow_sword.name=Rainbow Sword
 item.crystal_shard.name=Crystal Shard
+item.zygardecube.name=Zygarde Cube
+item.prisonbottle.name=Prison Bottle
+item.dna_splicera.name=DNA Splicer A
+item.dna_splicerb.name=DNA Splicer B
+item.gracidea.name=Gracidea
+item.revealglass.name=Reveal Glass
 
 //Portal
-tile.distorced_portal.name=Distorted Portal
+tile.temporal_portal.name=Temporal Portal
 
 //Blocks
 tile.ruby_block.name=Ruby Block
 tile.sapphire_block.name=Sapphire Block
 tile.ruby_ore.name=Ruby Ore
 tile.sapphire_ore.name=Sapphire Ore
-tile.distorced_block.name=Distorted Stone
-tile.distorced_cobblestone.name=Distorted Cobblestone
-tile.distorced_crystal.name=Distorted Crystal
-tile.distorced_dirt.name=Distorted Dirt
-tile.temporalblock.name=Temporal Brick
+tile.temporal_stone.name=Temporal Stone
+tile.temporal_cobblestone.name=Temporal Cobblestone
+tile.temporal_crystal.name=Temporal Crystal
+tile.temporal_dirt.name=Temporal Dirt
+tile.crystalbrick.name=Crystla Brick
 tile.legendaryspawn.name=Spawn Lengendary
 tile.ultra_block.name=UltraSpace Stone
-tile.oceanblock.name=Ocean Brick
-tile.spatianblock.name=Spatial Brick
-tile.skyblock.name=Sky Brick
+tile.oceanbrick.name=Ocean Brick
+tile.spatianbrick.name=Spatial Brick
+tile.skybrick.name=Sky Brick
+tile.magmabrick.name=Magma Brick
+tile.darkskybrick.name= Dark Sky Brick
+tile.temporalbrick.name=Temporal Brick
+tile.timerspawn.name=Timer Space Core
+
+tile.regice_spawn.name=Regice Core
+tile.registeel_spawn.name=Registeel Core
+tile.regirock_spawn.name=Regirock Core
+tile.regigiga_spawn.name=Regigiga Core
+
+tile.planks_desconstruted.name=Desconstruted Planks
+tile.leaves_desconstruted.name=Desconstruted Leaves

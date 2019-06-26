@@ -12,11 +12,11 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import pokecube.legends.init.BlockInit;
-import pokecube.legends.worldgen.biome.BiomeDistorted;
+import pokecube.legends.worldgen.biome.BiomeTemporal;
 
 public class WorldGenCustomTrees implements IWorldGenerator
 {
-	private final WorldGenerator OCEAN = new WorldGenOceanTree();
+	private final WorldGenerator DIST = new WorldGenDesconstrutedTree();
 	
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) 
@@ -30,7 +30,7 @@ public class WorldGenCustomTrees implements IWorldGenerator
 		case -1:
 			break;
 		case 2:
-			runGenerator(OCEAN, world, random, chunkX, chunkZ, 15, BlockInit.DISTORCED_DIRT, BiomeDistorted.class);
+			runGenerator(DIST, world, random, chunkX, chunkZ, 5, BlockInit.TEMPORAL_DIRT, BiomeTemporal.class);
 		}
 	}
 	

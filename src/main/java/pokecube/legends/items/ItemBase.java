@@ -8,11 +8,11 @@ import pokecube.legends.init.ItemInit;
 
 public class ItemBase extends Item implements IHasModel{
 	
-	public ItemBase(String name) {
+	public ItemBase(String name, int num) {
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		setCreativeTab(PokecubeMod.creativeTabPokecube);
-		
+		setMaxStackSize(num);;
 		ItemInit.ITEMS.add(this);
 	}
 	

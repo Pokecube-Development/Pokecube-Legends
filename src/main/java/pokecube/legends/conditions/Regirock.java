@@ -33,7 +33,7 @@ public class Regirock extends Condition
     @Override
     public void onSpawn(IPokemob mob)
     {
-        mob = mob.setForSpawn(54);
+        mob = mob.setForSpawn(54500);
         Vector3 location = Vector3.getNewVector().set(mob.getEntity()).add(0, -1, 0);
         ArrayList<Vector3> locations = new ArrayList<Vector3>();
         World world = mob.getEntity().getEntityWorld();
