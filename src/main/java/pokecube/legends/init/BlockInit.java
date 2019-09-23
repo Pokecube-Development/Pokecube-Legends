@@ -18,7 +18,7 @@ import pokecube.legends.blocks.RegirockCoreBlock;
 import pokecube.legends.blocks.RegisteelCoreBlock;
 import pokecube.legends.blocks.RubyOre;
 import pokecube.legends.blocks.SapphireOre;
-import pokecube.legends.blocks.TeleportBlockCrystal;
+//import pokecube.legends.blocks.TeleportBlockCrystal;
 import pokecube.legends.blocks.TemporalCrystal;
 
 public class BlockInit 
@@ -46,7 +46,7 @@ public class BlockInit
 	public static final Block LEAVES_DESCONSTRUTED = new LeavesDesc("leaves_desconstruted", Material.LEAVES);
 	
 	//Portal
-	public static final Block TELEPORT_BLOCK_CRYSTAL = new TeleportBlockCrystal("temporal_portal", Material.GLASS);
+	//public static final Block TELEPORT_BLOCK_CRYSTAL = new TeleportBlockCrystal("temporal_portal", Material.GLASS);
 	
 	//Legendary Spawns
 	public static final Block LEGENDARY_SPAWN = new LegendaryBlock("legendaryspawn", Material.IRON);

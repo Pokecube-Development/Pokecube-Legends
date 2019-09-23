@@ -18,13 +18,10 @@ import pokecube.core.interfaces.IPokemob;
 import pokecube.core.interfaces.IPokecube.DefaultPokecubeBehavior;
 import pokecube.legends.conditions.LegendaryConditions;
 import pokecube.legends.handlers.RegistryHandler;
-import pokecube.legends.init.BiomeInit;
-import pokecube.legends.init.DimensionInit;
 import pokecube.legends.init.PokecubeBeast;
 import pokecube.legends.init.RecipeInit;
 import pokecube.legends.proxy.CommonProxy;
 import pokecube.legends.worldgen.gen.ModWorldGen;
-import pokecube.legends.worldgen.worldgen.WorldGenDesconstrutedTree;
 
 @Mod(modid = Reference.ID, name = Reference.NAME, version = Reference.VERSION, dependencies = Reference.DEPSTRING, acceptableRemoteVersions = "*")
 public class PokecubeLegends
@@ -48,12 +45,6 @@ public class PokecubeLegends
     	//Ore Registry
     	GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
     	OBJLoader.INSTANCE.addDomain(Reference.ID);
-    	//Dimension Registry
-    	DimensionInit.registerDimensions();
-    	//Biome Registry
-    	BiomeInit.registerBiomes();
-    	//Tree Registry
-    	WorldGenDesconstrutedTree.register();
         Configuration config = PokecubeCore.instance.getPokecubeConfig(event);
         config.load();
         enabled = config.getBoolean("legends_enabled", Configuration.CATEGORY_GENERAL, true,

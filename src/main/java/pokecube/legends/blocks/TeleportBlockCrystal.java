@@ -1,4 +1,4 @@
-package pokecube.legends.blocks;
+/*package pokecube.legends.blocks;
 
 import java.util.Random;
 
@@ -96,4 +96,4 @@ public class TeleportBlockCrystal extends BlockBase
             world.playSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.AMBIENT_CAVE, SoundCategory.BLOCKS, 0.5F, rand.nextFloat() * 0.4F + 0.8F, false);
         }
     }
-}
+}*/
