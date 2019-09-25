@@ -44,6 +44,8 @@ public class PokecubeLegends
     {
     	//Ore Registry
     	GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
+    	
+    	MinecraftForge.EVENT_BUS.register(this);
     	OBJLoader.INSTANCE.addDomain(Reference.ID);
         Configuration config = PokecubeCore.instance.getPokecubeConfig(event);
         config.load();

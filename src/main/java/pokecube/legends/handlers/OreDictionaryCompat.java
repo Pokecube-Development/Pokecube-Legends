@@ -15,6 +15,5 @@ public class OreDictionaryCompat
         OreDictionary.registerOre("oreSapphire", BlockInit.SAPPHIRE_ORE);
         OreDictionary.registerOre("gemRuby", ItemInit.RUBY);
         OreDictionary.registerOre("gemSapphire", ItemInit.SAPPHIRE);
-        OreDictionary.registerOre("plankWood", BlockInit.PLANKS_DESCONSTRUTED);
     }
 }

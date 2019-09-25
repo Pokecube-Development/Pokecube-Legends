@@ -6,12 +6,11 @@ import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import pokecube.legends.blocks.BlockBase;
-import pokecube.legends.blocks.LeavesDesc;
 import pokecube.legends.blocks.TemporalDirt;
 import pokecube.legends.blocks.TemporalStone;
 import pokecube.legends.blocks.TimerSpaceCoreBlock;
 import pokecube.legends.blocks.LegendaryBlock;
-import pokecube.legends.blocks.PlanksDesc;
+import pokecube.legends.blocks.PortalWarp;
 import pokecube.legends.blocks.RegiceCoreBlock;
 import pokecube.legends.blocks.RegigigaCoreBlock;
 import pokecube.legends.blocks.RegirockCoreBlock;
@@ -42,11 +41,10 @@ public class BlockInit
 	public static final Block MAGMA_BRICK = new BlockBase("magmabrick", Material.ROCK);
 	public static final Block CRYSTAL_BRICK = new BlockBase("crystalbrick", Material.PACKED_ICE);
 	public static final Block DARKSKY_BRICK = new BlockBase("darkskybrick", Material.ROCK);
-	public static final Block PLANKS_DESCONSTRUTED = new PlanksDesc("planks_desconstruted", Material.WOOD);
-	public static final Block LEAVES_DESCONSTRUTED = new LeavesDesc("leaves_desconstruted", Material.LEAVES);
-	
+
 	//Portal
 	//public static final Block TELEPORT_BLOCK_CRYSTAL = new TeleportBlockCrystal("temporal_portal", Material.GLASS);
+	public static final Block BLOCK_PORTALWARP = new PortalWarp("portal", Material.ANVIL);
 	
 	//Legendary Spawns
 	public static final Block LEGENDARY_SPAWN = new LegendaryBlock("legendaryspawn", Material.IRON);
