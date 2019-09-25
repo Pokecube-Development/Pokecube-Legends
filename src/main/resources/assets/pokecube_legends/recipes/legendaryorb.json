@@ -1,0 +1,44 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "GRG",
+        "TAH",
+        "GWG"
+    ],
+    
+    "key":
+    {
+        "G":
+        {
+            "item": "minecraft:ender_eye"
+        },
+		"A":
+        {
+            "item": "pokecube_legends:temporal_crystal"
+        },
+		"R":
+        {
+            "item": "pokecube_legends:greenorb"
+        },
+		"T":
+        {
+            "item": "pokecube_legends:blueorb"
+        },
+		"H":
+        {
+            "item": "pokecube_legends:redorb"
+        },
+		"W":
+		{
+			"item": "pokecube_legends:grayorb"
+		}
+    },
+    
+    "result":
+    {
+        "item": "pokecube_legends:legendaryorb",
+        "count": 1
+    }
+}
