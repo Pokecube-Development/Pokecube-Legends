@@ -11,6 +11,6 @@ public class UltraStone extends BlockBase
 		setSoundType(SoundType.STONE);
 		setHardness(5.0F);
 		setResistance(15.0F);
-		setHarvestLevel("pickace", 3);
+		setHarvestLevel("pickaxe", 3);
 	}
 }

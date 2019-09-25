@@ -2,6 +2,9 @@ package pokecube.legends;
 
 public interface IHasModel 
 {
-   public void registerModels();	
+   default void registerModels()
+   {
+       //Does nothing for server reasons
+   }
 	
 }

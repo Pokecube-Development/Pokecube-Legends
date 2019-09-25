@@ -7,11 +7,14 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import pokecube.legends.IHasModel;
+import pokecube.legends.Reference;
 import pokecube.legends.init.BlockInit;
 import pokecube.legends.init.ItemInit;
 
-@EventBusSubscriber
+@EventBusSubscriber(modid=Reference.ID)
 public class RegistryHandler 
 {
 	@SubscribeEvent
@@ -25,6 +28,7 @@ public class RegistryHandler
 	}
 	
 	@SubscribeEvent
+	@SideOnly(Side.CLIENT)
 	public static void onModelRegister(ModelRegistryEvent event) {
 		for(Item item: ItemInit.ITEMS) 
 		{

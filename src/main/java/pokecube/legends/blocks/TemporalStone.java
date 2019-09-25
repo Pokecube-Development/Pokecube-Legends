@@ -16,7 +16,7 @@ public class TemporalStone extends BlockBase
 		setSoundType(SoundType.STONE);
 		setHardness(5.0F);
 		setResistance(15.0F);
-		setHarvestLevel("pickace", 2);
+		setHarvestLevel("pickaxe", 2);
 	}
 
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {

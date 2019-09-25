@@ -4,6 +4,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import pokecube.core.interfaces.PokecubeMod;
 import pokecube.legends.IHasModel;
 import pokecube.legends.PokecubeLegends;
@@ -25,6 +27,7 @@ public class BlockBase extends Block implements IHasModel
 	}
 
 	@Override
+    @SideOnly(Side.CLIENT)
 	public void registerModels() 
 	{
 		PokecubeLegends.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");

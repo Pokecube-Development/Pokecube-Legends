@@ -16,7 +16,7 @@ public class TemporalCrystal extends BlockBase
 		setSoundType(SoundType.GLASS);
 		setHardness(5.0F);
 		setResistance(15.0F);
-		setHarvestLevel("pickace", 3);
+		setHarvestLevel("pickaxe", 3);
 	}
 	
 	@Override

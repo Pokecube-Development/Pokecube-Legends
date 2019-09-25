@@ -1,6 +1,8 @@
 package pokecube.legends.items;
 
 import net.minecraft.item.Item;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import pokecube.core.interfaces.PokecubeMod;
 import pokecube.legends.IHasModel;
 import pokecube.legends.PokecubeLegends;
@@ -17,6 +19,7 @@ public class ItemBase extends Item implements IHasModel{
 	}
 	
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void registerModels() {
 		PokecubeLegends.proxy.registerItemRenderer(this, 0, "inventory");		
 	}

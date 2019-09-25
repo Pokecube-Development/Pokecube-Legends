@@ -1,6 +1,5 @@
 package pokecube.legends;
 
-import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
@@ -42,16 +41,16 @@ public class PokecubeLegends
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-    	//Ore Registry
-    	GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
     	
     	MinecraftForge.EVENT_BUS.register(this);
-    	OBJLoader.INSTANCE.addDomain(Reference.ID);
+    	proxy.preinit(event);
         Configuration config = PokecubeCore.instance.getPokecubeConfig(event);
         config.load();
         enabled = config.getBoolean("legends_enabled", Configuration.CATEGORY_GENERAL, true,
                 "whether legends is enabled.");
         config.save();
+        //Ore Registry
+        if (enabled)  GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
     }
     
     @EventHandler
