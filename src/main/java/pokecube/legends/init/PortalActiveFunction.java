@@ -52,14 +52,12 @@ public class PortalActiveFunction {
 			PokedexEntry entityToSpawn = Database.getSortedFormes().get(i);
 			BlockPos pos = null;
 			EntityLiving entity = (EntityLiving) PokecubeMod.core.createPokemob(entityToSpawn, world);
-			IPokemob pokemob = CapabilityPokemob.getPokemobFor(entity);
 			Vector3 location = Vector3.getNewVector().set(pos);
-			if (entityToSpawn != null) {
-				//.setLocationAndAngles(x, y, z, world.rand.nextFloat() * 360F, 0.0F);
+			if (entity != null) {
+	            IPokemob pokemob = CapabilityPokemob.getPokemobFor(entity);
 				entity.setHealth(entity.getMaxHealth());
                 location.add(0, 1, 0).moveEntity(entity);
 				entity.setPosition(x, y, z);
-				//world.spawnEntity(PokecubeMod.core.createPokemob(entityToSpawn, world));
 				world.spawnEntity(entity);
 			}
 		}

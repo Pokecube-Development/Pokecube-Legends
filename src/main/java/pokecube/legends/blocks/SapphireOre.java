@@ -16,7 +16,7 @@ public class SapphireOre extends BlockBase
 		setSoundType(SoundType.METAL);
 		setHardness(5.0F);
 		setResistance(15.0F);
-		setHarvestLevel("pickace", 2);
+		setHarvestLevel("pickaxe", 2);
 	}
 	
 	@Override
