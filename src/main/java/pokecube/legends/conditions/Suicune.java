@@ -26,14 +26,6 @@ public class Suicune extends Condition
     }
 
     @Override
-    public boolean canSpawn(Entity trainer)
-    {
-        if (CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(), getEntry()) > 0) return false;
-        if (KillStats.getTotalNumberOfPokemobKilledBy(trainer.getUniqueID(), getEntry()) > 0) return false;
-        return true;
-    }
-
-    @Override
     public PokedexEntry getEntry()
     {
         return Database.getEntry("suicune");
