@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
@@ -13,6 +15,7 @@ import pokecube.core.database.stats.CaptureStats;
 import pokecube.core.database.stats.ISpecialCaptureCondition;
 import pokecube.core.database.stats.ISpecialSpawnCondition;
 import pokecube.core.events.handlers.SpawnHandler;
+import pokecube.core.handlers.PokecubePlayerDataHandler;
 import pokecube.core.interfaces.IPokemob;
 import pokecube.core.utils.Tools;
 import thut.api.maths.Vector3;
@@ -65,6 +68,9 @@ public abstract class Condition implements ISpecialCaptureCondition, ISpecialSpa
     {
         if (trainer == null) return false;
         if (CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(), getEntry()) > 0) return false;
+        if (trainer instanceof EntityPlayerMP && PokecubePlayerDataHandler.getCustomDataTag((EntityPlayer) trainer)
+                .getBoolean("capt:" + getEntry().getTrimmedName()))
+            return false;
         return true;
     }
 
@@ -78,6 +84,9 @@ public abstract class Condition implements ISpecialCaptureCondition, ISpecialSpa
     {
         if (trainer == null) return false;
         if (CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(), getEntry()) > 0) return false;
+        if (trainer instanceof EntityPlayerMP && PokecubePlayerDataHandler.getCustomDataTag((EntityPlayer) trainer)
+                .getBoolean("spwn:" + getEntry().getTrimmedName()))
+            return false;
         return true;
     }
 
