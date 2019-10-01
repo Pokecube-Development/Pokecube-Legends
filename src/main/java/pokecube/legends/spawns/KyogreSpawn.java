@@ -15,6 +15,7 @@ import pokecube.core.database.PokedexEntry.SpawnData;
 import pokecube.core.database.SpawnBiomeMatcher;
 import pokecube.core.database.stats.ISpecialCaptureCondition;
 import pokecube.core.database.stats.ISpecialSpawnCondition;
+import pokecube.core.handlers.PokecubePlayerDataHandler;
 import pokecube.core.interfaces.IPokemob;
 import pokecube.core.interfaces.PokecubeMod;
 import pokecube.core.interfaces.capabilities.CapabilityPokemob;
@@ -25,7 +26,7 @@ import thut.api.maths.Vector3;
 import thut.lib.CompatWrapper;
 
 public class KyogreSpawn
- {
+{
     /** Uses player interact here to also prevent opening of inventories.
      * 
      * @param evt */
@@ -33,7 +34,7 @@ public class KyogreSpawn
     public void interactRightClickBlock(PlayerInteractEvent.RightClickBlock evt)
     {
         boolean invalid = !evt.getEntityPlayer().isSneaking() || !CompatWrapper.isValid(evt.getItemStack())
-                || !(evt.getItemStack().getItem() instanceof BlueOrb /*ItemPokedex*/) || evt.getWorld().isRemote;
+                || !(evt.getItemStack().getItem() instanceof BlueOrb /* ItemPokedex */) || evt.getWorld().isRemote;
         if (invalid) return;
         Block block = null;
         EntityPlayer playerIn = evt.getEntityPlayer();
@@ -58,21 +59,23 @@ public class KyogreSpawn
                 {
                     EntityLiving entity = (EntityLiving) PokecubeMod.core.createPokemob(entry, worldIn);
                     IPokemob pokemob = CapabilityPokemob.getPokemobFor(entity);
-                   if (captureCondition != null && !captureCondition.canCapture(playerIn, pokemob))
-                   {
-                       evt.setCanceled(true);
+                    if (captureCondition != null && !captureCondition.canCapture(playerIn, pokemob))
+                    {
+                        evt.setCanceled(true);
                         return;
                     }
+                    PokecubePlayerDataHandler.getCustomDataTag(playerIn).setBoolean("spwn:" + entry.getTrimmedName(),
+                            true);
                     entity.setHealth(entity.getMaxHealth());
-                   location.add(0, 1, 0).moveEntity(entity);
-                   spawnCondition.onSpawn(pokemob);
-                   playerIn.getHeldItemMainhand().setCount(0);
-                   if (pokemob.getExp() < 100)
-                   {
+                    location.add(0, 1, 0).moveEntity(entity);
+                    spawnCondition.onSpawn(pokemob);
+                    playerIn.getHeldItemMainhand().setCount(0);
+                    if (pokemob.getExp() < 100)
+                    {
                         entity = pokemob.setForSpawn(Tools.levelToXp(entry.getEvolutionMode(), 50)).getEntity();
-                  }
+                    }
                     worldIn.spawnEntity(entity);
-               }
+                }
             }
             evt.setCanceled(true);
         }
