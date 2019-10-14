@@ -4,7 +4,6 @@ import net.minecraft.entity.Entity;
 import pokecube.core.database.Database;
 import pokecube.core.database.PokedexEntry;
 import pokecube.core.database.stats.CaptureStats;
-import pokecube.core.database.stats.KillStats;
 import pokecube.core.database.stats.SpecialCaseRegister;
 import pokecube.core.interfaces.IPokemob;
 import pokecube.core.utils.PokeType;
@@ -24,7 +23,7 @@ public class Victini extends Condition
         }
         return false;
     }
-
+    
     @Override
     public PokedexEntry getEntry()
     {

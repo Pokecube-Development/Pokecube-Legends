@@ -11,17 +11,28 @@ import pokecube.core.database.stats.ISpecialCaptureCondition;
 import pokecube.core.database.stats.ISpecialSpawnCondition;
 import pokecube.core.database.stats.SpecialCaseRegister;
 import pokecube.core.interfaces.PokecubeMod;
+import pokecube.legends.spawns.ArceusSpawn;
 import pokecube.legends.spawns.CelebiSpawn;
 import pokecube.legends.spawns.DialgaSpawn;
 import pokecube.legends.spawns.GroudonSpawn;
+import pokecube.legends.spawns.HeatranSpawn;
 import pokecube.legends.spawns.HoohSpawn;
+import pokecube.legends.spawns.KeldeoSpawn;
 import pokecube.legends.spawns.KyogreSpawn;
+import pokecube.legends.spawns.LandorusSpawn;
 import pokecube.legends.spawns.LugiaSpawn;
 import pokecube.legends.spawns.PalkiaSpawn;
 import pokecube.legends.spawns.RegiceSpawn;
 import pokecube.legends.spawns.RegigigasSpawn;
 import pokecube.legends.spawns.RegirockSpawn;
 import pokecube.legends.spawns.RegisteelSpawn;
+import pokecube.legends.spawns.ReshiramSpawn;
+import pokecube.legends.spawns.ThundurusSpawn;
+import pokecube.legends.spawns.TornadusSpawn;
+import pokecube.legends.spawns.VictiniSpawn;
+import pokecube.legends.spawns.XerneasSpawn;
+import pokecube.legends.spawns.YveltalSpawn;
+import pokecube.legends.spawns.ZekromSpawn;
 import thut.lib.CompatParser.ClassFinder;
 
 public class LegendaryConditions
@@ -43,6 +54,17 @@ public class LegendaryConditions
         MinecraftForge.EVENT_BUS.register(new PalkiaSpawn());
         MinecraftForge.EVENT_BUS.register(new GroudonSpawn());
         MinecraftForge.EVENT_BUS.register(new KyogreSpawn());
+        MinecraftForge.EVENT_BUS.register(new ArceusSpawn());
+        MinecraftForge.EVENT_BUS.register(new HeatranSpawn());
+        MinecraftForge.EVENT_BUS.register(new KeldeoSpawn());
+        MinecraftForge.EVENT_BUS.register(new LandorusSpawn());
+        MinecraftForge.EVENT_BUS.register(new ReshiramSpawn());
+        MinecraftForge.EVENT_BUS.register(new ThundurusSpawn());
+        MinecraftForge.EVENT_BUS.register(new TornadusSpawn());
+        MinecraftForge.EVENT_BUS.register(new VictiniSpawn());
+        MinecraftForge.EVENT_BUS.register(new XerneasSpawn());
+        MinecraftForge.EVENT_BUS.register(new YveltalSpawn());
+        MinecraftForge.EVENT_BUS.register(new ZekromSpawn());
         //
         
         List<Class<?>> foundClasses;

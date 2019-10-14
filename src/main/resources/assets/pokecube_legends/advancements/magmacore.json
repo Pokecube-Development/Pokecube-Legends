@@ -1,0 +1,42 @@
+{
+  "display": {
+    "icon": {
+      "item": "pokecube_legends:magmacore"
+    },
+    "title": {
+	    "text": "Core to Core",
+	    "color": "black",
+	    "bold": false,
+	    "italic": false,
+	    "underlined": false,
+	    "strikethrough": false,
+	    "obfuscated": false
+    },
+    "description": {
+        "text": "Go deep into the Nether."
+    },
+	"frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "c1": {
+        "trigger": "minecraft:location",
+        "conditions": {
+            "biome": "minecraft:nether",
+            "dimension": "the_nether",
+            "position": {
+                "y": {
+                    "min": -10,
+                    "max": -10
+                }
+            }
+        }
+    }
+  },
+  "rewards": {
+        "loot": [ "pokecube_legends:entities/magmacore" ]
+  },
+  "parent": "pokecube_legends:root"
+}

@@ -19,7 +19,6 @@ import pokecube.legends.conditions.LegendaryConditions;
 import pokecube.legends.handlers.PortalSpawnHandler;
 import pokecube.legends.handlers.RegistryHandler;
 import pokecube.legends.init.PokecubeBeast;
-import pokecube.legends.init.RecipeInit;
 import pokecube.legends.proxy.CommonProxy;
 import pokecube.legends.worldgen.gen.ModWorldGen;
 
@@ -62,8 +61,6 @@ public class PokecubeLegends
     public void initRegistries(FMLInitializationEvent e)
     {
         RegistryHandler.initRegistries(e);
-        // Furnace Recipe
-        RecipeInit.init();
     }
 
     @SubscribeEvent
