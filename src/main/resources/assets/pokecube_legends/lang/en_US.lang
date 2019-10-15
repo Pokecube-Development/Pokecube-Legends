@@ -3,18 +3,7 @@
 //pokecubes
 item.beastcube.name=Beast Cube
 
-//Item
-item.rockcore.name=Rock Core
-item.icecore.name=Ice Core
-item.steelcore.name=Steel Core
-item.grayorb.name=Gray Orb
-item.redorb.name=Red Orb
-item.greenorb.name=Green Orb
-item.blueorb.name=Blue Orb
-item.legendaryorb.name=Legendary Orb
-item.lustrousorb.name=Lustrous Orb
-item.adamantorb.name=Adamant Orb
-item.oceanorb.name=Ocean Orb
+//Items
 item.lightstone.name=Light Stone
 item.darkstone.name=Dark Stone
 item.sapphire.name=Sapphire
@@ -23,7 +12,6 @@ item.silver_wing.name=Silver Wing
 item.rainbow_wing.name=Rainbow Wing
 item.crystal_shard.name=Crystal Shard
 item.mystante.name=Mysterious Antennae
-item.griseousorb.name=Griseous Orb
 item.zygardecube.name=Zygarde Cube
 item.prisonbottle.name=Prison Bottle
 item.revealglass.name=Reveal Glass
@@ -32,9 +20,31 @@ item.dna_splicerb.name=DNA Splicer-B
 item.gracidea.name=Gracidea
 item.n_sun.name=N-Solarizer
 item.n_moon.name=N-Lunarizer
-item.magmacore.name=Magma Core
 item.meteorite.name=Meteorite
 item.azureflute.name=Azure Flute
+item.blue_rune.name=Blue Rune
+item.orange_rune.name=Orange Rune
+item.green_rune.name=Green Rune
+
+//Orbs
+item.grayorb.name=Gray Orb
+item.redorb.name=Red Orb
+item.greenorb.name=Green Orb
+item.blueorb.name=Blue Orb
+item.legendaryorb.name=Legendary Orb
+item.lustrousorb.name=Lustrous Orb
+item.adamantorb.name=Adamant Orb
+item.oceanorb.name=Ocean Orb
+item.griseousorb.name=Griseous Orb
+item.destructorb.name=Destruction Orb
+item.lifeorb.name=Life Orb
+item.regisorb.name=Regigigas Orb
+
+//Core
+item.rockcore.name=Rock Core
+item.icecore.name=Ice Core
+item.steelcore.name=Steel Core
+item.magmacore.name=Magma Core
 
 //Tools
 item.rainbow_sword.name=Rainbow Sword

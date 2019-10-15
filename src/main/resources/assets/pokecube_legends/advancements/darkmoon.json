@@ -27,7 +27,7 @@
         "lenient": true,
         "entry": "lunala"
       }
-    }
+    },
 	"catch_necrozma": {
       "trigger": "pokecube:catch",
       "conditions": {

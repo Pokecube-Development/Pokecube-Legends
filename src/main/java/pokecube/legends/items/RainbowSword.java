@@ -16,6 +16,6 @@ public class RainbowSword extends ToolSword {
 	@Override
 	public void addInformation(ItemStack itemstack, World world, List<String> list, ITooltipFlag flag) {
 		super.addInformation(itemstack, world, list, flag);
-		list.add("Use this item on 'Legendary Spawn' to Spawn Keldeo");
+		list.add("Use this item for Spawn Keldeo");
 	}
 }

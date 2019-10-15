@@ -21,7 +21,7 @@ import pokecube.core.interfaces.PokecubeMod;
 import pokecube.core.interfaces.capabilities.CapabilityPokemob;
 import pokecube.core.utils.Tools;
 import pokecube.legends.init.BlockInit;
-import pokecube.legends.items.RedOrb;
+import pokecube.legends.items.OrangeRune;
 import thut.api.maths.Vector3;
 import thut.lib.CompatWrapper;
 
@@ -34,7 +34,7 @@ public class LandorusSpawn
     public void interactRightClickBlock(PlayerInteractEvent.RightClickBlock evt)
     {
         boolean invalid = !evt.getEntityPlayer().isSneaking() || !CompatWrapper.isValid(evt.getItemStack())
-        		||!(evt.getItemStack().getItem() instanceof RedOrb /*ItemPokedex*/) ||evt.getWorld().isRemote;
+        		|| !(evt.getItemStack().getItem() instanceof OrangeRune /*ItemPokedex*/) || evt.getWorld().isRemote;
         if (invalid) return;
         Block block = null;
         EntityPlayer playerIn = evt.getEntityPlayer();
@@ -42,7 +42,7 @@ public class LandorusSpawn
         BlockPos pos = evt.getPos();
         IBlockState state = evt.getWorld().getBlockState(evt.getPos());
         block = state.getBlock();
-        PokedexEntry entry = Database.getEntry("landorusircarnate");
+        PokedexEntry entry = Database.getEntry("landorusincarnate");
         if (block == BlockInit.NATURE_CORE && entry != null)
         {
             SpawnData data = entry.getSpawnData();

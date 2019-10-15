@@ -21,7 +21,7 @@ import pokecube.core.interfaces.PokecubeMod;
 import pokecube.core.interfaces.capabilities.CapabilityPokemob;
 import pokecube.core.utils.Tools;
 import pokecube.legends.init.BlockInit;
-import pokecube.legends.items.BlueOrb;
+import pokecube.legends.items.DestructOrb;
 import thut.api.maths.Vector3;
 import thut.lib.CompatWrapper;
 
@@ -34,7 +34,7 @@ public class YveltalSpawn
     public void interactRightClickBlock(PlayerInteractEvent.RightClickBlock evt)
     {
         boolean invalid = !evt.getEntityPlayer().isSneaking() || !CompatWrapper.isValid(evt.getItemStack())
-        		||!(evt.getItemStack().getItem() instanceof BlueOrb /*ItemPokedex*/) ||evt.getWorld().isRemote;
+        		|| !(evt.getItemStack().getItem() instanceof DestructOrb /*ItemPokedex*/) || evt.getWorld().isRemote;
         if (invalid) return;
         Block block = null;
         EntityPlayer playerIn = evt.getEntityPlayer();

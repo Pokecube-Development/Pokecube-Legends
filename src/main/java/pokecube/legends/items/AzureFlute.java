@@ -16,6 +16,6 @@ public class AzureFlute extends ItemBase {
 	@Override
 	public void addInformation(ItemStack itemstack, World world, List<String> list, ITooltipFlag flag) {
 		super.addInformation(itemstack, world, list, flag);
-		list.add("Use this item on 'Time and Space Spawn' to Spawn Arceus");
+		list.add("Use this item for Spawn Arceus");
 	}
 }

@@ -21,7 +21,7 @@ import pokecube.core.interfaces.PokecubeMod;
 import pokecube.core.interfaces.capabilities.CapabilityPokemob;
 import pokecube.core.utils.Tools;
 import pokecube.legends.init.BlockInit;
-import pokecube.legends.items.GrayOrb;
+import pokecube.legends.items.RegisOrb;
 import thut.api.maths.Vector3;
 import thut.lib.CompatWrapper;
 
@@ -34,7 +34,7 @@ public class RegigigasSpawn
     public void interactRightClickBlock(PlayerInteractEvent.RightClickBlock evt)
     {
         boolean invalid = !evt.getEntityPlayer().isSneaking() || !CompatWrapper.isValid(evt.getItemStack())
-        		|| !(evt.getItemStack().getItem() instanceof GrayOrb /*ItemPokedex*/) ||evt.getWorld().isRemote;
+        		|| !(evt.getItemStack().getItem() instanceof RegisOrb /*ItemPokedex*/) ||evt.getWorld().isRemote;
         if (invalid) return;
         Block block = null;
         EntityPlayer playerIn = evt.getEntityPlayer();

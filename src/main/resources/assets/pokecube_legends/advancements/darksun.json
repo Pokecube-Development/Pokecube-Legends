@@ -27,7 +27,7 @@
         "lenient": true,
         "entry": "solgaleo"
       }
-    }
+    },
 	"catch_necrozma": {
       "trigger": "pokecube:catch",
       "conditions": {

@@ -25,8 +25,8 @@ public class PortalWarp extends BlockBase {
 		setSoundType(SoundType.METAL);
 		setHardness(1F);
 		setResistance(10F);
-		setLightLevel(0F);
-		setLightOpacity(2);
+		setLightLevel(0.9F);
+		setLightOpacity(4);
 		setBlockUnbreakable();
 	}
 

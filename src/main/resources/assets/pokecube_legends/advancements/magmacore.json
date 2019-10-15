@@ -5,7 +5,7 @@
     },
     "title": {
 	    "text": "Core to Core",
-	    "color": "black",
+	    "color": "red",
 	    "bold": false,
 	    "italic": false,
 	    "underlined": false,
@@ -21,22 +21,29 @@
     "hidden": false
   },
   "criteria": {
-    "c1": {
+    	"touch": {
         "trigger": "minecraft:location",
         "conditions": {
-            "biome": "minecraft:nether",
             "dimension": "the_nether",
             "position": {
+                "x": {
+                    "min": 0,
+                    "max": 300
+                },
                 "y": {
-                    "min": -10,
-                    "max": -10
+                    "min": 5,
+                    "max": 5
+                },
+                "z": {
+                    "min": 0,
+                    "max": 300
                 }
             }
         }
-    }
+     }
   },
   "rewards": {
-        "loot": [ "pokecube_legends:entities/magmacore" ]
+        "loot": [ "pokecube_legends:entities/heatrancore" ]
   },
   "parent": "pokecube_legends:root"
 }

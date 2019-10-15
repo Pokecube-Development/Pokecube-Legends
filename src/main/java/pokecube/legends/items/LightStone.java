@@ -17,6 +17,6 @@ public class LightStone extends ItemBase
 	@Override
 	public void addInformation(ItemStack itemstack, World world, List<String> list, ITooltipFlag flag) {
 		super.addInformation(itemstack, world, list, flag);
-		list.add("Use this item on 'Legendary Spawn' to Spawn Reshiram");
+		list.add("Use this item for Spawn Reshiram");
 	}
 }

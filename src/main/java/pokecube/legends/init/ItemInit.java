@@ -10,14 +10,17 @@ import net.minecraftforge.common.util.EnumHelper;
 import pokecube.legends.items.AdamantOrb;
 import pokecube.legends.items.AzureFlute;
 import pokecube.legends.items.BlueOrb;
+import pokecube.legends.items.BlueRune;
 import pokecube.legends.items.DNASplicerA;
 import pokecube.legends.items.DNASplicerB;
 import pokecube.legends.items.GrayOrb;
 import pokecube.legends.items.GreenOrb;
+import pokecube.legends.items.GreenRune;
 import pokecube.legends.items.GriseousOrb;
 import pokecube.legends.items.IceCore;
 import pokecube.legends.items.ItemBase;
 import pokecube.legends.items.LegendaryOrb;
+import pokecube.legends.items.LifeOrb;
 import pokecube.legends.items.LustrousOrb;
 import pokecube.legends.items.MagmaCore;
 import pokecube.legends.items.Meteorite;
@@ -25,15 +28,18 @@ import pokecube.legends.items.MystAnte;
 import pokecube.legends.items.NMoon;
 import pokecube.legends.items.NSun;
 import pokecube.legends.items.OceanOrb;
+import pokecube.legends.items.OrangeRune;
 import pokecube.legends.items.PrisionBottle;
 import pokecube.legends.items.RainbowSword;
 import pokecube.legends.items.LightStone;
 import pokecube.legends.items.RedOrb;
+import pokecube.legends.items.RegisOrb;
 import pokecube.legends.items.RevealGlass;
 import pokecube.legends.items.RockCore;
 import pokecube.legends.items.SteelCore;
 import pokecube.legends.items.ZygardeCube;
 import pokecube.legends.items.DarkStone;
+import pokecube.legends.items.DestructOrb;
 import pokecube.legends.items.Gracidea;
 
 public class ItemInit 
@@ -59,7 +65,13 @@ public class ItemInit
 	public static final Item ICECORE = new IceCore("icecore", 1);
 	public static final Item STEELCORE = new SteelCore("steelcore", 1);
 	public static final Item MYST_ANTE = new MystAnte("mystante", 1);
-	public static final Item MAGMA_CORE = new MagmaCore("magmacore", 15);
+	public static final Item MAGMA_CORE = new MagmaCore("magmacore", 1);
+	public static final Item LIFEORB = new LifeOrb("lifeorb", 1);
+	public static final Item DESTRUCTORB = new DestructOrb("destructorb", 1);
+	public static final Item ORANGE_RUNE = new OrangeRune("orange_rune", 1);
+	public static final Item BLUE_RUNE = new BlueRune("blue_rune", 1);
+	public static final Item GREEN_RUNE = new GreenRune("green_rune", 1);
+	public static final Item REGIS_ORB = new RegisOrb("regisorb", 1);
 	
 	//Gens_ores
 	public static final Item SAPPHIRE = new ItemBase("sapphire", 64);

@@ -16,6 +16,6 @@ public class LegendaryOrb extends ItemBase {
 	@Override
 	public void addInformation(ItemStack itemstack, World world, List<String> list, ITooltipFlag flag) {
 		super.addInformation(itemstack, world, list, flag);
-		list.add("Use this item on 'Legendary Spawn' to Spawn Ho-oh");
+		list.add("Use this item for Spawn Ho-oh");
 	}
 }

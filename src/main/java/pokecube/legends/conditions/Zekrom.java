@@ -8,14 +8,14 @@ import pokecube.core.database.stats.SpecialCaseRegister;
 import pokecube.core.interfaces.IPokemob;
 import pokecube.core.utils.PokeType;
 
-public class Cobalion extends Condition
+public class Zekrom extends Condition
 {
     @Override
     public boolean canCapture(Entity trainer, IPokemob pokemon)
     {
         if (!canCapture(trainer)) return false;
-        int count1 = CaptureStats.getUniqueOfTypeCaughtBy(trainer.getUniqueID(), PokeType.getType("cobalion"));
-        int count2 = SpecialCaseRegister.countSpawnableTypes(PokeType.getType("cobalion"));
+        int count1 = CaptureStats.getUniqueOfTypeCaughtBy(trainer.getUniqueID(), PokeType.getType("dragon"));
+        int count2 = SpecialCaseRegister.countSpawnableTypes(PokeType.getType("dragon"));
         if (((double) count1) / ((double) count2) >= 0.3) { return true; }
         if (pokemon != null && !trainer.getEntityWorld().isRemote)
         {
@@ -27,7 +27,7 @@ public class Cobalion extends Condition
     @Override
     public PokedexEntry getEntry()
     {
-        return Database.getEntry("cobalion");
+        return Database.getEntry("zekrom");
     }
 
 }

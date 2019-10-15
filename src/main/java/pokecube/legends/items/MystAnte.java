@@ -16,6 +16,6 @@ public class MystAnte extends ItemBase {
 	@Override
 	public void addInformation(ItemStack itemstack, World world, List<String> list, ITooltipFlag flag) {
 		super.addInformation(itemstack, world, list, flag);
-		list.add("Use this item on 'Victini Altar' to Spawn Victine");
+		list.add("Use this item for Spawn Victine");
 	}
 }
