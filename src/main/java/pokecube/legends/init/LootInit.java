@@ -22,6 +22,10 @@ public class LootInit
 			ItemInit.DNA_SPLICERA, 100, 1, new LootFunction[0], new LootCondition[0], "dna_splicera");
 	public static LootEntry dnab = new LootEntryItem(
 			ItemInit.DNA_SPLICERB, 100, 1, new LootFunction[0], new LootCondition[0], "dna_splicerb");
+	public static LootEntry rainbowwing = new LootEntryItem(
+			ItemInit.RAINBOW_WING, 100, 1, new LootFunction[0], new LootCondition[0], "rainbow_wing");
+	public static LootEntry silverwing = new LootEntryItem(
+			ItemInit.SILVER_WING, 100, 1, new LootFunction[0], new LootCondition[0], "silver_wing");
 	
 	@SubscribeEvent
 	public void onLootTableLoad(final LootTableLoadEvent event) {
@@ -36,6 +40,8 @@ public class LootInit
             event.getTable().getPool("main").addEntry(floer);
             event.getTable().getPool("main").addEntry(dnaa);
             event.getTable().getPool("main").addEntry(dnab);
+            event.getTable().getPool("main").addEntry(silverwing);
+            event.getTable().getPool("main").addEntry(rainbowwing);
         }
 	}
 }

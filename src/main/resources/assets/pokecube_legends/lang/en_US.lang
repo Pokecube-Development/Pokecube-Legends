@@ -1,0 +1,75 @@
+﻿#Pokecube Legends translation
+
+//pokecubes
+item.beastcube.name=Beast Cube
+
+//Items
+item.lightstone.name=Light Stone
+item.darkstone.name=Dark Stone
+item.sapphire.name=Sapphire
+item.ruby.name=Ruby
+item.silver_wing.name=Silver Wing
+item.rainbow_wing.name=Rainbow Wing
+item.crystal_shard.name=Crystal Shard
+item.mystante.name=Mysterious Antennae
+item.zygardecube.name=Zygarde Cube
+item.prisonbottle.name=Prison Bottle
+item.revealglass.name=Reveal Glass
+item.dna_splicera.name=DNA Splicer-A
+item.dna_splicerb.name=DNA Splicer-B
+item.gracidea.name=Gracidea
+item.n_sun.name=N-Solarizer
+item.n_moon.name=N-Lunarizer
+item.meteorite.name=Meteorite
+item.azureflute.name=Azure Flute
+item.blue_rune.name=Blue Rune
+item.orange_rune.name=Orange Rune
+item.green_rune.name=Green Rune
+
+//Orbs
+item.grayorb.name=Gray Orb
+item.redorb.name=Red Orb
+item.greenorb.name=Green Orb
+item.blueorb.name=Blue Orb
+item.legendaryorb.name=Legendary Orb
+item.lustrousorb.name=Lustrous Orb
+item.adamantorb.name=Adamant Orb
+item.oceanorb.name=Ocean Orb
+item.griseousorb.name=Griseous Orb
+item.destructorb.name=Destruction Orb
+item.lifeorb.name=Life Orb
+item.regisorb.name=Regigigas Orb
+
+//Core
+item.rockcore.name=Rock Core
+item.icecore.name=Ice Core
+item.steelcore.name=Steel Core
+item.magmacore.name=Magma Core
+
+//Tools
+item.rainbow_sword.name=Rainbow Sword
+
+//Blocks
+tile.regirock_spawn.name=Regirock Spawn
+tile.regice_spawn.name=Regice Spawn
+tile.registeel_spawn.name=Registeel Spawn
+tile.timerspawn.name=Time and Space Spawn
+tile.naturespawn.name=Nature Spawn
+tile.keldeoblock.name=Keldeo Spawn
+tile.victiniblock.name=Victini Spawn
+tile.yveltal_egg.name=Cocoon of Destruction
+tile.xerneas_tree.name=Aura Tree
+tile.ruby_block.name=Ruby Block
+tile.sapphire_block.name=Sapphire Block
+tile.temporal_crystal.name=Crystal Block
+tile.portal.name=Mirage Spots
+tile.ruby_ore.name=Ruby Ore
+tile.sapphire_ore.name=Sapphire Ore
+tile.regigiga_spawn.name=Regigiga Spawn
+tile.legendaryspawn.name=Legendary Spawn
+tile.oceanbrick.name=Ocean Brick
+tile.skybrick.name=Sky Brck
+tile.spatianbrick.name=Spatian Brick
+tile.magmabrick.name=Magma Brick
+tile.crystalbrick.name=Crystal Brick
+tile.darkskybrick.name=Dark Sky Brick

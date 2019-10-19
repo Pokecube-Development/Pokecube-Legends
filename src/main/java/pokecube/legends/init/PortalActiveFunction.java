@@ -3,9 +3,9 @@ package pokecube.legends.init;
 import net.minecraft.world.WorldServer;
 import pokecube.core.database.Database;
 import pokecube.core.database.PokedexEntry;
-import pokecube.core.interfaces.IPokemob;
+//import pokecube.core.interfaces.IPokemob;
 import pokecube.core.interfaces.PokecubeMod;
-import pokecube.core.interfaces.capabilities.CapabilityPokemob;
+//import pokecube.core.interfaces.capabilities.CapabilityPokemob;
 import thut.api.maths.Vector3;
 import net.minecraft.world.World;
 import net.minecraft.util.math.BlockPos;
@@ -14,7 +14,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.EnumParticleTypes;
 import java.util.Random;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 
 
 /** Uses player interact here to also prevent opening of inventories.
@@ -54,7 +56,7 @@ public class PortalActiveFunction {
 			EntityLiving entity = (EntityLiving) PokecubeMod.core.createPokemob(entityToSpawn, world);
 			Vector3 location = Vector3.getNewVector().set(pos);
 			if (entity != null) {
-	            IPokemob pokemob = CapabilityPokemob.getPokemobFor(entity);
+	            //IPokemob pokemob = CapabilityPokemob.getPokemobFor(entity);
 				entity.setHealth(entity.getMaxHealth());
                 location.add(0, 1, 0).moveEntity(entity);
 				entity.setPosition(x, y, z);
@@ -63,9 +65,20 @@ public class PortalActiveFunction {
 		}
 		world.setBlockToAir(new BlockPos((int) x, (int) y, (int) z));
 		if (world instanceof WorldServer)
-			((WorldServer) world).spawnParticle(EnumParticleTypes.FIREWORKS_SPARK, x, y, z, (int) 15, 3, 3, 3, 1, new int[0]);
+			((WorldServer) world).spawnParticle(EnumParticleTypes.FIREWORKS_SPARK, x, y, z, (int) 15, 6, 6, 6, 0.4, new int[0]);
 		world.playSound((EntityPlayer) null, x, y, z,
 				(net.minecraft.util.SoundEvent) net.minecraft.util.SoundEvent.REGISTRY.getObject(new ResourceLocation("entity.wither.death")),
 				SoundCategory.NEUTRAL, (float) 1, (float) 1);
+		if (!world.isRemote) {
+			int maxD = 3; 
+			int minD = 1;
+			Random rD = new Random();
+			
+			int iD = rD.nextInt(maxD) - minD;
+			
+			EntityItem entityToSpawn = new EntityItem(world, x, y, z, new ItemStack(ItemInit.CRYSTAL_SHARD, iD));
+			entityToSpawn.setPickupDelay(10);
+			world.spawnEntity(entityToSpawn);
+		}
 	}
 }

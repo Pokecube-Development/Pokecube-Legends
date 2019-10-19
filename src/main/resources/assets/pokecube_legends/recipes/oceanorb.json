@@ -3,37 +3,21 @@
     
     "pattern":
     [
-        "GRG",
-        "TAH",
-        "GWG"
+        "RRR",
+        "RAR",
+        "RRR"
     ],
     
     "key":
     {
-        "G":
+        "A":
         {
-            "item": "minecraft:ender_eye"
-        },
-		"A":
-        {
-            "item": "pokecube_legends:temporal_crystal"
+            "item": "pokecube_legends:legendaryorb"
         },
 		"R":
         {
-            "item": "pokecube_legends:greenorb"
-        },
-		"T":
-        {
-            "item": "pokecube_legends:blueorb"
-        },
-		"H":
-        {
-            "item": "pokecube_legends:redorb"
-        },
-		"W":
-		{
-			"item": "pokecube_legends:grayorb"
-		}
+            "item": "pokecube_legends:sapphire"
+        }
     },
     
     "result":

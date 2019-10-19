@@ -20,13 +20,13 @@
         },
 		"R":
         {
-            "item": "pokecube_legends:temporal_crystal"
+            "item": "pokecube_legends:crystal_shard"
         }
     },
     
     "result":
     {
-        "item": "pokecube_legends:beastcube",
+        "item": "pokecube:beastcube",
         "count": 1
     }
 }

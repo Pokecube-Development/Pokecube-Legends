@@ -9,7 +9,7 @@ public class PokecubeBeast
     {
         double x = 1;
         Entity entity = mob.getEntity();
-        if (entity.dimension == 2) {
+        if (entity.dimension != 0) {
         		x = 3.7;
         		//System.console().printf("Dimensão base");
         } 

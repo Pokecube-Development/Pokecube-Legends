@@ -16,7 +16,7 @@ public class Jirachi extends Condition
         if (!canCapture(trainer)) return false;
         int count1 = CaptureStats.getUniqueOfTypeCaughtBy(trainer.getUniqueID(), PokeType.getType("psychic"));
         int count2 = SpecialCaseRegister.countSpawnableTypes(PokeType.getType("psychic"));
-        if (((double) count1) / ((double) count2) >= 0.5) { return true; }
+        if (((double) count1) / ((double) count2) >= 0.3) { return true; }
         if (pokemon != null && !trainer.getEntityWorld().isRemote)
         {
             sendNoTrust(trainer);

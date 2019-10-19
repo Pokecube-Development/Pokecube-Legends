@@ -3,10 +3,14 @@ package pokecube.legends.blocks;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import pokecube.legends.init.PortalActiveFunction;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.client.Minecraft;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.material.Material;
@@ -21,8 +25,8 @@ public class PortalWarp extends BlockBase {
 		setSoundType(SoundType.METAL);
 		setHardness(1F);
 		setResistance(10F);
-		setLightLevel(0F);
-		setLightOpacity(0);
+		setLightLevel(0.9F);
+		setLightOpacity(4);
 		setBlockUnbreakable();
 	}
 
@@ -30,17 +34,22 @@ public class PortalWarp extends BlockBase {
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
-
+	
 	@Override
 	public int tickRate(World world) {
-		return 500;
+		return 600;
 	}
 
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
-
+	
+	@Override
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+		return new AxisAlignedBB(-1D, 0D, 0D, 2D, 3D, 1D);
+	}
+	
 	@Override
 	public boolean canSilkHarvest(World world, BlockPos pos, IBlockState state, EntityPlayer player) {
 		return false;
@@ -94,5 +103,8 @@ public class PortalWarp extends BlockBase {
 				double d5 = (random.nextFloat() - 0.5D) * 0.5D;
 				world.spawnParticle(EnumParticleTypes.PORTAL, d0, d1, d2, d3, d4, d5);
 		}
+		if (random.nextInt(100) == 0) {
+            world.playSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, SoundEvents.AMBIENT_CAVE, SoundCategory.BLOCKS, 0.5F, random.nextFloat() * 0.4F + 0.8F, false);
+        }
 	}
 }

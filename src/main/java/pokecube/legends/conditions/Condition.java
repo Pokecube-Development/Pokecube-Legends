@@ -82,8 +82,9 @@ public abstract class Condition implements ISpecialCaptureCondition, ISpecialSpa
     @Override
     public boolean canSpawn(Entity trainer)
     {
-        if (trainer == null) return false;
-        if (CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(), getEntry()) > 0) return false;
+        if (trainer == null)
+        return false;
+        if (CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(), getEntry()) > 0) return true;
         if (trainer instanceof EntityPlayerMP && PokecubePlayerDataHandler.getCustomDataTag((EntityPlayer) trainer)
                 .getBoolean("spwn:" + getEntry().getTrimmedName()))
             return false;

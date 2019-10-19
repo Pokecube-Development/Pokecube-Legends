@@ -59,6 +59,8 @@ dependencies {
     deobfCompile "pokecube-revival:pokecube-revival:release:deobf"
     //Pokecube Mobs
     deobfCompile "pokecube-mobs:pokecube-mobs:release:deobf"
+	//JEI
+	deobfCompile 'mezz.jei:jei_1.12.2:4.15.0.289'
 }
 
 sourceCompatibility = 1.8

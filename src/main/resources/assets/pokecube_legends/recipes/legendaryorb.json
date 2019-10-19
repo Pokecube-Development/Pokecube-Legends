@@ -3,9 +3,9 @@
     
     "pattern":
     [
-        "GRG",
-        "TAH",
-        "GWG"
+        "ARA",
+        "TGH",
+        "AWA"
     ],
     
     "key":
@@ -16,7 +16,7 @@
         },
 		"A":
         {
-            "item": "pokecube_legends:temporal_crystal"
+            "item": "minecraft:end_stone"
         },
 		"R":
         {
