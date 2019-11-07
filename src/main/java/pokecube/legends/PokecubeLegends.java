@@ -1,5 +1,8 @@
 package pokecube.legends;
 
+import java.io.IOException;
+import java.util.logging.Level;
+
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
@@ -14,12 +17,14 @@ import pokecube.core.PokecubeCore;
 import pokecube.core.events.PostPostInit;
 import pokecube.core.events.onload.RegisterPokecubes;
 import pokecube.core.interfaces.IPokemob;
+import pokecube.core.interfaces.PokecubeMod;
 import pokecube.core.interfaces.IPokecube.DefaultPokecubeBehavior;
 import pokecube.legends.conditions.LegendaryConditions;
 import pokecube.legends.handlers.PortalSpawnHandler;
 import pokecube.legends.handlers.RegistryHandler;
 import pokecube.legends.init.PokecubeBeast;
 import pokecube.legends.proxy.CommonProxy;
+import pokecube.legends.worldgen.TemplateManager;
 import pokecube.legends.worldgen.gen.ModWorldGen;
 
 @Mod(modid = Reference.ID, name = Reference.NAME, version = Reference.VERSION, dependencies = Reference.DEPSTRING, acceptableRemoteVersions = "*")
@@ -60,6 +65,14 @@ public class PokecubeLegends
     @EventHandler
     public void initRegistries(FMLInitializationEvent e)
     {
+        try
+        {
+            TemplateManager.initTemplates();
+        }
+        catch (IOException e1)
+        {
+            PokecubeMod.log(Level.SEVERE, "Error copying legends templates", e1);
+        }
         RegistryHandler.initRegistries(e);
     }
 
