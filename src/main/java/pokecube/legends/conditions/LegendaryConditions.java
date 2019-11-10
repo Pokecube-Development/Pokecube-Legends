@@ -11,6 +11,7 @@ import pokecube.core.database.stats.ISpecialCaptureCondition;
 import pokecube.core.database.stats.ISpecialSpawnCondition;
 import pokecube.core.database.stats.SpecialCaseRegister;
 import pokecube.core.interfaces.PokecubeMod;
+import pokecube.legends.handlers.GeneProtector;
 import pokecube.legends.spawns.ArceusSpawn;
 import pokecube.legends.spawns.CelebiSpawn;
 import pokecube.legends.spawns.DialgaSpawn;
@@ -66,6 +67,9 @@ public class LegendaryConditions
         MinecraftForge.EVENT_BUS.register(new YveltalSpawn());
         MinecraftForge.EVENT_BUS.register(new ZekromSpawn());
         //
+        
+        //Register the thng that prevents genetic modification of protected mobs
+        MinecraftForge.EVENT_BUS.register(new GeneProtector());
         
         List<Class<?>> foundClasses;
         List<Class<? extends Condition>> conditionclasses = Lists.newArrayList();
