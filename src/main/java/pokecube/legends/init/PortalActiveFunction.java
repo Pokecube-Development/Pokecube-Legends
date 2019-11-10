@@ -46,10 +46,9 @@ public class PortalActiveFunction {
 		World world = (World) dependencies.get("world");
 		if (!world.isRemote) {
 			int max = Database.getSortedFormes().size(); 
-			int min = 1;
 			Random r = new Random();
 			
-			int i = r.nextInt(max) - min;
+			int i = r.nextInt(max - 1) + 1;
 			
 			PokedexEntry entityToSpawn = Database.getSortedFormes().get(i);
 			BlockPos pos = null;
