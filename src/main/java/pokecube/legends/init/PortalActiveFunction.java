@@ -14,6 +14,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.EnumParticleTypes;
 
 import java.lang.reflect.Field;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -67,18 +68,18 @@ public class PortalActiveFunction
             Map<String, PokedexEntry> forms = (Map<String, PokedexEntry>) form_field.get(ret);
             if (!forms.isEmpty())
             {
-                List<String> keys = Lists.newArrayList(forms.keySet());
-                int randnum = rand.nextInt(keys.size());
-                String key = keys.get(randnum);
-                PokedexEntry form = forms.get(key);
-                n = 0;
-                while (form.dummy || form.isMega)
+                List<PokedexEntry> values = Lists.newArrayList(forms.values());
+                Collections.shuffle(values);
+                int num = values.size();
+                if (num == 0) return ret;
+                PokedexEntry val = values.get(0);
+                if (!(val.dummy || val.isMega) || num == 1) return val;
+                for (int i = 1; i < num; i++)
                 {
-                    key = keys.get(rand.nextInt(keys.size()));
-                    form = forms.get(key);
-                    //We somehow failed too many times again, lets do a missingno
-                    if (n++ > 100) ret = Database.missingno;
+                    val = values.get(i);
+                    if (!(val.dummy || val.isMega)) break;
                 }
+                return val;
             }
         }
         catch (IllegalArgumentException | IllegalAccessException e)
