@@ -11,7 +11,7 @@ item.ruby.name=Ruby
 item.silver_wing.name=Silver Wing
 item.rainbow_wing.name=Rainbow Wing
 item.crystal_shard.name=Crystal Shard
-item.mystante.name=Mysterious Antennae
+item.emblem.name=Emblem
 item.zygardecube.name=Zygarde Cube
 item.prisonbottle.name=Prison Bottle
 item.revealglass.name=Reveal Glass
@@ -21,10 +21,18 @@ item.gracidea.name=Gracidea
 item.n_sun.name=N-Solarizer
 item.n_moon.name=N-Lunarizer
 item.meteorite.name=Meteorite
-item.azureflute.name=Azure Flute
+item.azure_flute.name=Azure Flute
 item.blue_rune.name=Blue Rune
 item.orange_rune.name=Orange Rune
 item.green_rune.name=Green Rune
+item.rustedshield.name=Rusted Shield
+item.rustedsword.name=Rusted Sword
+
+//Dynamax Items Test
+item.fragmentdyn.name=Fragment Dynamax (WIP)
+item.dynamaxshard.name=Dynamax Shard (WIP)
+item.gigantamaxshard.name=Gigantamax Shard (WIP)
+tile.maxraidspawn.name=Max Raid Spawn Block (WIP)
 
 //Orbs
 item.grayorb.name=Gray Orb
@@ -73,3 +81,8 @@ tile.spatianbrick.name=Spatian Brick
 tile.magmabrick.name=Magma Brick
 tile.crystalbrick.name=Crystal Brick
 tile.darkskybrick.name=Dark Sky Brick
+
+//Ultra Space Part
+tile.ultraspace_portal.name=Ultra Wormhole
+tile.ultrastone.name=Ultra Stone
+tile.ultrablock.name=Ultra Stone Compressed

@@ -1,0 +1,28 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "GGG",
+        "GAG",
+        "GGG"
+    ],
+    
+    "key":
+    {
+        "G":
+        {
+            "item": "pokecube_legends:fragmentdyn"
+        },
+		"A":
+        {
+            "item": "pokecube_legends:grayorb"
+        }
+    },
+    
+    "result":
+    {
+        "item": "pokecube_legends:dynamaxshard",
+        "count": 1
+    }
+}

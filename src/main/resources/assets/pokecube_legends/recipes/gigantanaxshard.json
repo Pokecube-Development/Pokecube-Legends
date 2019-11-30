@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "GGG",
+        "GGG",
+        "GGG"
+    ],
+    
+    "key":
+    {
+        "G":
+        {
+            "item": "pokecube_legends:dynamaxshard"
+        }
+    },
+    
+    "result":
+    {
+        "item": "pokecube_legends:gigantamaxshard",
+        "count": 1
+    }
+}

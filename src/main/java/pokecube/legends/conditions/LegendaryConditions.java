@@ -33,6 +33,8 @@ import pokecube.legends.spawns.TornadusSpawn;
 import pokecube.legends.spawns.VictiniSpawn;
 import pokecube.legends.spawns.XerneasSpawn;
 import pokecube.legends.spawns.YveltalSpawn;
+import pokecube.legends.spawns.ZacianSpawn;
+import pokecube.legends.spawns.ZamazentaSpawn;
 import pokecube.legends.spawns.ZekromSpawn;
 import thut.lib.CompatParser.ClassFinder;
 
@@ -66,6 +68,8 @@ public class LegendaryConditions
         MinecraftForge.EVENT_BUS.register(new XerneasSpawn());
         MinecraftForge.EVENT_BUS.register(new YveltalSpawn());
         MinecraftForge.EVENT_BUS.register(new ZekromSpawn());
+        MinecraftForge.EVENT_BUS.register(new ZacianSpawn());
+        MinecraftForge.EVENT_BUS.register(new ZamazentaSpawn());
         //
         
         //Register the thng that prevents genetic modification of protected mobs
