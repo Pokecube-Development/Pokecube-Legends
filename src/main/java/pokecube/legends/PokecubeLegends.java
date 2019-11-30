@@ -65,11 +65,11 @@ public class PokecubeLegends
         proxy.preinit(event);
         Configuration config = PokecubeCore.instance.getPokecubeConfig(event);
         config.load();
-        enabledmirage = config.getBoolean("legends_enabled", Configuration.CATEGORY_GENERAL, true,
+        enabledmirage = config.getBoolean("legends_enabled_miragespot", Configuration.CATEGORY_GENERAL, true,
                 "whether legends is enabled.");
-        enabledportal = config.getBoolean("legends_enabled", Configuration.CATEGORY_GENERAL, true,
+        enabledportal = config.getBoolean("legends_enabled_wormhole", Configuration.CATEGORY_GENERAL, true,
                 "whether legends is enabled.");
-        ticksPerMirageSpawn = config.getInt("ticks_per_portal_spawn", Configuration.CATEGORY_GENERAL, 6000, 0,
+        ticksPerMirageSpawn = config.getInt("ticks_per_mirage_spawn", Configuration.CATEGORY_GENERAL, 6000, 0,
                 Integer.MAX_VALUE, "Time to Mirage Spot Generation, 0 to disable");
         ticksPerPortalSpawn = config.getInt("ticks_per_portal_spawn", Configuration.CATEGORY_GENERAL, 9000, 0,
                 Integer.MAX_VALUE, "Time for Ultra Wormhole Generation, 0 to disable");
