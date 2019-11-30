@@ -2,9 +2,15 @@ package pokecube.legends.items;
 
 import java.util.List;
 
+import javax.annotation.Nullable;
+
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class RustedShield extends ItemBase {
 
@@ -13,9 +19,13 @@ public class RustedShield extends ItemBase {
 		setMaxStackSize(1);
 	}
 	
-	@Override
-	public void addInformation(ItemStack itemstack, World world, List<String> list, ITooltipFlag flag) {
-		super.addInformation(itemstack, world, list, flag);
-		list.add("Use this item on 'Legendary Spawn' to Spawn Zamazenta. Use this item in 'Zamazenta' to change it.");
-	}
+	/** allows items to add custom lines of information to the mouseover
+     * description */
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World playerIn, List<String> list, ITooltipFlag advanced)
+    {
+        if (GuiScreen.isShiftKeyDown()) list.add(I18n.format("legends.shield.tooltip"));
+        else list.add(I18n.format("pokecube.tooltip.advanced"));
+    }
 }

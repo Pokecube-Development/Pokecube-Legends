@@ -13,14 +13,22 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.ItemStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.SoundType;
+
+import java.util.List;
 import java.util.Random;
+
+import javax.annotation.Nullable;
 
 public class PortalWarp extends BlockBase {
 
@@ -63,6 +71,16 @@ public class PortalWarp extends BlockBase {
 		 return new AxisAlignedBB(posX, posY, posZ, sizeX, sizeY, sizeZ);
 	 }
 	
+	/** allows items to add custom lines of information to the mouseover
+     * description */
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World playerIn, List<String> list, ITooltipFlag advanced)
+    {
+        if (GuiScreen.isShiftKeyDown()) list.add(I18n.format("legends.portalwarp.tooltip"));
+        else list.add(I18n.format("pokecube.tooltip.advanced"));
+    }
+
 	//Rotation Block
 		@Override
 		protected net.minecraft.block.state.BlockStateContainer createBlockState() {

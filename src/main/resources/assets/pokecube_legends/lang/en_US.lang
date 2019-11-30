@@ -58,9 +58,9 @@ item.magmacore.name=Magma Core
 item.rainbow_sword.name=Rainbow Sword
 
 //Blocks
-tile.regirock_spawn.name=Regirock Spawn
-tile.regice_spawn.name=Regice Spawn
-tile.registeel_spawn.name=Registeel Spawn
+tile.regirock_spawn.name=Regirock Core
+tile.regice_spawn.name=Regice Core
+tile.registeel_spawn.name=Registeel Core
 tile.timerspawn.name=Time and Space Spawn
 tile.naturespawn.name=Nature Spawn
 tile.keldeoblock.name=Keldeo Spawn
@@ -73,7 +73,7 @@ tile.temporal_crystal.name=Crystal Block
 tile.portal.name=Mirage Spots
 tile.ruby_ore.name=Ruby Ore
 tile.sapphire_ore.name=Sapphire Ore
-tile.regigiga_spawn.name=Regigiga Spawn
+tile.regigiga_spawn.name=Regigiga Core
 tile.legendaryspawn.name=Legendary Spawn
 tile.oceanbrick.name=Ocean Brick
 tile.skybrick.name=Sky Brck
@@ -86,3 +86,42 @@ tile.darkskybrick.name=Dark Sky Brick
 tile.ultraspace_portal.name=Ultra Wormhole
 tile.ultrastone.name=Ultra Stone
 tile.ultrablock.name=Ultra Stone Compressed
+
+//Tooltips Block
+legends.portalwarp.tooltip=This portal spawns a random Pokemon over a period of time.
+legends.ultraportal.tooltip=Use to enter and exit Ultra Space
+
+//Tooltips Items
+legends.adamantorb.tooltip=Use this item on 'Time and Space Spawn' to Spawn Dialga
+legends.azureflute.tooltip=Use this item on 'Time and Space Spawn' Spawn Arceus
+legends.blueorb.tooltip=Use this item on 'Legendary Spawn' to Spawn Kyogre
+legends.bluerune.tooltip=Use this item on 'Nature Spawn' Spawn Thundurus
+legends.darkstone.tooltip=Use this item on 'Time and Space Spawn' Spawn Zekrom
+legends.destructorb.tooltip=Use this item on 'Cocoon of Destruction' Spawn Yveltal
+legends.dnasplicer.tooltip=Use this item in 'Kyurem' to change it.
+legends.emblem.tooltip=Use this item on 'Victini Spawn' Spawn Victini
+legends.gracidea.tooltip=Use this item in 'Shaymin' to change it.
+legends.greenorb.tooltip=Use this item on 'Legendary Spawn' to Spawn Celebi
+legends.greenrune.tooltip=Use this item on 'Nature Spawn' Spawn Tornadus
+legends.griseousorb.tooltip=Use this item in 'Giratina' to change it.
+legends.icecore.tooltip=Use this item on 'Regice Core' to Spawn Regice
+legends.rockcore.tooltip=Use this item on 'Regirock Core' to Spawn Regirock
+legends.steelcore.tooltip=Use this item on 'Registeel Core' to Spawn Registeel
+legends.legendaryorb.tooltip=Use this item on 'Legendary Spawn' to for Spawn Ho-oh
+legends.lifeorb.tooltip=Use this item on 'Aura Tree' Spawn Xerneas
+legends.lightstone.tooltip=Use this item on 'Time and Space Spawn' Spawn Reshiram
+legends.lustrousorb.tooltip=Use this item on 'Time and Space Spawn' Spawn Palkia
+legends.magmacore.tooltip=Use this item on 'Magma Block' to Spawn Heatran
+legends.meteorite.tooltip=Use this item in 'Deoxys' to change it.
+legends.nmoon.tooltip=Use this item in 'Lunala' to change it.
+legends.nsun.tooltip=Use this item in 'Solgaleo' to change it.
+legends.oceanorb.tooltip=Use this item on 'Legendary Spawn' to Spawn Lugia
+legends.orangerune.tooltip=Use this item on 'Nature Spawn' Spawn Landorus
+legends.bottle.tooltip=Use this item in 'Hoopa' to change it.
+legends.rainsword.tooltip=Use this item on 'Keldeo Spawn' Spawn Keldeo.
+legends.redorb.tooltip=Use this item on 'Legendary Spawn' to Spawn Groudon
+legends.regisorb.tooltip=Use this item on 'Regigigas Core' to Spawn Regigigas
+legends.reveal.tooltip=Use this item in 'Thundurus/Tornadus/Landorus' to change it.
+legends.shield.tooltip=Use this item on 'Legendary Spawn' to Spawn Zamazenta. Use this item in 'Zamazenta' to change it.
+legends.sword.tooltip=Use this item on 'Legendary Spawn' to Spawn Zacian. Use this item in 'Zacian' to change it.
+legends.zycube.tooltip=Use this item in 'Zygarde' to change it.

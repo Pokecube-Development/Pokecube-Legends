@@ -1,19 +1,15 @@
 package pokecube.legends.blocks;
 
-import java.util.List;
 import java.util.Random;
-
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -61,12 +57,6 @@ public class NatureCoreBlock extends BlockBase
 		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
 	}
 	//
-		
-	@Override
-	public void addInformation(ItemStack itemstack, World world, List<String> list, ITooltipFlag flag) {
-		super.addInformation(itemstack, world, list, flag);
-		list.add("Spawn Thundurus/Tornadus/Landorus Block");
-	}
 	
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
