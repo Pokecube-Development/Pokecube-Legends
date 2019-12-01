@@ -1,4 +1,4 @@
-﻿#Pokecube Legends translation
+#Pokecube Legends translation
 
 //pokecubes
 item.beastcube.name=Beast Cube
@@ -27,6 +27,36 @@ item.orange_rune.name=Orange Rune
 item.green_rune.name=Green Rune
 item.rustedshield.name=Rusted Shield
 item.rustedsword.name=Rusted Sword
+item.chippedpot.name=Chipped Pot
+item.crackedpot.name=Cracked Pot
+
+//Mint Nature
+item.mint_ADAMANT.name=Mint Adamant
+item.mint_BOLD.name=Mint Bold
+item.mint_BRAVE.name=Mint Brave
+item.mint_CALM.name=Mint Calm
+item.mint_CAREFUL.name=Mint Careful
+item.mint_GENTLE.name=Mint Gentle
+item.mint_HASTY.name=Mint Hasty
+item.mint_IMPISH.name=Mint Impish
+item.mint_JOLLY.name=Mint Jolly
+item.mint_LAX.name=Mint Lax
+item.mint_LONELY.name=Mint Lonely
+item.mint_MILD.name=Mint Mild
+item.mint_MODEST.name=Mint Modest
+item.mint_NAIVE.name=Mint Naive
+item.mint_NAUGHTY.name=Mint Naughty
+item.mint_QUIET.name=Mint Quiet
+item.mint_RASH.name=Mint Rash
+item.mint_RELAXED.name=Mint Relaxed
+item.mint_SASSY.name=Mint Sassy
+item.mint_SERIOUS.name=Mint Serious
+item.mint_TIMID.name=Mint Timid
+
+item.mint_HARDY.name=Mint Hardy
+item.mint_QUIRKY.name=Mint Quirky
+item.mint_DOCILE.name=Mint Docile
+item.mint_BASHFUL.name=Mint Bashful
 
 //Dynamax Items Test
 item.fragmentdyn.name=Fragment Dynamax (WIP)

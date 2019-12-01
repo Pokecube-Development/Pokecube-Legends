@@ -2,7 +2,9 @@ package pokecube.legends.handlers;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -13,6 +15,7 @@ import pokecube.legends.IHasModel;
 import pokecube.legends.Reference;
 import pokecube.legends.init.BlockInit;
 import pokecube.legends.init.ItemInit;
+import pokecube.legends.items.natureedit.UsableItemNature;
 
 @EventBusSubscriber(modid=Reference.ID)
 public class RegistryHandler 
@@ -26,6 +29,12 @@ public class RegistryHandler
 	public static void onBlockRegister(RegistryEvent.Register<Block> event) {
 		event.getRegistry().registerAll(BlockInit.BLOCKS.toArray(new Block[0]));
 	}
+	
+	@SubscribeEvent
+    public void onItemCapabilityAttach(AttachCapabilitiesEvent<ItemStack> event)
+    {
+        UsableItemNature.registerCapabilities(event);
+    }
 	
 	@SubscribeEvent
 	@SideOnly(Side.CLIENT)
