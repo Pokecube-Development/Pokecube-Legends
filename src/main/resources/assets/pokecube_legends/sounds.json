@@ -1,0 +1,11 @@
+{
+  "legend.ultraspace.music": {
+    "category": "music",
+    "sounds": [
+      {
+        "name": "pokecube_legends:ultraspacemusic",
+        "stream": true
+      }
+    ]
+  }
+}

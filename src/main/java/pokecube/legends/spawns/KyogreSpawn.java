@@ -70,6 +70,7 @@ public class KyogreSpawn
                    location.add(0, 1, 0).moveEntity(entity);
                    spawnCondition.onSpawn(pokemob);
                    playerIn.getHeldItemMainhand().setCount(0);
+                   worldIn.setBlockToAir(pos);
                    if (pokemob.getExp() < 100)
                    {
                         entity = pokemob.setForSpawn(Tools.levelToXp(entry.getEvolutionMode(), 50)).getEntity();

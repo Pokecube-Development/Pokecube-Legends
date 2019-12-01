@@ -49,5 +49,7 @@ public class RegistryHandler
 	{
 		//OreDictionary
     	OreDictionaryCompat.registerOreDictionaryEntries();
+    	//Dimension structures
+    	
 	}
 }

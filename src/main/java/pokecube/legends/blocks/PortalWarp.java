@@ -1,25 +1,47 @@
 package pokecube.legends.blocks;
 
 import net.minecraftforge.fml.relauncher.SideOnly;
-import pokecube.legends.init.PortalActiveFunction;
+import pokecube.legends.init.function.PortalActiveFunction;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.ItemStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.SoundType;
+
+import java.util.List;
 import java.util.Random;
+
+import javax.annotation.Nullable;
 
 public class PortalWarp extends BlockBase {
 
-	public PortalWarp(String name, Material material) 
+	public static final PropertyDirection FACING = BlockHorizontal.FACING;
+	
+	protected double sizeX;
+	protected double sizeY;
+	protected double sizeZ;
+	protected double posX;
+	protected double posY;
+	protected double posZ;
+	
+	public PortalWarp(String name, Material material, double posX, double posY, double posZ, double sizeX, double sizeY, double sizeZ) 
 	{
 		super(name, Material.ROCK);
 		setSoundType(SoundType.METAL);
@@ -28,6 +50,15 @@ public class PortalWarp extends BlockBase {
 		setLightLevel(0.9F);
 		setLightOpacity(4);
 		setBlockUnbreakable();
+		
+		this.posX = posX;
+		this.posY = posY;
+		this.posZ = posZ;
+		this.sizeX = sizeX;
+		this.sizeY = sizeY;
+		this.sizeZ = sizeZ;
+		
+		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 	}
 
 	@Override
@@ -35,6 +66,45 @@ public class PortalWarp extends BlockBase {
 		return false;
 	}
 	
+	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
+	 {
+		 return new AxisAlignedBB(posX, posY, posZ, sizeX, sizeY, sizeZ);
+	 }
+	
+	/** allows items to add custom lines of information to the mouseover
+     * description */
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World playerIn, List<String> list, ITooltipFlag advanced)
+    {
+        if (GuiScreen.isShiftKeyDown()) list.add(I18n.format("legends.portalwarp.tooltip"));
+        else list.add(I18n.format("pokecube.tooltip.advanced"));
+    }
+
+	//Rotation Block
+		@Override
+		protected net.minecraft.block.state.BlockStateContainer createBlockState() {
+			return new net.minecraft.block.state.BlockStateContainer(this, new IProperty[]{FACING});
+		}
+
+		@Override
+		public IBlockState getStateFromMeta(int meta) {
+			return this.getDefaultState().withProperty(FACING, EnumFacing.getFront(meta));
+		}
+
+		@Override
+		public int getMetaFromState(IBlockState state) {
+			return ((EnumFacing) state.getValue(FACING)).getIndex();
+		}
+
+		@Override
+		public IBlockState getStateForPlacement(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta,
+				EntityLivingBase placer) {
+			return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing().getOpposite());
+		}
+    //
+			
+	//time for spawn
 	@Override
 	public int tickRate(World world) {
 		return 600;
@@ -43,11 +113,6 @@ public class PortalWarp extends BlockBase {
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
-	}
-	
-	@Override
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-		return new AxisAlignedBB(-1D, 0D, 0D, 2D, 3D, 1D);
 	}
 	
 	@Override

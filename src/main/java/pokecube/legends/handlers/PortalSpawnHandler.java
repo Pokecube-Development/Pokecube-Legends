@@ -23,7 +23,7 @@ public class PortalSpawnHandler
     {
         if (evt.phase == Phase.END && evt.side != Side.CLIENT && !Database.spawnables.isEmpty())
         {
-            if (evt.world.getTotalWorldTime() % PokecubeLegends.instance.ticksPerPortalSpawn == 0) tick(evt.world);
+            if (evt.world.getTotalWorldTime() % PokecubeLegends.instance.ticksPerMirageSpawn == 0) tick(evt.world);
         }
     }
 
@@ -39,7 +39,7 @@ public class PortalSpawnHandler
         Vector3 v = Vector3.getNewVector().set(player).add(dx, 0, dz);
         v.x += dx;
         v.z += dz;
-        v.y = world.getHeight((int) v.x, (int) v.z) + 1;
+        v.y = world.getHeight((int) v.x, (int) v.z) + 3;
         if (v.isAir(world)) world.setBlockState(v.getPos(), BlockInit.BLOCK_PORTALWARP.getDefaultState());
 
     }

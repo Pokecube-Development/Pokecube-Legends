@@ -21,7 +21,7 @@ import pokecube.core.interfaces.PokecubeMod;
 import pokecube.core.interfaces.capabilities.CapabilityPokemob;
 import pokecube.core.utils.Tools;
 import pokecube.legends.init.BlockInit;
-import pokecube.legends.items.MystAnte;
+import pokecube.legends.items.Emblem;
 import thut.api.maths.Vector3;
 import thut.lib.CompatWrapper;
 
@@ -34,7 +34,7 @@ public class VictiniSpawn
     public void interactRightClickBlock(PlayerInteractEvent.RightClickBlock evt)
     {
         boolean invalid = !evt.getEntityPlayer().isSneaking() || !CompatWrapper.isValid(evt.getItemStack())
-                || !(evt.getItemStack().getItem() instanceof MystAnte /*ItemPokedex*/) || evt.getWorld().isRemote;
+                || !(evt.getItemStack().getItem() instanceof Emblem /*ItemPokedex*/) || evt.getWorld().isRemote;
         if (invalid) return;
         Block block = null;
         EntityPlayer playerIn = evt.getEntityPlayer();
@@ -70,6 +70,7 @@ public class VictiniSpawn
                    location.add(0, 1, 0).moveEntity(entity);
                    spawnCondition.onSpawn(pokemob);
                    playerIn.getHeldItemMainhand().setCount(0);
+                   worldIn.setBlockToAir(pos);
                    if (pokemob.getExp() < 100)
                    {
                         entity = pokemob.setForSpawn(Tools.levelToXp(entry.getEvolutionMode(), 50)).getEntity();

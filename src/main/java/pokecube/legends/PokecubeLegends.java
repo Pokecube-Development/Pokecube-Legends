@@ -2,7 +2,6 @@ package pokecube.legends;
 
 import java.io.IOException;
 import java.util.logging.Level;
-
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
@@ -22,19 +21,28 @@ import pokecube.core.interfaces.IPokecube.DefaultPokecubeBehavior;
 import pokecube.legends.conditions.LegendaryConditions;
 import pokecube.legends.handlers.PortalSpawnHandler;
 import pokecube.legends.handlers.RegistryHandler;
-import pokecube.legends.init.PokecubeBeast;
+import pokecube.legends.handlers.WormHoleSpawnHandler;
+import pokecube.legends.init.BiomeInit;
+import pokecube.legends.init.DimensionInit;
+import pokecube.legends.init.PokecubeDim;
 import pokecube.legends.proxy.CommonProxy;
-import pokecube.legends.worldgen.TemplateManager;
-import pokecube.legends.worldgen.gen.ModWorldGen;
+import pokecube.legends.worldgen.gencustom.TemplateManager;
+import pokecube.legends.worldgen.genlayer.OreWorldGen;
+import pokecube.legends.worldgen.structuregen.WorldGenCustomStrucute;
 
 @Mod(modid = Reference.ID, name = Reference.NAME, version = Reference.VERSION, dependencies = Reference.DEPSTRING, acceptableRemoteVersions = "*")
 public class PokecubeLegends
 {
     @Instance(value = Reference.ID)
     public static PokecubeLegends instance;
-
-    public boolean                enabled             = true;
-    public int                    ticksPerPortalSpawn = 6000;
+    
+    //mirage spot
+    public boolean                enabledmirage             = true;
+    public int                    ticksPerMirageSpawn = 6000;
+    
+    //ultraspace portal
+    public boolean                enabledportal             = true;
+    public int                    ticksPerPortalSpawn = 9000;
 
     public PokecubeLegends()
     {
@@ -47,24 +55,42 @@ public class PokecubeLegends
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-
+    	//Dimension
+    	DimensionInit.registerDimension();
+    	BiomeInit.registerBiomes();
+    	
         MinecraftForge.EVENT_BUS.register(this);
+        GameRegistry.registerWorldGenerator(new WorldGenCustomStrucute(), 0);
+        
         proxy.preinit(event);
         Configuration config = PokecubeCore.instance.getPokecubeConfig(event);
         config.load();
-        enabled = config.getBoolean("legends_enabled", Configuration.CATEGORY_GENERAL, true,
+        enabledmirage = config.getBoolean("legends_enabled_miragespot", Configuration.CATEGORY_GENERAL, true,
                 "whether legends is enabled.");
-        ticksPerPortalSpawn = config.getInt("ticks_per_portal_spawn", Configuration.CATEGORY_GENERAL, 6000, 0,
-                Integer.MAX_VALUE, "Time between ultra space portals spawning, 0 to disable");
+        enabledportal = config.getBoolean("legends_enabled_wormhole", Configuration.CATEGORY_GENERAL, true,
+                "whether legends is enabled.");
+        ticksPerMirageSpawn = config.getInt("ticks_per_mirage_spawn", Configuration.CATEGORY_GENERAL, 6000, 0,
+                Integer.MAX_VALUE, "Time to Mirage Spot Generation, 0 to disable");
+        ticksPerPortalSpawn = config.getInt("ticks_per_portal_spawn", Configuration.CATEGORY_GENERAL, 9000, 0,
+                Integer.MAX_VALUE, "Time for Ultra Wormhole Generation, 0 to disable");
         config.save();
         // Ore Registry
-        if (enabled) GameRegistry.registerWorldGenerator(new ModWorldGen(), 3);
-        if (ticksPerPortalSpawn > 0) MinecraftForge.EVENT_BUS.register(new PortalSpawnHandler());
+        GameRegistry.registerWorldGenerator(new OreWorldGen(), 3);
+        
+        if (enabledmirage)
+        if (ticksPerMirageSpawn > 0) {
+        	MinecraftForge.EVENT_BUS.register(new PortalSpawnHandler());
+        }
+        
+        if (enabledportal)
+            if (ticksPerPortalSpawn > 0) {
+            	MinecraftForge.EVENT_BUS.register(new WormHoleSpawnHandler());
+            }
     }
 
     @EventHandler
     public void initRegistries(FMLInitializationEvent e)
-    {
+    {  	
         try
         {
             TemplateManager.initTemplates();
@@ -79,13 +105,13 @@ public class PokecubeLegends
     @SubscribeEvent
     public void postPostInit(PostPostInit e)
     {
-        if (enabled) new LegendaryConditions();
+        if (enabledmirage) new LegendaryConditions();
     }
 
     @SubscribeEvent
     public void registerPokecubes(RegisterPokecubes event)
     {
-        final PokecubeBeast helper = new PokecubeBeast();
+        final PokecubeDim helper = new PokecubeDim();
 
         event.behaviors.add(new DefaultPokecubeBehavior()
         {
@@ -95,5 +121,15 @@ public class PokecubeLegends
                 return helper.beast(mob);
             }
         }.setRegistryName("pokecube_legends", "beast"));
+
+        /*event.behaviors.add(new DefaultPokecubeBehavior()
+        {	        	
+        	@Override
+            public double getCaptureModifier(IPokemob mob)
+            {
+        		return helper.dynamax(mob);
+            }
+        	
+        }.setRegistryName("pokecube_legends", "dynamax"));*/
     }
 }

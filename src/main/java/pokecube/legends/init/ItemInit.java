@@ -24,7 +24,7 @@ import pokecube.legends.items.LifeOrb;
 import pokecube.legends.items.LustrousOrb;
 import pokecube.legends.items.MagmaCore;
 import pokecube.legends.items.Meteorite;
-import pokecube.legends.items.MystAnte;
+import pokecube.legends.items.Emblem;
 import pokecube.legends.items.NMoon;
 import pokecube.legends.items.NSun;
 import pokecube.legends.items.OceanOrb;
@@ -36,8 +36,13 @@ import pokecube.legends.items.RedOrb;
 import pokecube.legends.items.RegisOrb;
 import pokecube.legends.items.RevealGlass;
 import pokecube.legends.items.RockCore;
+import pokecube.legends.items.RustedShield;
+import pokecube.legends.items.RustedSword;
 import pokecube.legends.items.SteelCore;
 import pokecube.legends.items.ZygardeCube;
+import pokecube.legends.items.dynamax.DynamaxShard;
+import pokecube.legends.items.dynamax.FragmentsDyna;
+import pokecube.legends.items.dynamax.GigantamaxShard;
 import pokecube.legends.items.DarkStone;
 import pokecube.legends.items.DestructOrb;
 import pokecube.legends.items.Gracidea;
@@ -64,7 +69,7 @@ public class ItemInit
 	public static final Item ROCKCORE = new RockCore("rockcore", 1);
 	public static final Item ICECORE = new IceCore("icecore", 1);
 	public static final Item STEELCORE = new SteelCore("steelcore", 1);
-	public static final Item MYST_ANTE = new MystAnte("mystante", 1);
+	public static final Item EMBLEM = new Emblem("emblem", 1);
 	public static final Item MAGMA_CORE = new MagmaCore("magmacore", 1);
 	public static final Item LIFEORB = new LifeOrb("lifeorb", 1);
 	public static final Item DESTRUCTORB = new DestructOrb("destructorb", 1);
@@ -72,6 +77,11 @@ public class ItemInit
 	public static final Item BLUE_RUNE = new BlueRune("blue_rune", 1);
 	public static final Item GREEN_RUNE = new GreenRune("green_rune", 1);
 	public static final Item REGIS_ORB = new RegisOrb("regisorb", 1);
+	
+	//Dynamax
+	public static final Item FRAGMENTDYN = new FragmentsDyna("fragmentdyn", 32);
+	public static final Item DYNAMAXSHARD = new DynamaxShard("dynamaxshard", 16);
+	public static final Item GIGANTAMAXSHARD = new GigantamaxShard("gigantamaxshard", 6);
 	
 	//Gens_ores
 	public static final Item SAPPHIRE = new ItemBase("sapphire", 64);
@@ -92,6 +102,8 @@ public class ItemInit
 	public static final Item NSUN = new NSun("n_sun", 1);
 	public static final Item NMOON = new NMoon("n_moon", 1);
 	public static final Item AZURE_FLUTE = new AzureFlute("azure_flute", 1);
+	public static final Item RSHIELD = new RustedShield("rustedshield", 1);
+	public static final Item RSWORD = new RustedSword("rustedsword", 1);
 	
 	//Tools
 	public static final ItemSword RAINBOW_SWORD = new RainbowSword("rainbow_sword", MATERIAL_RAINBOW);
