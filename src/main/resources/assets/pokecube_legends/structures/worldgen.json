@@ -15,7 +15,7 @@
 	{
       "name": "space_temple",
       "chance": 0.001,
-      "offset": 1,
+      "offset": -1,
       "spawn": {
         "values": {
           "types": "end"
@@ -158,15 +158,15 @@
       "priority": 60
     },
 	{
-      "name": "raid_base",
-      "chance": 0.001,
-      "offset": -1,
+      "name": "mega_center",
+      "chance": 0.05,
+      "offset": -2,
       "spawn": {
         "values": {
           "types": "all"
         }
       },
-      "priority": 40
+      "priority": 50
     }
   ],
   "multiStructures": []
