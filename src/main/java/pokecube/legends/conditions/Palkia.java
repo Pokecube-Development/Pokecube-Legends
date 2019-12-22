@@ -18,10 +18,14 @@ public class Palkia extends Condition
                 Database.getEntry("mesprit")) > 0;
         boolean azelf = CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(),
                 Database.getEntry("azelf")) > 0;
+                
+        String name = "Uxie, Mesprir, Azelf";
+                
         if ((uxie && mesprit && azelf)) return true;
         if (pokemon != null && !trainer.getEntityWorld().isRemote)
         {
             sendNoTrust(trainer);
+            sendLegendExtra(trainer, name);
         }
         return false;
     }

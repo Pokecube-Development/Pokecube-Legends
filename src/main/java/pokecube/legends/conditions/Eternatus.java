@@ -16,10 +16,14 @@ public class Eternatus extends Condition
                 Database.getEntry("zacian")) > 0;
         boolean palkia = CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(),
                 Database.getEntry("zamazenta")) > 0;
+                
+        String name = "Zacian, Zamazenta";
+        
         if ((dialga && palkia)) return true;
         if (pokemon != null && !trainer.getEntityWorld().isRemote)
         {
             sendNoTrust(trainer);
+            sendLegendExtra(trainer, name);
         }
         return false;
     }

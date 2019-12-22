@@ -18,10 +18,14 @@ public class Lugia extends Condition
                 Database.getEntry("zapdos")) > 0;
         boolean moltres = CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(),
                 Database.getEntry("moltres")) > 0;
+                
+        String name = "Articuno, Zapdos, Moltres";
+                
         if ((articuno && moltres && zapdos)) return true;
         if (pokemon != null && !trainer.getEntityWorld().isRemote)
         {
             sendNoTrust(trainer);
+            sendLegendExtra(trainer, name);
         }
         return false;
     }

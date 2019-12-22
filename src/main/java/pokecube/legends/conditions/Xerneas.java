@@ -14,12 +14,19 @@ public class Xerneas extends Condition
     public boolean canCapture(Entity trainer, IPokemob pokemon)
     {
         if (!canCapture(trainer)) return false;
-        int count1 = CaptureStats.getUniqueOfTypeCaughtBy(trainer.getUniqueID(), PokeType.getType("grass"));
-        int count2 = SpecialCaseRegister.countSpawnableTypes(PokeType.getType("grass"));
-        if (((double) count1) / ((double) count2) >= 0.3) { return true; }
+        int count1 = CaptureStats.getUniqueOfTypeCaughtBy(trainer.getUniqueID(), PokeType.getType("fairy"));
+        int count2 = SpecialCaseRegister.countSpawnableTypes(PokeType.getType("fairy"));
+        double captureFactor = ((double)count1 / (double)count2);
+        double roundOff = Math.round(captureFactor * 100.0) / 100.0;
+        
+        float numTotal = 0.5f;
+        String type = "Fairy";
+        
+        if (roundOff >= numTotal) { return true; }
         if (pokemon != null && !trainer.getEntityWorld().isRemote)
         {
             sendNoTrust(trainer);
+            sendLegend(trainer, type, numTotal, roundOff);
         }
         return false;
     }

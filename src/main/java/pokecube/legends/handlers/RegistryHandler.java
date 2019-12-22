@@ -15,11 +15,12 @@ import pokecube.legends.IHasModel;
 import pokecube.legends.Reference;
 import pokecube.legends.init.BlockInit;
 import pokecube.legends.init.ItemInit;
-import pokecube.legends.items.natureedit.UsableItemNature;
+import pokecube.legends.init.function.UsableItemNatureEffects;
 
 @EventBusSubscriber(modid=Reference.ID)
 public class RegistryHandler 
 {
+	
 	@SubscribeEvent
 	public static void onItemRegister(RegistryEvent.Register<Item> event) {
 		event.getRegistry().registerAll(ItemInit.ITEMS.toArray(new Item[0]));
@@ -33,7 +34,7 @@ public class RegistryHandler
 	@SubscribeEvent
     public void onItemCapabilityAttach(AttachCapabilitiesEvent<ItemStack> event)
     {
-        UsableItemNature.registerCapabilities(event);
+		UsableItemNatureEffects.registerCapabilities(event);
     }
 	
 	@SubscribeEvent
@@ -58,6 +59,7 @@ public class RegistryHandler
 	{
 		//OreDictionary
     	OreDictionaryCompat.registerOreDictionaryEntries();
+    	//ItemInit.registerItems(event);
     	//Dimension structures
     	
 	}

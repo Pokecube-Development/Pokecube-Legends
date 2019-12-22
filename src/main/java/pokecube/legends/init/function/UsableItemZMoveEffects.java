@@ -1,4 +1,4 @@
-package pokecube.legends.items.natureedit;
+package pokecube.legends.init.function;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.Item;
@@ -13,13 +13,13 @@ import net.minecraftforge.event.AttachCapabilitiesEvent;
 import pokecube.core.PokecubeItems;
 import pokecube.core.interfaces.IPokemob;
 import pokecube.core.interfaces.IPokemobUseable;
-import pokecube.core.interfaces.Nature;
+import pokecube.core.interfaces.pokemob.moves.MovePacket;
 import pokecube.legends.Reference;
-import pokecube.legends.init.ItemGeneratorNature;
+import pokecube.legends.items.zmove.ItemZCrystal;
 
-public class UsableItemNature
+public class UsableItemZMoveEffects
 {
-    public static class NatureUsable implements IPokemobUseable, ICapabilityProvider
+    public static class ZMoveUsable implements IPokemobUseable, ICapabilityProvider
     {
         /** Called when this item is "used". Normally this means via right
          * clicking the pokemob with the itemstack. It can also be called via
@@ -29,17 +29,20 @@ public class UsableItemNature
          * @param pokemob
          * @param stack
          * @return something happened */
+    	
+		@SuppressWarnings("null")
 		@Override
         public ActionResult<ItemStack> onUse(IPokemob pokemob, ItemStack stack, EntityLivingBase user)
         {
             if (user != pokemob.getEntity() && user != pokemob.getOwner())
                 return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
-            boolean used = false;
-            Nature nature = Nature.valueOf(ItemGeneratorNature.variants.toString());
-            pokemob.setNature(nature);
+            
+            MovePacket moveUse = null;
+            
+            boolean used = true;
             if (used)
             {
-                stack.splitStack(1);
+            	moveUse.didCrit = true;
                 PokecubeItems.deValidate(stack);
             }
             stack.setTagCompound(null);
@@ -66,9 +69,9 @@ public class UsableItemNature
     {
         if (event.getCapabilities().containsKey(USABLE)) return;
         Item item = event.getObject().getItem();
-        if (item instanceof ItemNature)
+        if (item instanceof ItemZCrystal)
         {
-            event.addCapability(USABLE, new NatureUsable());
+            event.addCapability(USABLE, new ZMoveUsable());
         }
     }
 }

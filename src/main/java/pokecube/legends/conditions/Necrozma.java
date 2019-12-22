@@ -16,10 +16,15 @@ public class Necrozma extends Condition
                 Database.getEntry("solgaleo")) > 0;
         boolean lunala = CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(),
                 Database.getEntry("lunala")) > 0;
+                
+        String name = "Solgaleo, Lunala";
+                
         if ((solgaleo && lunala)) return true;
         if (pokemon != null && !trainer.getEntityWorld().isRemote)
         {
             sendNoTrust(trainer);
+            sendLegendExtra(trainer, name);
+            
         }
         return false;
     }

@@ -2,8 +2,11 @@ package pokecube.legends;
 
 import java.io.IOException;
 import java.util.logging.Level;
+
+import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -24,6 +27,7 @@ import pokecube.legends.handlers.RegistryHandler;
 import pokecube.legends.handlers.WormHoleSpawnHandler;
 import pokecube.legends.init.BiomeInit;
 import pokecube.legends.init.DimensionInit;
+import pokecube.legends.init.ItemInit;
 import pokecube.legends.init.PokecubeDim;
 import pokecube.legends.proxy.CommonProxy;
 import pokecube.legends.worldgen.gencustom.TemplateManager;
@@ -36,9 +40,12 @@ public class PokecubeLegends
     @Instance(value = Reference.ID)
     public static PokecubeLegends instance;
     
+    //Enabla Condition
+    public boolean                enabledcondition          = true;
+    
     //mirage spot
     public boolean                enabledmirage             = true;
-    public int                    ticksPerMirageSpawn = 6000;
+    public int                    ticksPerMirageSpawn = 7000;
     
     //ultraspace portal
     public boolean                enabledportal             = true;
@@ -51,7 +58,7 @@ public class PokecubeLegends
 
     @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.COMMON_PROXY_CLASS)
     public static CommonProxy proxy;
-
+    
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
@@ -60,20 +67,29 @@ public class PokecubeLegends
     	BiomeInit.registerBiomes();
     	
         MinecraftForge.EVENT_BUS.register(this);
+        
         GameRegistry.registerWorldGenerator(new WorldGenCustomStrucute(), 0);
         
         proxy.preinit(event);
+        
         Configuration config = PokecubeCore.instance.getPokecubeConfig(event);
         config.load();
+        
+        enabledcondition = config.getBoolean("legends_enabled", Configuration.CATEGORY_GENERAL, true,
+                "enable the capture condition of the legends.");
+        
         enabledmirage = config.getBoolean("legends_enabled_miragespot", Configuration.CATEGORY_GENERAL, true,
                 "whether legends is enabled.");
         enabledportal = config.getBoolean("legends_enabled_wormhole", Configuration.CATEGORY_GENERAL, true,
                 "whether legends is enabled.");
+        
         ticksPerMirageSpawn = config.getInt("ticks_per_mirage_spawn", Configuration.CATEGORY_GENERAL, 6000, 0,
                 Integer.MAX_VALUE, "Time to Mirage Spot Generation, 0 to disable");
+        
         ticksPerPortalSpawn = config.getInt("ticks_per_portal_spawn", Configuration.CATEGORY_GENERAL, 9000, 0,
                 Integer.MAX_VALUE, "Time for Ultra Wormhole Generation, 0 to disable");
         config.save();
+        
         // Ore Registry
         GameRegistry.registerWorldGenerator(new OreWorldGen(), 3);
         
@@ -87,7 +103,7 @@ public class PokecubeLegends
             	MinecraftForge.EVENT_BUS.register(new WormHoleSpawnHandler());
             }
     }
-
+    
     @EventHandler
     public void initRegistries(FMLInitializationEvent e)
     {  	
@@ -101,13 +117,20 @@ public class PokecubeLegends
         }
         RegistryHandler.initRegistries(e);
     }
+    
+    //Registry Item Nature/Z-Move Crystal
+    @SubscribeEvent
+    public void registerItems(RegistryEvent.Register<Item> evt)
+    {
+        ItemInit.registerItems(evt.getRegistry());
+    }
 
     @SubscribeEvent
     public void postPostInit(PostPostInit e)
     {
-        if (enabledmirage) new LegendaryConditions();
+        if (enabledcondition) new LegendaryConditions();
     }
-
+    
     @SubscribeEvent
     public void registerPokecubes(RegisterPokecubes event)
     {
@@ -122,7 +145,7 @@ public class PokecubeLegends
             }
         }.setRegistryName("pokecube_legends", "beast"));
 
-        /*event.behaviors.add(new DefaultPokecubeBehavior()
+        event.behaviors.add(new DefaultPokecubeBehavior()
         {	        	
         	@Override
             public double getCaptureModifier(IPokemob mob)
@@ -130,6 +153,6 @@ public class PokecubeLegends
         		return helper.dynamax(mob);
             }
         	
-        }.setRegistryName("pokecube_legends", "dynamax"));*/
+        }.setRegistryName("pokecube_legends", "dynamax"));
     }
 }

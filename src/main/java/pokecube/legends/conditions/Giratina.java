@@ -16,10 +16,14 @@ public class Giratina extends Condition
                 Database.getEntry("dialga")) > 0;
         boolean palkia = CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(),
                 Database.getEntry("palkia")) > 0;
+                
+        String name = "Dialga, Palkia";
+                
         if ((dialga && palkia)) return true;
         if (pokemon != null && !trainer.getEntityWorld().isRemote)
         {
             sendNoTrust(trainer);
+            sendLegendExtra(trainer, name);
         }
         return false;
     }

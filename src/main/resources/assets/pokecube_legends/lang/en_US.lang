@@ -3,6 +3,11 @@
 //pokecubes
 item.beastcube.name=Beast Cube
 
+//Alert Pokemon Legendary Capture
+msg.infolegend.txt=§aCapture [%1$s§a] Type Pokemob so he can Trust You. Needs: %2$s. §aOwn: %3$s.
+msg.infolegendduo.txt=§aCapture [%1$s§a] Type Pokemob and Kill [%2$s§a] Type Pokemob. Needs: %3$s. §aOwn: %4$s. §aNeeds Kill: %5$s. §aOwn: %6$s.
+msg.infolegendextra.txt=§a Get [%1$s§a] to Catch this Pokemob.
+
 //Items
 item.lightstone.name=Light Stone
 item.darkstone.name=Dark Stone
@@ -57,6 +62,26 @@ item.mint_HARDY.name=Mint Hardy
 item.mint_QUIRKY.name=Mint Quirky
 item.mint_DOCILE.name=Mint Docile
 item.mint_BASHFUL.name=Mint Bashful
+
+//Z Move
+item.z_grass.name=Grassium Z (WIP)
+item.z_bug.name=Buginium Z (WIP)
+item.z_dark.name=Darkinum Z (WIP)
+item.z_dragon.name=Dragonium Z (WIP)
+item.z_electric.name=Electrium Z (WIP)
+item.z_fairy.name=Fairium Z (WIP)
+item.z_fighting.name=Fightinium Z (WIP)
+item.z_fire.name=Firium Z (WIP)
+item.z_ground.name=Groundium Z (WIP)
+item.z_ice.name=Icium Z (WIP)
+item.z_normal.name=Normalium Z (WIP)
+item.z_poison.name=Poisonium Z (WIP)
+item.z_psychic.name=Psychium Z (WIP)
+item.z_rock.name=Rockium Z (WIP)
+item.z_steel.name=Steelium Z (WIP)
+item.z_water.name=Waterium Z (WIP)
+item.z_flying.name=Flyingium Z (WIP)
+item.z_unknown.name=Incomununium Z (WIP)
 
 //Dynamax Items Test
 item.fragmentdyn.name=Fragment Dynamax (WIP)

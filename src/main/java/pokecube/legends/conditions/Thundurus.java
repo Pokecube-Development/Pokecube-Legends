@@ -14,10 +14,14 @@ public class Thundurus extends Condition
         if (!canCapture(trainer)) return false;
         boolean volcanion = CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(),
                 Database.getEntry("meloetta")) > 0;
+                
+        String name = "Meloetta";
+                
         if ((volcanion)) return true;
         if (pokemon != null && !trainer.getEntityWorld().isRemote)
         {
             sendNoTrust(trainer);
+            sendLegendExtra(trainer, name);
         }
         return false;
     }
