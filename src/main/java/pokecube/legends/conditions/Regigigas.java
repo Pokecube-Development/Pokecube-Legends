@@ -24,10 +24,14 @@ public class Regigigas extends Condition
                 Database.getEntry("registeel")) > 0;
         boolean regirock = CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(),
                 Database.getEntry("regirock")) > 0;
+                
+        String name = "Regice, Registeel, Regirock";
+                
         if ((regice && registeel && regirock)) return true;
         if (pokemon != null && !trainer.getEntityWorld().isRemote)
         {
             sendNoTrust(trainer);
+            sendLegendExtra(trainer, name);
         }
         return false;
     }

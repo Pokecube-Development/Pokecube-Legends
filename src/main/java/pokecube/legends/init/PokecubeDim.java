@@ -1,9 +1,9 @@
 package pokecube.legends.init;
 
 import net.minecraft.entity.Entity;
-//import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLiving;
 import pokecube.core.interfaces.IPokemob;
-//import pokecube.core.interfaces.capabilities.CapabilityPokemob;
+import pokecube.core.interfaces.capabilities.CapabilityPokemob;
 
 public class PokecubeDim
 {	
@@ -23,7 +23,7 @@ public class PokecubeDim
     }
 	
 	//Dynamax
-	/*public double dynamax(IPokemob mob)
+	public double dynamax(IPokemob mob)
     {
 		double x = 0.1;
 		EntityLiving entity = mob.getEntity();
@@ -36,5 +36,5 @@ public class PokecubeDim
 			//System.console().printf("ta aki");
         }
         return x;
-    }*/
+    }
 }

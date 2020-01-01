@@ -18,10 +18,14 @@ public class Hooh extends Condition
                 Database.getEntry("suicune")) > 0;
         boolean entei = CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(),
                 Database.getEntry("entei")) > 0;
+
+        String name = "Raikou, Suicune, Entei";
+                
         if ((raikou && entei && suicune)) return true;
         if (pokemon != null && !trainer.getEntityWorld().isRemote)
         {
             sendNoTrust(trainer);
+            sendLegendExtra(trainer, name);
         }
         return false;
     }

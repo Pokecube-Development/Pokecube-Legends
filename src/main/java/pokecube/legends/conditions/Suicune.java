@@ -16,10 +16,17 @@ public class Suicune extends Condition
         if (!canCapture(trainer)) return false;
         int count1 = CaptureStats.getUniqueOfTypeCaughtBy(trainer.getUniqueID(), PokeType.getType("water"));
         int count2 = SpecialCaseRegister.countSpawnableTypes(PokeType.getType("water"));
-        if (((double) count1) / ((double) count2) >= 0.5) { return true; }
+        double captureFactor = ((double)count1 / (double)count2);
+        double roundOff = Math.round(captureFactor * 100.0) / 100.0;
+        
+        float numTotal = 0.6f;
+        String type = "Water";
+        
+        if (roundOff >= numTotal) { return true; }
         if (pokemon != null && !trainer.getEntityWorld().isRemote)
         {
             sendNoTrust(trainer);
+            sendLegend(trainer, type, numTotal, roundOff);
         }
         return false;
     }

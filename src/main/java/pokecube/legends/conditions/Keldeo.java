@@ -18,10 +18,14 @@ public class Keldeo extends Condition
                 Database.getEntry("terrakion")) > 0;
         boolean cobalion = CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(),
                 Database.getEntry("cobalion")) > 0;
+                
+        String name = "Virizion, Terrakion, Cobalion";
+                
         if ((virizion && terrakion && cobalion)) return true;
         if (pokemon != null && !trainer.getEntityWorld().isRemote)
         {
             sendNoTrust(trainer);
+            sendLegendExtra(trainer, name);
         }
         return false;
     }

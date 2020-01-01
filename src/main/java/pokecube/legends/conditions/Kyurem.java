@@ -12,14 +12,18 @@ public class Kyurem extends Condition
     public boolean canCapture(Entity trainer, IPokemob pokemon)
     {
         if (!canCapture(trainer)) return false;
-        boolean dialga = CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(),
+        boolean reshiram = CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(),
                 Database.getEntry("reshiram")) > 0;
-        boolean palkia = CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(),
+        boolean zekrom = CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(),
                 Database.getEntry("zekrom")) > 0;
-        if ((dialga && palkia)) return true;
+                
+        String name = "Reshiram, Zekrom";
+                
+        if ((reshiram && zekrom)) return true;
         if (pokemon != null && !trainer.getEntityWorld().isRemote)
         {
             sendNoTrust(trainer);
+            sendLegendExtra(trainer, name);
         }
         return false;
     }

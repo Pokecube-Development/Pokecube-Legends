@@ -120,6 +120,30 @@ public abstract class Condition implements ISpecialCaptureCondition, ISpecialSpa
                 new TextComponentTranslation(getEntry().getUnlocalizedName()));
         trainer.sendMessage(component);
     }
+    
+    //Basic Legend
+    public void sendLegend(Entity trainer, String type, float numA, double numB)
+    {
+        String message = "msg.infolegend.txt";
+        ITextComponent component = new TextComponentTranslation(message, type, numA, numB);
+        trainer.sendMessage(component);
+    }
+    
+    //Duo Type Legend
+    public void sendLegendDuo(Entity trainer, String type, String kill, float numA, double numB, float killa, double killb)
+    {
+        String message = "msg.infolegendduo.txt";
+        ITextComponent component = new TextComponentTranslation(message, type, kill, numA, numB, killa, killb);
+        trainer.sendMessage(component);
+    }
+    
+    //Catch specific Legend
+    public void sendLegendExtra(Entity trainer, String names)
+    {
+        String message = "msg.infolegendextra.txt";
+        ITextComponent component = new TextComponentTranslation(message, names);
+        trainer.sendMessage(component);
+    }
 
     public void sendAngered(Entity trainer)
     {

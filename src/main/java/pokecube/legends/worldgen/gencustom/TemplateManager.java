@@ -34,7 +34,7 @@ public class TemplateManager
         legends_templates.add("victini_place.nbt");
         legends_templates.add("zacian_temple.nbt");
         legends_templates.add("zamazenta_temple.nbt");
-        legends_templates.add("raid_base.nbt");
+        legends_templates.add("mega_center.nbt");
     }
 
     private static boolean copyFile(String fileName, boolean overwrite) throws IOException

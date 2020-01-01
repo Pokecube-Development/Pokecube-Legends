@@ -1,16 +1,31 @@
 package pokecube.legends.init;
 
+import static pokecube.core.PokecubeItems.register;
+import static pokecube.core.PokecubeItems.registerItemTexture;
+import static pokecube.core.interfaces.PokecubeMod.creativeTabPokecube;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemSword;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.relauncher.Side;
+import pokecube.core.PokecubeItems;
+import pokecube.core.handlers.ItemGenerator;
+import pokecube.core.interfaces.Nature;
+import pokecube.core.utils.PokeType;
 import pokecube.legends.items.AdamantOrb;
 import pokecube.legends.items.AzureFlute;
 import pokecube.legends.items.BlueOrb;
 import pokecube.legends.items.BlueRune;
+import pokecube.legends.items.ChippedPot;
+import pokecube.legends.items.CrackedPot;
 import pokecube.legends.items.DNASplicerA;
 import pokecube.legends.items.DNASplicerB;
 import pokecube.legends.items.GrayOrb;
@@ -43,12 +58,13 @@ import pokecube.legends.items.ZygardeCube;
 import pokecube.legends.items.dynamax.DynamaxShard;
 import pokecube.legends.items.dynamax.FragmentsDyna;
 import pokecube.legends.items.dynamax.GigantamaxShard;
+import pokecube.legends.items.natureedit.ItemNature;
+import pokecube.legends.items.zmove.ItemZCrystal;
 import pokecube.legends.items.DarkStone;
 import pokecube.legends.items.DestructOrb;
 import pokecube.legends.items.Gracidea;
 
-public class ItemInit 
-{
+public class ItemInit {
 	
 	public static final List<Item> ITEMS = new ArrayList<Item>();
 	
@@ -104,7 +120,72 @@ public class ItemInit
 	public static final Item AZURE_FLUTE = new AzureFlute("azure_flute", 1);
 	public static final Item RSHIELD = new RustedShield("rustedshield", 1);
 	public static final Item RSWORD = new RustedSword("rustedsword", 1);
+	public static final Item CHPOT = new ChippedPot("chippedpot", 1);
+	public static final Item CRPOT = new CrackedPot("crackedpot", 1);
+	
+	//Mint Nature
+	//public static final Item MINT_1 = new MintLonely("mint_lonely", 1);
 	
 	//Tools
 	public static final ItemSword RAINBOW_SWORD = new RainbowSword("rainbow_sword", MATERIAL_RAINBOW);
+	
+	//Nature Item
+	public static void addMint(Object registry)
+    {
+        for (Nature type : Nature.values())
+        {
+            Item mind = new ItemNature(type).setCreativeTab(creativeTabPokecube);
+            register(mind, registry);
+            if (FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT)
+            {
+                String name = type.name().equals("???") ? "unknown" : type.name();
+                registerItemTexture(mind, 0,
+                        new ModelResourceLocation("pokecube_legends:" + "mint_" + name, "inventory"));
+            }
+            ItemStack stack = new ItemStack(mind, 1, 0);
+            PokecubeItems.addToHoldables(stack);
+        }
+    }
+	
+	//Z-Crystal Item
+		public static void addZCrystal(Object registry)
+	    {
+	        for (PokeType type : PokeType.values())
+	        {
+	            Item crystal = new ItemZCrystal(type).setCreativeTab(creativeTabPokecube);
+	            register(crystal, registry);
+	            if (FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT)
+	            {
+	                String name = type.name().equals("???") ? "unknown" : type.name();
+	                registerItemTexture(crystal, 0,
+	                        new ModelResourceLocation("pokecube_legends:" + "z_" + name, "inventory"));
+	            }
+	            ItemStack stack = new ItemStack(crystal, 1, 0);
+	            PokecubeItems.addToHoldables(stack);
+	        }
+	    }
+	
+    public static void registerItems(Object registry) {
+        addMint(registry);
+        
+        ItemGenerator.ITEMMODIFIERS.put(new Predicate<ItemStack>()
+        {
+            @Override
+            public boolean test(ItemStack t)
+            {
+                return ItemNature.isNature(t);
+            }
+        }, null);
+        
+        addZCrystal(registry);
+        
+        ItemGenerator.ITEMMODIFIERS.put(new Predicate<ItemStack>()
+        {
+            @Override
+            public boolean test(ItemStack t)
+            {
+                return ItemZCrystal.isZCrystal(t);
+            }
+        }, null);
+     }
 }

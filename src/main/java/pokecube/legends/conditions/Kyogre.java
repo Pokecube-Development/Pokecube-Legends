@@ -22,10 +22,21 @@ public class Kyogre extends Condition
         int count4 = SpecialCaseRegister.countSpawnableTypes(PokeType.getType("ground"));
         double captureFactor = (double) count1 / (double) count3;
         double killFactor = (double) count2 / (double) count4;
-        if (killFactor >= 0.5 && captureFactor >= 0.5) { return true; }
+        
+        double roundCap = Math.round(captureFactor * 100.0) / 100.0;
+        double roundKill = Math.round(killFactor * 100.0) / 100.0;
+        
+        float numTotal = 0.8f;
+        float numKill = 0.8f;
+        
+        String type = "Water";
+        String kill = "Ground"; 
+        
+        if (roundKill >= numKill && roundCap >= numTotal) { return true; }
         if (pokemon != null && !trainer.getEntityWorld().isRemote)
         {
             sendNoTrust(trainer);
+            sendLegendDuo(trainer, type, kill, numTotal, roundCap, numKill, roundKill);
         }
         return false;
     }

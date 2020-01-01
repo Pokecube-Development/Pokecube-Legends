@@ -3,9 +3,7 @@ package pokecube.legends.init.function;
 import net.minecraft.world.WorldServer;
 import pokecube.core.database.Database;
 import pokecube.core.database.PokedexEntry;
-// import pokecube.core.interfaces.IPokemob;
 import pokecube.core.interfaces.PokecubeMod;
-// import pokecube.core.interfaces.capabilities.CapabilityPokemob;
 import thut.api.maths.Vector3;
 import net.minecraft.world.World;
 import net.minecraft.util.math.BlockPos;
@@ -88,7 +86,7 @@ public class PortalActiveFunction
         return ret;
     }
 
-    public static void executeProcedure(java.util.HashMap<String, Object> dependencies)
+	public static void executeProcedure(java.util.HashMap<String, Object> dependencies)
     {
         if (dependencies.get("x") == null)
         {
@@ -120,9 +118,9 @@ public class PortalActiveFunction
             BlockPos pos = null;
             EntityLiving entity = (EntityLiving) PokecubeMod.core.createPokemob(entityToSpawn, world);
             Vector3 location = Vector3.getNewVector().set(pos);
-            if (entity != null)
+            //IPokemob pokemob = CapabilityPokemob.getPokemobFor(entity);
+            if (entity != null && entityToSpawn.legendary == false)
             {
-                // IPokemob pokemob = CapabilityPokemob.getPokemobFor(entity);
                 entity.setHealth(entity.getMaxHealth());
                 location.add(0, 1, 0).moveEntity(entity);
                 entity.setPosition(x, y, z);
@@ -130,7 +128,7 @@ public class PortalActiveFunction
             }
         }
         world.setBlockToAir(new BlockPos((int) x, (int) y, (int) z));
-        if (world instanceof WorldServer) ((WorldServer) world).spawnParticle(EnumParticleTypes.FIREWORKS_SPARK, x, y,
+        if (world instanceof WorldServer) ((WorldServer) world).spawnParticle(EnumParticleTypes.FIREWORKS_SPARK, x, y+1,
                 z, (int) 15, 6, 6, 6, 0.4, new int[0]);
         world.playSound((EntityPlayer) null, x, y, z,
                 (net.minecraft.util.SoundEvent) net.minecraft.util.SoundEvent.REGISTRY

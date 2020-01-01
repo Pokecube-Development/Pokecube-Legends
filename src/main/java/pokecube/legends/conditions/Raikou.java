@@ -13,14 +13,21 @@ public class Raikou extends Condition
     @Override
     public boolean canCapture(Entity trainer, IPokemob pokemon)
     {
-        if (!canCapture(trainer)) return false;
-        int count1 = CaptureStats.getUniqueOfTypeCaughtBy(trainer.getUniqueID(), PokeType.getType("electric"));
-        int count2 = SpecialCaseRegister.countSpawnableTypes(PokeType.getType("electric"));
-        if (((double) count1) / ((double) count2) >= 0.5) { return true; }
-        if (pokemon != null && !trainer.getEntityWorld().isRemote)
-        {
-            sendNoTrust(trainer);
-        }
+    	 if (!canCapture(trainer)) return false;
+         int count1 = CaptureStats.getUniqueOfTypeCaughtBy(trainer.getUniqueID(), PokeType.getType("electric"));
+         int count2 = SpecialCaseRegister.countSpawnableTypes(PokeType.getType("electric"));
+         double captureFactor = ((double)count1 / (double)count2);
+         double roundOff = Math.round(captureFactor * 100.0) / 100.0;
+         
+         float numTotal = 0.5f;
+         String type = "Electric";
+         
+         if (roundOff >= numTotal) { return true; }
+         if (pokemon != null && !trainer.getEntityWorld().isRemote)
+         {
+             sendNoTrust(trainer);
+             sendLegend(trainer, type, numTotal, roundOff);
+         }
         return false;
     }
 

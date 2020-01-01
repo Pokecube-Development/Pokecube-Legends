@@ -38,7 +38,7 @@ public class WormHoleActiveFunction {
 		World world = (World) dependencies.get("world");
 		world.setBlockToAir(new BlockPos((int) x, (int) y, (int) z));
 		if (world instanceof WorldServer)
-			((WorldServer) world).spawnParticle(EnumParticleTypes.FIREWORKS_SPARK, x, y, z, (int) 15, 6, 6, 6, 0.4, new int[0]);
+			((WorldServer) world).spawnParticle(EnumParticleTypes.FIREWORKS_SPARK, x, y+1, z, (int) 15, 6, 6, 6, 0.4, new int[0]);
 		world.playSound((EntityPlayer) null, x, y, z,
 				(net.minecraft.util.SoundEvent) net.minecraft.util.SoundEvent.REGISTRY.getObject(new ResourceLocation("entity.wither.death")),
 				SoundCategory.NEUTRAL, (float) 1, (float) 1);

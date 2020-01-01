@@ -17,14 +17,25 @@ public class Groudon extends Condition
         if (!canCapture(trainer)) return false;
         int count1 = CaptureStats.getUniqueOfTypeCaughtBy(trainer.getUniqueID(), PokeType.getType("ground"));
         int count2 = KillStats.getUniqueOfTypeKilledBy(trainer.getUniqueID(), PokeType.getType("water"));
-        int count4 = SpecialCaseRegister.countSpawnableTypes(PokeType.getType("water"));
         int count3 = SpecialCaseRegister.countSpawnableTypes(PokeType.getType("ground"));
+        int count4 = SpecialCaseRegister.countSpawnableTypes(PokeType.getType("water"));
         double captureFactor = (double) count1 / (double) count3;
         double killFactor = (double) count2 / (double) count4;
-        if (killFactor >= 0.5 && captureFactor >= 0.5) { return true; }
+        
+        double roundCap = Math.round(captureFactor * 100.0) / 100.0;
+        double roundKill = Math.round(killFactor * 100.0) / 100.0;
+        
+        float numTotal = 0.8f;
+        float numKill = 0.8f;
+        
+        String type = "Ground";
+        String kill = "Water"; 
+        
+        if (roundKill >= numKill && roundCap >= numTotal) { return true; }
         if (pokemon != null && !trainer.getEntityWorld().isRemote)
         {
             sendNoTrust(trainer);
+            sendLegendDuo(trainer, type, kill, numTotal, roundCap, numKill, roundKill);
         }
         return false;
     }

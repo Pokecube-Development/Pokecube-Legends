@@ -23,10 +23,14 @@ public class Regice extends Condition
                 Database.getEntry("relicanth")) > 0;
         boolean wailord = CaptureStats.getTotalNumberOfPokemobCaughtBy(trainer.getUniqueID(),
                 Database.getEntry("wailord")) > 0;
+                
+        String name = "Wailord, Relicanth";
+        
         if ((relicanth && wailord)) return true;
         if (pokemon != null && !trainer.getEntityWorld().isRemote)
         {
             sendNoTrust(trainer);
+            sendLegendExtra(trainer, name);
         }
         return false;
     }
