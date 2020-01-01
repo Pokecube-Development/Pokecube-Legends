@@ -32,7 +32,7 @@ public class RegistryHandler
 	}
 	
 	@SubscribeEvent
-    public void onItemCapabilityAttach(AttachCapabilitiesEvent<ItemStack> event)
+    public static void onItemCapabilityAttach(AttachCapabilitiesEvent<ItemStack> event)
     {
 		UsableItemNatureEffects.registerCapabilities(event);
     }

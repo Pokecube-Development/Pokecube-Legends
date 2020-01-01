@@ -10,9 +10,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
-import pokecube.core.PokecubeItems;
 import pokecube.core.interfaces.IPokemob;
 import pokecube.core.interfaces.IPokemobUseable;
+import pokecube.core.interfaces.Nature;
 import pokecube.legends.Reference;
 import pokecube.legends.items.natureedit.ItemNature;
 
@@ -20,6 +20,13 @@ public class UsableItemNatureEffects
 {
     public static class NatureUsable implements IPokemobUseable, ICapabilityProvider
     {
+        private final Nature nature;
+
+        public NatureUsable(Nature nature)
+        {
+            this.nature = nature;
+        }
+
         /** Called when this item is "used". Normally this means via right
          * clicking the pokemob with the itemstack. It can also be called via
          * onTick or onMoveTick, in which case user will be pokemob.getEntity()
@@ -28,19 +35,17 @@ public class UsableItemNatureEffects
          * @param pokemob
          * @param stack
          * @return something happened */
-    	
+
         @Override
         public ActionResult<ItemStack> onUse(IPokemob pokemob, ItemStack stack, EntityLivingBase user)
         {
-            if (user != pokemob.getEntity() && user != pokemob.getOwner())
-                return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
-            boolean used = true;
+            if (user != pokemob.getOwner()) return new ActionResult<ItemStack>(EnumActionResult.FAIL, stack);
+            boolean used = pokemob.getNature() != nature;
             if (used)
             {
+                pokemob.setNature(nature);
                 stack.splitStack(1);
-                PokecubeItems.deValidate(stack);
             }
-            stack.setTagCompound(null);
             return new ActionResult<ItemStack>(used ? EnumActionResult.SUCCESS : EnumActionResult.FAIL, stack);
         }
 
@@ -66,7 +71,7 @@ public class UsableItemNatureEffects
         Item item = event.getObject().getItem();
         if (item instanceof ItemNature)
         {
-            event.addCapability(USABLE, new NatureUsable());
+            event.addCapability(USABLE, new NatureUsable(((ItemNature) item).type));
         }
     }
 }
