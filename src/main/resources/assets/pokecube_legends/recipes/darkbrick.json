@@ -1,0 +1,28 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        " A ",
+        "ARA",
+        " A "
+    ],
+    
+    "key":
+    {
+        "R":
+        {
+            "item": "minecraft:leaves"
+        },
+		"A":
+        {
+            "item": "minecraft:stonebrick"
+        }
+    },
+    
+    "result":
+    {
+        "item": "pokecube_legends:darkskybrick",
+        "count": 4
+    }
+}

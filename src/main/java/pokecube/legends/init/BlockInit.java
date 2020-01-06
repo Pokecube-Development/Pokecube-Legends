@@ -42,13 +42,21 @@ public class BlockInit
 	public static final Block DARKSKY_BRICK = new BlockBase("darkskybrick", Material.ROCK);
 	
 	//Dimensioin
+	public static final Block ULTRA_MAGNETIC = new BlockBase("ultramagnetic", Material.GLASS);
+	public static final Block ULTRA_SANDSTONE = new BlockBase("ultrasandstone", Material.SAND);
+	public static final Block ULTRA_COBBLES = new BlockBase("ultracobbles", Material.ROCK);
+	public static final Block ULTRA_GRASSMUSS = new BlockBase("ultragrass1", Material.GRASS);
+	public static final Block ULTRA_DIRTMUSS = new BlockBase("ultradirt1", Material.CLAY);
+	public static final Block ULTRA_GRASSJUN = new BlockBase("ultragrass2", Material.GRASS);
+	public static final Block ULTRA_DIRTJUN = new BlockBase("ultradirt2", Material.CLAY);
 	public static final Block ULTRA_STONE = new BlockBase("ultrastone", Material.ROCK);
-	public static final Block ULTRA_METAL = new BlockBase("ultrablock", Material.ROCK);
+	public static final Block ULTRA_METAL = new BlockBase("ultrablock", Material.IRON);
+	public static final Block ULTRA_SAND = new BlockBase("ultrasand", Material.SAND);
 	
 	//Portal
 	public static final Block ULTRASPACE_PORTAL = new UltraSpacePortal("ultraspace_portal", Material.GLASS, 0D, 0, 0, 1D, 3D, 1D);
 	public static final Block BLOCK_PORTALWARP = new PortalWarp("portal", Material.ANVIL, 0D, 0, 0, 1D, 3D, 1D);
-	public static final Block BLOCK_MAXRAID = new MaxRaidSpawnBlock("maxraidspawn", Material.ROCK);
+	//public static final Block BLOCK_MAXRAID = new MaxRaidSpawnBlock("maxraidspawn", Material.ROCK);
 	
 	//Legendary Spawns
 	public static final Block LEGENDARY_SPAWN = new LegendaryBlock("legendaryspawn", Material.IRON);

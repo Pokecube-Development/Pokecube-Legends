@@ -1,8 +1,6 @@
 package pokecube.legends.worldgen.biomes;
 
 import java.util.Random;
-
-import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.relauncher.Side;
@@ -11,15 +9,16 @@ import pokecube.legends.init.BlockInit;
 
 public class UltraUB1 extends Biome
 {
-	//Nhihilego
+	//Nhihilego/Xurkitree/Blacephalun
 	@SuppressWarnings("unused")
 	public UltraUB1() 
 	{
-		super(new BiomeProperties("UB01").setRainDisabled().setBaseHeight(0.1f).setTemperature(0.5f).setHeightVariation(0.2f));
+		super(new BiomeProperties("UB01").setRainDisabled().setBaseHeight(0.1f).setTemperature(0.8f).setHeightVariation(0.1f));
 		
-		topBlock = Blocks.GRASS.getDefaultState();
-		fillerBlock = BlockInit.ULTRA_STONE.getDefaultState();
+		topBlock = BlockInit.ULTRA_GRASSMUSS.getDefaultState();
+		fillerBlock = BlockInit.ULTRA_DIRTMUSS.getDefaultState();
 		this.decorator.treesPerChunk = 0;
+		this.decorator.grassPerChunk = 10;
 		this.decorator.flowersPerChunk = 0;
 		this.decorator.mushroomsPerChunk = 2;
 		this.decorator.bigMushroomsPerChunk = 7;
@@ -29,17 +28,17 @@ public class UltraUB1 extends Biome
 		this.spawnableWaterCreatureList.clear();
 		Random rand = new Random();
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getGrassColorAtPos(BlockPos pos) {
-		return -16182234;
+		return -11394970;
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getFoliageColorAtPos(BlockPos pos) {
-		return -16445938;
+		return -11394970;
 	}
 
 	@SideOnly(Side.CLIENT)

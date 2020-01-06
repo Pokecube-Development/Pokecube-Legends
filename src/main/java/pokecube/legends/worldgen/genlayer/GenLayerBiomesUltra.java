@@ -8,7 +8,7 @@ import pokecube.legends.init.BiomeInit;
 public class GenLayerBiomesUltra extends GenLayer
 {
 	private Biome[] allowedBiomes = {
-			BiomeInit.BIOME_UB01,
+			/*BiomeInit.BIOME_UB01,
 			BiomeInit.BIOME_UB02,
 			BiomeInit.BIOME_UB03,
 			BiomeInit.BIOME_UB04,
@@ -17,7 +17,11 @@ public class GenLayerBiomesUltra extends GenLayer
 			BiomeInit.BIOME_UB07,
 			BiomeInit.BIOME_UB08,
 			BiomeInit.BIOME_UB09,
-			BiomeInit.BIOME_UB10
+			BiomeInit.BIOME_UB10*/
+			BiomeInit.BIOME_UB1,
+			BiomeInit.BIOME_UB2,
+			BiomeInit.BIOME_UB3,
+			BiomeInit.BIOME_UB4
 			};
 	
 	public GenLayerBiomesUltra(long seed) 

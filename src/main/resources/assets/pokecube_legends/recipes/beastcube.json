@@ -4,7 +4,7 @@
     "pattern":
     [
         "GRG",
-        "RAR",
+        "PAP",
         "GRG"
     ],
     
@@ -21,12 +21,16 @@
 		"R":
         {
             "item": "pokecube_legends:crystal_shard"
+        },
+		"P":
+        {
+            "item": "pokecube_legends:ultramagnetic"
         }
     },
     
     "result":
     {
         "item": "pokecube:beastcube",
-        "count": 1
+        "count": 2
     }
 }

@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "RRR",
+        "RRR",
+        "RRR"
+    ],
+    
+    "key":
+    {
+        "R":
+        {
+            "item": "minecraft:prismarine"
+        }
+    },
+    
+    "result":
+    {
+        "item": "pokecube_legends:oceanbrick",
+        "count": 4
+    }
+}
