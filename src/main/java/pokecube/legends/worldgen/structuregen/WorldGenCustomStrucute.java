@@ -1,6 +1,7 @@
 package pokecube.legends.worldgen.structuregen;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -16,7 +17,6 @@ import pokecube.legends.worldgen.biomes.UltraUB1;
 import pokecube.legends.worldgen.biomes.UltraUB2;
 import pokecube.legends.worldgen.biomes.UltraUB3;
 import pokecube.legends.worldgen.biomes.UltraUB4;
-import scala.actors.threadpool.Arrays;
 
 public class WorldGenCustomStrucute implements IWorldGenerator
 {	
@@ -66,7 +66,6 @@ public class WorldGenCustomStrucute implements IWorldGenerator
 	}
 	
 	//Generate normal Structures
-	@SuppressWarnings("unchecked")
 	private void generateStructure(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ, int chance, Block topBlock, Class<?>... classes)
 	{
 		ArrayList<Class<?>> classesList = new ArrayList<Class<?>>(Arrays.asList(classes));
@@ -91,7 +90,6 @@ public class WorldGenCustomStrucute implements IWorldGenerator
 	}
 	
 	//Generate Float Strutures
-	@SuppressWarnings("unchecked")
 	private void generateStructureFly(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ, int chance, Block topBlock, Class<?>... classes)
 	{
 		ArrayList<Class<?>> classesList = new ArrayList<Class<?>>(Arrays.asList(classes));
