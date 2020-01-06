@@ -12,22 +12,45 @@ import net.minecraftforge.fml.common.gameevent.TickEvent.WorldTickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import pokecube.core.PokecubeCore;
 import pokecube.core.database.Database;
+import pokecube.core.events.SpawnEvent;
+import pokecube.core.events.handlers.SpawnHandler;
 import pokecube.legends.PokecubeLegends;
 import pokecube.legends.init.BlockInit;
+import pokecube.legends.init.DimensionInit;
 import thut.api.maths.Vector3;
 
 public class WormHoleSpawnHandler
 {
     @SubscribeEvent
-    public void TickEvent(WorldTickEvent evt)
+    public void tickEvent(WorldTickEvent evt)
     {
         if (evt.phase == Phase.END && evt.side != Side.CLIENT && !Database.spawnables.isEmpty())
         {
-            if (evt.world.getTotalWorldTime() % PokecubeLegends.instance.ticksPerPortalSpawn == 0) tick(evt.world);
+            if (evt.world.getTotalWorldTime() % PokecubeLegends.instance.ticksPerPortalSpawn == 0)
+                portalSpawnTick(evt.world);
         }
     }
 
-    public void tick(World world)
+    @SubscribeEvent
+    /** We will cancel any spawns intended for ultraspace, and then add
+     * ourselves to the blacklist.
+     * 
+     * @param event */
+    public void spawnEventPick(SpawnEvent.Pick.Pre event)
+    {
+        if (event.world.provider.getDimension() == DimensionInit.ultraspaceDimensionID)
+        {
+            event.setCanceled(true);
+            SpawnHandler.dimensionBlacklist.add(DimensionInit.ultraspaceDimensionID);
+        }
+    }
+
+    public void mobSpawnTick(World world)
+    {
+        // TODO put in the code for spawning UBs here relevant to the biome.
+    }
+
+    public void portalSpawnTick(World world)
     {
         List<Object> players = new ArrayList<Object>(world.playerEntities);
         if (players.size() < 1) return;
