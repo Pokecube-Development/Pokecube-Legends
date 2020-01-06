@@ -156,17 +156,6 @@
         }
       },
       "priority": 60
-    },
-	{
-      "name": "mega_center",
-      "chance": 0.002,
-      "offset": -2,
-      "spawn": {
-        "values": {
-          "types": "forest"
-        }
-      },
-      "priority": 40
     }
   ],
   "multiStructures": []

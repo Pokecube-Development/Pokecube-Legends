@@ -38,7 +38,7 @@
 	    },
         "inventory": [{
             "transform": {
-				"scale": 0.19,
+				"scale": 0.25,
 				"rotation": [
 					{
 						"x": 20

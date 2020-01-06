@@ -145,7 +145,8 @@ public class PokecubeLegends
             }
         }.setRegistryName("pokecube_legends", "beast"));
 
-        event.behaviors.add(new DefaultPokecubeBehavior()
+        //Pokecube Capture example dynamax resize
+       /* event.behaviors.add(new DefaultPokecubeBehavior()
         {	        	
         	@Override
             public double getCaptureModifier(IPokemob mob)
@@ -153,6 +154,6 @@ public class PokecubeLegends
         		return helper.dynamax(mob);
             }
         	
-        }.setRegistryName("pokecube_legends", "dynamax"));
+        }.setRegistryName("pokecube_legends", "dynamax"));*/
     }
 }

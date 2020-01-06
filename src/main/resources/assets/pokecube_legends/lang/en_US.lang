@@ -136,6 +136,14 @@ tile.spatianbrick.name=Spatian Brick
 tile.magmabrick.name=Magma Brick
 tile.crystalbrick.name=Crystal Brick
 tile.darkskybrick.name=Dark Sky Brick
+tile.ultracobbles.name=Ultra Cobblestone
+tile.ultragrass1.name=Ultra Mushroom Grass
+tile.ultradirt1.name=Ultra Mushroom Dirt
+tile.ultragrass2.name=Ultra Jungle Grass
+tile.ultradirt2.name=Ultra Jungle Dirt
+tile.ultramagnetic.name=Ultra Magnetic Stone
+tile.ultrasand.name=Ultra Sand
+tile.ultrasandstone.name=Ultra Sandstone
 
 //Ultra Space Part
 tile.ultraspace_portal.name=Ultra Wormhole

@@ -95,9 +95,9 @@ public class ItemInit {
 	public static final Item REGIS_ORB = new RegisOrb("regisorb", 1);
 	
 	//Dynamax
-	public static final Item FRAGMENTDYN = new FragmentsDyna("fragmentdyn", 32);
-	public static final Item DYNAMAXSHARD = new DynamaxShard("dynamaxshard", 16);
-	public static final Item GIGANTAMAXSHARD = new GigantamaxShard("gigantamaxshard", 6);
+	//public static final Item FRAGMENTDYN = new FragmentsDyna("fragmentdyn", 32);
+	//public static final Item DYNAMAXSHARD = new DynamaxShard("dynamaxshard", 16);
+	//public static final Item GIGANTAMAXSHARD = new GigantamaxShard("gigantamaxshard", 6);
 	
 	//Gens_ores
 	public static final Item SAPPHIRE = new ItemBase("sapphire", 64);
