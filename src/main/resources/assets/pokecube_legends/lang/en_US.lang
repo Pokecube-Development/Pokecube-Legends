@@ -147,12 +147,14 @@ tile.ultrasandstone.name=Ultra Sandstone
 
 //Ultra Space Part
 tile.ultraspace_portal.name=Ultra Wormhole
+tile.ubportal.name=Ultra Portal
 tile.ultrastone.name=Ultra Stone
 tile.ultrablock.name=Ultra Stone Compressed
 
 //Tooltips Block
 legends.portalwarp.tooltip=This portal spawns a random Pokemon over a period of time.
 legends.ultraportal.tooltip=Use to enter and exit Ultra Space
+legends.ubportal.tooltip=This portal creates an Ultra Beast.
 
 //Tooltips Items
 legends.adamantorb.tooltip=Use this item on 'Time and Space Spawn' to Spawn Dialga

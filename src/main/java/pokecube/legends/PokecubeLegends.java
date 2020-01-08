@@ -1,7 +1,7 @@
 package pokecube.legends;
 
-import java.io.IOException;
-import java.util.logging.Level;
+//import java.io.IOException;
+//import java.util.logging.Level;
 
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
@@ -19,18 +19,19 @@ import pokecube.core.PokecubeCore;
 import pokecube.core.events.PostPostInit;
 import pokecube.core.events.onload.RegisterPokecubes;
 import pokecube.core.interfaces.IPokemob;
-import pokecube.core.interfaces.PokecubeMod;
+//import pokecube.core.interfaces.PokecubeMod;
 import pokecube.core.interfaces.IPokecube.DefaultPokecubeBehavior;
 import pokecube.legends.conditions.LegendaryConditions;
 import pokecube.legends.handlers.PortalSpawnHandler;
 import pokecube.legends.handlers.RegistryHandler;
+import pokecube.legends.handlers.UBsSpawnHandler;
 import pokecube.legends.handlers.WormHoleSpawnHandler;
 import pokecube.legends.init.BiomeInit;
 import pokecube.legends.init.DimensionInit;
 import pokecube.legends.init.ItemInit;
 import pokecube.legends.init.PokecubeDim;
 import pokecube.legends.proxy.CommonProxy;
-import pokecube.legends.worldgen.gencustom.TemplateManager;
+//import pokecube.legends.worldgen.gencustom.TemplateManager;
 import pokecube.legends.worldgen.genlayer.OreWorldGen;
 import pokecube.legends.worldgen.structuregen.WorldGenCustomStrucute;
 
@@ -47,9 +48,13 @@ public class PokecubeLegends
     public boolean                enabledmirage             = true;
     public int                    ticksPerMirageSpawn = 7000;
     
-    //ultraspace portal
+    //ultra space portal
     public boolean                enabledportal             = true;
     public int                    ticksPerPortalSpawn = 9000;
+    
+    //UB portal
+    public boolean                enabledubportal           = true;
+    public int                    ticksPerUBPortalSpawn = 9000;
 
     public PokecubeLegends()
     {
@@ -62,9 +67,10 @@ public class PokecubeLegends
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-    	//Dimension
+    	//Registry
     	DimensionInit.registerDimension();
     	BiomeInit.registerBiomes();
+    	//
     	
         MinecraftForge.EVENT_BUS.register(this);
         
@@ -82,12 +88,18 @@ public class PokecubeLegends
                 "whether legends is enabled.");
         enabledportal = config.getBoolean("legends_enabled_wormhole", Configuration.CATEGORY_GENERAL, true,
                 "whether legends is enabled.");
+        enabledubportal = config.getBoolean("legends_enabled_ubportal", Configuration.CATEGORY_GENERAL, true,
+                "whether legends is enabled.");
         
         ticksPerMirageSpawn = config.getInt("ticks_per_mirage_spawn", Configuration.CATEGORY_GENERAL, 6000, 0,
                 Integer.MAX_VALUE, "Time to Mirage Spot Generation, 0 to disable");
         
         ticksPerPortalSpawn = config.getInt("ticks_per_portal_spawn", Configuration.CATEGORY_GENERAL, 9000, 0,
                 Integer.MAX_VALUE, "Time for Ultra Wormhole Generation, 0 to disable");
+        
+        ticksPerUBPortalSpawn = config.getInt("ticks_per_ub_portal_spawn", Configuration.CATEGORY_GENERAL, 9000, 0,
+                Integer.MAX_VALUE, "Time for Ultra Portal Generation, 0 to disable");
+        
         config.save();
         
         // Ore Registry
@@ -99,22 +111,27 @@ public class PokecubeLegends
         }
         
         if (enabledportal)
-            if (ticksPerPortalSpawn > 0) {
-            	MinecraftForge.EVENT_BUS.register(new WormHoleSpawnHandler());
-            }
+        if (ticksPerPortalSpawn > 0) {
+        	MinecraftForge.EVENT_BUS.register(new WormHoleSpawnHandler());
+        }
+        
+        if (enabledubportal)
+        if (ticksPerUBPortalSpawn > 0) {
+        	MinecraftForge.EVENT_BUS.register(new UBsSpawnHandler());
+        }
     }
     
     @EventHandler
     public void initRegistries(FMLInitializationEvent e)
     {  	
-        try
+       /* try
         {
             TemplateManager.initTemplates();
         }
         catch (IOException e1)
         {
             PokecubeMod.log(Level.SEVERE, "Error copying legends templates", e1);
-        }
+        }*/
         RegistryHandler.initRegistries(e);
     }
     

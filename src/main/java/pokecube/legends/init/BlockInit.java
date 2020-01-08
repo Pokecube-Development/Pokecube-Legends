@@ -9,7 +9,6 @@ import pokecube.legends.blocks.BlockBase;
 import pokecube.legends.blocks.KeldeoBlock;
 import pokecube.legends.blocks.SpaceCoreBlock;
 import pokecube.legends.blocks.LegendaryBlock;
-import pokecube.legends.blocks.MaxRaidSpawnBlock;
 import pokecube.legends.blocks.NatureCoreBlock;
 import pokecube.legends.blocks.PortalWarp;
 import pokecube.legends.blocks.RegiceCoreBlock;
@@ -20,6 +19,7 @@ import pokecube.legends.blocks.RubyOre;
 import pokecube.legends.blocks.SapphireOre;
 import pokecube.legends.blocks.UltraSpacePortal;
 import pokecube.legends.blocks.TemporalCrystal;
+import pokecube.legends.blocks.UBPortal;
 import pokecube.legends.blocks.VictiniBlock;
 import pokecube.legends.blocks.XerneasTree;
 import pokecube.legends.blocks.YveltalEgg;
@@ -56,6 +56,7 @@ public class BlockInit
 	//Portal
 	public static final Block ULTRASPACE_PORTAL = new UltraSpacePortal("ultraspace_portal", Material.GLASS, 0D, 0, 0, 1D, 3D, 1D);
 	public static final Block BLOCK_PORTALWARP = new PortalWarp("portal", Material.ANVIL, 0D, 0, 0, 1D, 3D, 1D);
+	public static final Block BLOCK_UBPORTAL = new UBPortal("ubportal", Material.ANVIL, 0D, 0, 0, 1D, 3D, 1D);
 	//public static final Block BLOCK_MAXRAID = new MaxRaidSpawnBlock("maxraidspawn", Material.ROCK);
 	
 	//Legendary Spawns
