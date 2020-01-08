@@ -1,4 +1,4 @@
-package pokecube.legends.worldgen.gencustom;
+/*package pokecube.legends.worldgen.gencustom;
 
 import java.io.File;
 import java.io.IOException;
@@ -64,3 +64,4 @@ public class TemplateManager
         }
     }
 }
+*/
