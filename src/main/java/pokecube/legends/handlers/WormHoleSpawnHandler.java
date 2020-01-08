@@ -32,17 +32,10 @@ public class WormHoleSpawnHandler
     }
 
     @SubscribeEvent
-    /** We will cancel any spawns intended for ultraspace, and then add
-     * ourselves to the blacklist.
-     * 
-     * @param event */
+    /** @param event */
     public void spawnEventPick(SpawnEvent.Pick.Pre event)
     {
-        if (event.world.provider.getDimension() == DimensionInit.ultraspaceDimensionID)
-        {
-            event.setCanceled(true);
-            SpawnHandler.dimensionBlacklist.add(DimensionInit.ultraspaceDimensionID);
-        }
+
     }
 
     public void mobSpawnTick(World world)
