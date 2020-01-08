@@ -13,17 +13,17 @@ import pokecube.legends.worldgen.biomes.UltraUB4;
 public class BiomeInit 
 {
 	public static final Biome BIOME_UB1 = new UltraUB1();
-	public static final Biome BIOME_UB2 = new UltraUB3();
-	public static final Biome BIOME_UB3 = new UltraUB2();
+	public static final Biome BIOME_UB2 = new UltraUB2();
+	public static final Biome BIOME_UB3 = new UltraUB3();
 	public static final Biome BIOME_UB4 = new UltraUB4();
 	
 	public static void registerBiomes()
 	{
 		//New Biomes
-		initBiome(BIOME_UB1, "Biome UB22", BiomeType.ICY, Type.MUSHROOM, Type.SWAMP, Type.SPOOKY, Type.DRY);
-		initBiome(BIOME_UB2, "Biome UB35", BiomeType.DESERT, Type.DEAD, Type.SANDY, Type.WASTELAND, Type.HOT);
-		initBiome(BIOME_UB3, "Biome UB60", BiomeType.WARM, Type.DENSE, Type.JUNGLE, Type.FOREST, Type.WATER, Type.MOUNTAIN);
-		initBiome(BIOME_UB4, "Biome UB010", BiomeType.COOL, Type.CONIFEROUS, Type.MESA, Type.SNOWY);
+		initBiome(BIOME_UB1, "pokecube_legends:ub001", BiomeType.ICY, Type.MUSHROOM, Type.SWAMP, Type.SPOOKY, Type.DRY);
+		initBiome(BIOME_UB2, "pokecube_legends:ub002", BiomeType.DESERT, Type.DEAD, Type.SANDY, Type.WASTELAND, Type.HOT);
+		initBiome(BIOME_UB3, "pokecube_legends:ub003", BiomeType.WARM, Type.DENSE, Type.JUNGLE, Type.FOREST, Type.WATER, Type.MOUNTAIN);
+		initBiome(BIOME_UB4, "pokecube_legends:ub004", BiomeType.COOL, Type.CONIFEROUS, Type.MESA, Type.SNOWY);
 	}
 	
 	private static Biome initBiome(Biome biome, String name, BiomeType bType, Type... types)

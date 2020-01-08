@@ -12,11 +12,8 @@ import net.minecraftforge.fml.common.gameevent.TickEvent.WorldTickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import pokecube.core.PokecubeCore;
 import pokecube.core.database.Database;
-import pokecube.core.events.SpawnEvent;
-import pokecube.core.events.handlers.SpawnHandler;
 import pokecube.legends.PokecubeLegends;
 import pokecube.legends.init.BlockInit;
-import pokecube.legends.init.DimensionInit;
 import thut.api.maths.Vector3;
 
 public class WormHoleSpawnHandler
@@ -29,18 +26,6 @@ public class WormHoleSpawnHandler
             if (evt.world.getTotalWorldTime() % PokecubeLegends.instance.ticksPerPortalSpawn == 0)
                 portalSpawnTick(evt.world);
         }
-    }
-
-    @SubscribeEvent
-    /** @param event */
-    public void spawnEventPick(SpawnEvent.Pick.Pre event)
-    {
-
-    }
-
-    public void mobSpawnTick(World world)
-    {
-        // TODO put in the code for spawning UBs here relevant to the biome.
     }
 
     public void portalSpawnTick(World world)
