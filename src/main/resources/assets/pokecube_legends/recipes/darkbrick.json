@@ -12,7 +12,8 @@
     {
         "R":
         {
-            "item": "minecraft:cactus"
+            "item": "minecraft:dye",
+			"data": 2
         },
 		"A":
         {

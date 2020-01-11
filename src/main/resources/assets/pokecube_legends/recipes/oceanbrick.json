@@ -3,16 +3,21 @@
     
     "pattern":
     [
-        "RRR",
-        "RRR",
-        "RRR"
+        " A ",
+        "ARA",
+        " A "
     ],
     
     "key":
     {
         "R":
         {
-            "item": "minecraft:prismarine"
+            "item": "minecraft:dye",
+			"data": 4
+        },
+		"A":
+        {
+            "item": "minecraft:stonebrick"
         }
     },
     
