@@ -26,6 +26,7 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import pokecube.legends.init.BlockInit;
+import pokecube.legends.init.DimensionInit;
 import pokecube.legends.worldgen.biomes.UltraUB1;
 import pokecube.legends.worldgen.biomes.UltraUB2;
 import pokecube.legends.worldgen.biomes.UltraUB3;
@@ -37,47 +38,9 @@ public class WorldGenCustomStrucute implements IWorldGenerator
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) 
 	{
+	  final  int ultraspace = DimensionInit.ultraspaceDimensionID;
 	   switch(world.provider.getDimension())
 		{
-		case 2:
-			//Biome 1
-			this.generateStructure(new WorldGenStructure("mush_1"), world, random, chunkX, chunkZ, 5, BlockInit.ULTRA_GRASSMUSS, UltraUB1.class);
-			this.generateStructure(new WorldGenStructure("mush_2"), world, random, chunkX, chunkZ, 7, BlockInit.ULTRA_GRASSMUSS, UltraUB1.class);
-			this.generateStructure(new WorldGenStructure("mush_3"), world, random, chunkX, chunkZ, 11, BlockInit.ULTRA_GRASSMUSS, UltraUB1.class);
-			this.generateStructure(new WorldGenStructure("mush_4"), world, random, chunkX, chunkZ, 33, BlockInit.ULTRA_GRASSMUSS, UltraUB1.class);
-			this.generateStructure(new WorldGenStructure("mush_5"), world, random, chunkX, chunkZ, 36, BlockInit.ULTRA_GRASSMUSS, UltraUB1.class);
-			this.generateStructure(new WorldGenStructure("mush_6"), world, random, chunkX, chunkZ, 64, BlockInit.ULTRA_GRASSMUSS, UltraUB1.class);
-			this.generateStructure(new WorldGenStructure("mush_7"), world, random, chunkX, chunkZ, 69, BlockInit.ULTRA_GRASSMUSS, UltraUB1.class);
-			this.generateStructure(new WorldGenStructure("mush_8"), world, random, chunkX, chunkZ, 84, BlockInit.ULTRA_GRASSMUSS, UltraUB1.class);
-			this.generateStructure(new WorldGenStructure("mush_big"), world, random, chunkX, chunkZ, 206, BlockInit.ULTRA_GRASSMUSS, UltraUB1.class);
-			this.generateStructure(new WorldGenStructure("mush_extra"), world, random, chunkX, chunkZ, 350, BlockInit.ULTRA_GRASSMUSS, UltraUB1.class);
-
-			this.generateStructure(new WorldGenStructure("cristal_1"), world, random, chunkX, chunkZ, 56, BlockInit.ULTRA_GRASSMUSS, UltraUB1.class);
-			
-			//Biome 2
-			this.generateStructure(new WorldGenStructure("jungle_1"), world, random, chunkX, chunkZ, 2, BlockInit.ULTRA_GRASSJUN, UltraUB2.class);
-			this.generateStructure(new WorldGenStructure("jungle_2"), world, random, chunkX, chunkZ, 4, BlockInit.ULTRA_GRASSJUN, UltraUB2.class);
-			this.generateStructure(new WorldGenStructure("stone1"), world, random, chunkX, chunkZ, 86, BlockInit.ULTRA_GRASSJUN, UltraUB2.class);
-			
-			this.generateStructure(new WorldGenStructure("cristal_1"), world, random, chunkX, chunkZ, 56, BlockInit.ULTRA_GRASSJUN, UltraUB2.class);
-			
-			//Biome 3
-			this.generateStructure(new WorldGenStructure("desert_1"), world, random, chunkX, chunkZ, 12, BlockInit.ULTRA_SAND, UltraUB3.class);
-			this.generateStructure(new WorldGenStructure("desert_2"), world, random, chunkX, chunkZ, 7, BlockInit.ULTRA_SAND, UltraUB3.class);
-			this.generateStructure(new WorldGenStructure("desert_3"), world, random, chunkX, chunkZ, 8, BlockInit.ULTRA_SAND, UltraUB3.class);
-			this.generateStructureFly(new WorldGenStructure("mush_float"), world, random, chunkX, chunkZ, 96, BlockInit.ULTRA_SAND, UltraUB3.class);
-			
-			this.generateStructure(new WorldGenStructure("spike_1"), world, random, chunkX, chunkZ, 56, BlockInit.ULTRA_SAND, UltraUB3.class);
-			this.generateStructure(new WorldGenStructure("cristal_1"), world, random, chunkX, chunkZ, 56, BlockInit.ULTRA_SAND, UltraUB3.class);
-
-			//Biome 4
-			this.generateStructure(new WorldGenStructure("build_1"), world, random, chunkX, chunkZ, 380, BlockInit.ULTRA_COBBLES, UltraUB4.class);
-			this.generateStructure(new WorldGenStructure("build_2"), world, random, chunkX, chunkZ, 258, BlockInit.ULTRA_COBBLES, UltraUB4.class);
-			this.generateStructure(new WorldGenStructure("build_3"), world, random, chunkX, chunkZ, 458, BlockInit.ULTRA_COBBLES, UltraUB4.class);
-			this.generateStructure(new WorldGenStructure("build_4"), world, random, chunkX, chunkZ, 358, BlockInit.ULTRA_COBBLES, UltraUB4.class);
-			
-			this.generateStructure(new WorldGenStructure("cristal_1"), world, random, chunkX, chunkZ, 58, BlockInit.ULTRA_COBBLES, UltraUB4.class);
-			break;
 		case 1:
 			this.generateStructure(new WorldGenStructure("space_temple"), world, random, chunkX, chunkZ, 400, Blocks.END_STONE, BiomeEnd.class);
 			
@@ -100,6 +63,48 @@ public class WorldGenCustomStrucute implements IWorldGenerator
 			this.generateStructure(new WorldGenStructure("groudon_temple"), world, random, chunkX, chunkZ, 400, Blocks.NETHERRACK, BiomeHell.class);
 			
 			break;
+		 default:
+		     if(world.provider.getDimension() == ultraspace)
+		     {
+		            //Biome 1
+		            this.generateStructure(new WorldGenStructure("mush_1"), world, random, chunkX, chunkZ, 5, BlockInit.ULTRA_GRASSMUSS, UltraUB1.class);
+		            this.generateStructure(new WorldGenStructure("mush_2"), world, random, chunkX, chunkZ, 7, BlockInit.ULTRA_GRASSMUSS, UltraUB1.class);
+		            this.generateStructure(new WorldGenStructure("mush_3"), world, random, chunkX, chunkZ, 11, BlockInit.ULTRA_GRASSMUSS, UltraUB1.class);
+		            this.generateStructure(new WorldGenStructure("mush_4"), world, random, chunkX, chunkZ, 33, BlockInit.ULTRA_GRASSMUSS, UltraUB1.class);
+		            this.generateStructure(new WorldGenStructure("mush_5"), world, random, chunkX, chunkZ, 36, BlockInit.ULTRA_GRASSMUSS, UltraUB1.class);
+		            this.generateStructure(new WorldGenStructure("mush_6"), world, random, chunkX, chunkZ, 64, BlockInit.ULTRA_GRASSMUSS, UltraUB1.class);
+		            this.generateStructure(new WorldGenStructure("mush_7"), world, random, chunkX, chunkZ, 69, BlockInit.ULTRA_GRASSMUSS, UltraUB1.class);
+		            this.generateStructure(new WorldGenStructure("mush_8"), world, random, chunkX, chunkZ, 84, BlockInit.ULTRA_GRASSMUSS, UltraUB1.class);
+		            this.generateStructure(new WorldGenStructure("mush_big"), world, random, chunkX, chunkZ, 206, BlockInit.ULTRA_GRASSMUSS, UltraUB1.class);
+		            this.generateStructure(new WorldGenStructure("mush_extra"), world, random, chunkX, chunkZ, 350, BlockInit.ULTRA_GRASSMUSS, UltraUB1.class);
+
+		            this.generateStructure(new WorldGenStructure("cristal_1"), world, random, chunkX, chunkZ, 56, BlockInit.ULTRA_GRASSMUSS, UltraUB1.class);
+		            
+		            //Biome 2
+		            this.generateStructure(new WorldGenStructure("jungle_1"), world, random, chunkX, chunkZ, 2, BlockInit.ULTRA_GRASSJUN, UltraUB2.class);
+		            this.generateStructure(new WorldGenStructure("jungle_2"), world, random, chunkX, chunkZ, 4, BlockInit.ULTRA_GRASSJUN, UltraUB2.class);
+		            this.generateStructure(new WorldGenStructure("stone1"), world, random, chunkX, chunkZ, 86, BlockInit.ULTRA_GRASSJUN, UltraUB2.class);
+		            
+		            this.generateStructure(new WorldGenStructure("cristal_1"), world, random, chunkX, chunkZ, 56, BlockInit.ULTRA_GRASSJUN, UltraUB2.class);
+		            
+		            //Biome 3
+		            this.generateStructure(new WorldGenStructure("desert_1"), world, random, chunkX, chunkZ, 12, BlockInit.ULTRA_SAND, UltraUB3.class);
+		            this.generateStructure(new WorldGenStructure("desert_2"), world, random, chunkX, chunkZ, 7, BlockInit.ULTRA_SAND, UltraUB3.class);
+		            this.generateStructure(new WorldGenStructure("desert_3"), world, random, chunkX, chunkZ, 8, BlockInit.ULTRA_SAND, UltraUB3.class);
+		            this.generateStructureFly(new WorldGenStructure("mush_float"), world, random, chunkX, chunkZ, 96, BlockInit.ULTRA_SAND, UltraUB3.class);
+		            
+		            this.generateStructure(new WorldGenStructure("spike_1"), world, random, chunkX, chunkZ, 56, BlockInit.ULTRA_SAND, UltraUB3.class);
+		            this.generateStructure(new WorldGenStructure("cristal_1"), world, random, chunkX, chunkZ, 56, BlockInit.ULTRA_SAND, UltraUB3.class);
+
+		            //Biome 4
+		            this.generateStructure(new WorldGenStructure("build_1"), world, random, chunkX, chunkZ, 380, BlockInit.ULTRA_COBBLES, UltraUB4.class);
+		            this.generateStructure(new WorldGenStructure("build_2"), world, random, chunkX, chunkZ, 258, BlockInit.ULTRA_COBBLES, UltraUB4.class);
+		            this.generateStructure(new WorldGenStructure("build_3"), world, random, chunkX, chunkZ, 458, BlockInit.ULTRA_COBBLES, UltraUB4.class);
+		            this.generateStructure(new WorldGenStructure("build_4"), world, random, chunkX, chunkZ, 358, BlockInit.ULTRA_COBBLES, UltraUB4.class);
+		            
+		            this.generateStructure(new WorldGenStructure("cristal_1"), world, random, chunkX, chunkZ, 58, BlockInit.ULTRA_COBBLES, UltraUB4.class);
+		     }
+		    break;
 		}
 	}
 	
