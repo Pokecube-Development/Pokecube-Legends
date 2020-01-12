@@ -11,35 +11,33 @@ public class DimensionInit
     public static int           ultraspaceDimensionID;
     public static int           ultraspacDimensionTypeID;
     public static DimensionType ULTRASPACE;
+    
+    public static void initDimension()
+    {
+        ultraspacDimensionTypeID = findFreeDimensionTypeID();
+        ULTRASPACE = DimensionType.register("Ultra_Space", "_ultraspace", ultraspacDimensionTypeID,
+                DimensionTypeUltraSpace.class, false);
+    }
 
     public static void registerDimension()
     {
         ultraspaceDimensionID = findFreeDimensionID();
-        ultraspacDimensionTypeID = findFreeDimensionTypeID();
-        ULTRASPACE = DimensionType.register("Ultra_Space", "_ultraspace", ultraspacDimensionTypeID,
-                DimensionTypeUltraSpace.class, false);
         DimensionManager.registerDimension(ultraspaceDimensionID, ULTRASPACE);
     }
 
     @Nullable
     private static Integer findFreeDimensionTypeID()
     {
-        for (int i = 2; i < Integer.MAX_VALUE; i++)
+        int id = -1;
+        for (DimensionType type : DimensionType.values())
         {
-            try
+            if (type.getId() > id)
             {
-                DimensionType.getById(i);
-            }
-            catch (Exception e)
-            {
-                // Unused dimension type!
-                return i;
+                id = type.getId();
             }
         }
-
-        // DEBUG
-        System.out.println("ERROR: Could not find free dimension ID");
-        return null;
+        id++;
+        return id;
     }
 
     @Nullable
