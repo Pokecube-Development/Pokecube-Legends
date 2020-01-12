@@ -19,15 +19,16 @@ import thut.api.maths.Vector3;
 public class WormHoleSpawnHandler
 {
     @SubscribeEvent
-    public void TickEvent(WorldTickEvent evt)
+    public void tickEvent(WorldTickEvent evt)
     {
         if (evt.phase == Phase.END && evt.side != Side.CLIENT && !Database.spawnables.isEmpty())
         {
-            if (evt.world.getTotalWorldTime() % PokecubeLegends.instance.ticksPerPortalSpawn == 0) tick(evt.world);
+            if (evt.world.getTotalWorldTime() % PokecubeLegends.instance.ticksPerPortalSpawn == 0)
+                portalSpawnTick(evt.world);
         }
     }
 
-    public void tick(World world)
+    public void portalSpawnTick(World world)
     {
         List<Object> players = new ArrayList<Object>(world.playerEntities);
         if (players.size() < 1) return;
