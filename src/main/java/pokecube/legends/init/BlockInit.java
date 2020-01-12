@@ -6,6 +6,9 @@ import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import pokecube.legends.blocks.BlockBase;
+import pokecube.legends.blocks.CobbleUltraBlock;
+import pokecube.legends.blocks.GrassJungleBlock;
+import pokecube.legends.blocks.GrassMussBlock;
 import pokecube.legends.blocks.KeldeoBlock;
 import pokecube.legends.blocks.LegendaryBlock;
 import pokecube.legends.blocks.NatureCoreBlock;
@@ -15,6 +18,7 @@ import pokecube.legends.blocks.RegigigaCoreBlock;
 import pokecube.legends.blocks.RegirockCoreBlock;
 import pokecube.legends.blocks.RegisteelCoreBlock;
 import pokecube.legends.blocks.RubyOre;
+import pokecube.legends.blocks.SandUltraBlock;
 import pokecube.legends.blocks.SapphireOre;
 import pokecube.legends.blocks.SpaceCoreBlock;
 import pokecube.legends.blocks.TemporalCrystal;
@@ -43,14 +47,14 @@ public class BlockInit
 	//Dimensioin
 	public static final Block ULTRA_MAGNETIC = new BlockBase("ultramagnetic", Material.GLASS).setHardness(0.5F);
 	public static final Block ULTRA_SANDSTONE = new BlockBase("ultrasandstone", Material.SAND).setHardness(0.8F);
-	public static final Block ULTRA_COBBLES = new BlockBase("ultracobbles", Material.ROCK).setHardness(2.0F).setResistance(10.0F);
-	public static final Block ULTRA_GRASSMUSS = new BlockBase("ultragrass1", Material.GRASS).setHardness(0.6F);
+	public static final Block ULTRA_COBBLES = new CobbleUltraBlock("ultracobbles", Material.ROCK);
+	public static final Block ULTRA_GRASSMUSS = new GrassMussBlock("ultragrass1", Material.GRASS);
 	public static final Block ULTRA_DIRTMUSS = new BlockBase("ultradirt1", Material.CLAY).setHardness(0.5F);
-	public static final Block ULTRA_GRASSJUN = new BlockBase("ultragrass2", Material.GRASS).setHardness(0.6F);
+	public static final Block ULTRA_GRASSJUN = new GrassJungleBlock("ultragrass2", Material.GRASS);
 	public static final Block ULTRA_DIRTJUN = new BlockBase("ultradirt2", Material.CLAY).setHardness(0.5F);
 	public static final Block ULTRA_STONE = new BlockBase("ultrastone", Material.ROCK).setHardness(1.5F).setResistance(10.0F);
 	public static final Block ULTRA_METAL = new BlockBase("ultrablock", Material.IRON).setHardness(5.0F).setResistance(10.0F);
-	public static final Block ULTRA_SAND = new BlockBase("ultrasand", Material.SAND).setHardness(0.5F);
+	public static final Block ULTRA_SAND = new SandUltraBlock("ultrasand", Material.SAND);
 	
 	//Portal
 	public static final Block ULTRASPACE_PORTAL = new UltraSpacePortal("ultraspace_portal", Material.GLASS, 0D, 0, 0, 1D, 3D, 1D);

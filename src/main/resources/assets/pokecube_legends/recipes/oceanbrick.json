@@ -17,7 +17,8 @@
         },
 		"A":
         {
-            "item": "minecraft:stonebrick"
+            "item": "minecraft:stonebrick",
+			"data": 1
         }
     },
     

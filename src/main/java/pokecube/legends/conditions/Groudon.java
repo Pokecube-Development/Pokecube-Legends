@@ -25,8 +25,8 @@ public class Groudon extends Condition
         double roundCap = Math.round(captureFactor * 100.0) / 100.0;
         double roundKill = Math.round(killFactor * 100.0) / 100.0;
         
-        float numTotal = 0.8f;
-        float numKill = 0.8f;
+        float numTotal = 0.5f;
+        float numKill = 0.5f;
         
         String type = "Ground";
         String kill = "Water"; 
