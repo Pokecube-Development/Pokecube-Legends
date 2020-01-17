@@ -18,6 +18,7 @@ import thut.api.maths.Vector3;
 
 public class PortalSpawnHandler
 {
+
     @SubscribeEvent
     public void TickEvent(WorldTickEvent evt)
     {

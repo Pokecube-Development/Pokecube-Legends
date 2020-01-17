@@ -26,6 +26,8 @@ import pokecube.legends.blocks.UltraSpacePortal;
 import pokecube.legends.blocks.VictiniBlock;
 import pokecube.legends.blocks.XerneasTree;
 import pokecube.legends.blocks.YveltalEgg;
+import pokecube.legends.blocks.plants.MussPlant;
+import pokecube.legends.blocks.plants.MussPlant1;
 
 public class BlockInit 
 {
@@ -44,7 +46,7 @@ public class BlockInit
 	public static final Block CRYSTAL_BRICK = new BlockBase("crystalbrick", Material.PACKED_ICE).setHardness(0.5F);
 	public static final Block DARKSKY_BRICK = new BlockBase("darkskybrick", Material.ROCK).setHardness(1.5F).setResistance(10.0F);
 	
-	//Dimensioin
+	//Dimension and Decoration
 	public static final Block ULTRA_MAGNETIC = new BlockBase("ultramagnetic", Material.GLASS).setHardness(0.5F);
 	public static final Block ULTRA_SANDSTONE = new BlockBase("ultrasandstone", Material.SAND).setHardness(0.8F);
 	public static final Block ULTRA_COBBLES = new CobbleUltraBlock("ultracobbles", Material.ROCK);
@@ -55,6 +57,9 @@ public class BlockInit
 	public static final Block ULTRA_STONE = new BlockBase("ultrastone", Material.ROCK).setHardness(1.5F).setResistance(10.0F);
 	public static final Block ULTRA_METAL = new BlockBase("ultrablock", Material.IRON).setHardness(5.0F).setResistance(10.0F);
 	public static final Block ULTRA_SAND = new SandUltraBlock("ultrasand", Material.SAND);
+	
+	//public static final Block ULTRA_MUSS1 = new MussPlant("mussplant1", Material.PLANTS);
+	//public static final Block ULTRA_MUSS2 = new MussPlant1("mussplant2", Material.PLANTS);
 	
 	//Portal
 	public static final Block ULTRASPACE_PORTAL = new UltraSpacePortal("ultraspace_portal", Material.GLASS, 0D, 0, 0, 1D, 3D, 1D);
