@@ -19,7 +19,7 @@ public class Xerneas extends Condition
         double captureFactor = ((double)count1 / (double)count2);
         double roundOff = Math.round(captureFactor * 100.0) / 100.0;
         
-        float numTotal = 0.5f;
+        float numTotal = 0.4f;
         String type = "Fairy";
         
         if (roundOff >= numTotal) { return true; }

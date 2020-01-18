@@ -24,7 +24,6 @@ import pokecube.core.interfaces.IPokemob;
 import pokecube.legends.conditions.LegendaryConditions;
 import pokecube.legends.handlers.PortalSpawnHandler;
 import pokecube.legends.handlers.RegistryHandler;
-import pokecube.legends.handlers.UBsSpawnHandler;
 import pokecube.legends.handlers.WormHoleSpawnHandler;
 import pokecube.legends.init.BiomeInit;
 import pokecube.legends.init.DimensionInit;
@@ -51,10 +50,6 @@ public class PokecubeLegends
     // ultra space portal
     public boolean                enabledportal         = true;
     public int                    ticksPerPortalSpawn   = 9000;
-
-    // UB portal
-    public boolean                enabledubportal       = true;
-    public int                    ticksPerUBPortalSpawn = 9000;
 
     public PokecubeLegends()
     {
@@ -89,17 +84,12 @@ public class PokecubeLegends
                 "whether legends is enabled.");
         enabledportal = config.getBoolean("legends_enabled_wormhole", Configuration.CATEGORY_GENERAL, true,
                 "whether legends is enabled.");
-        enabledubportal = config.getBoolean("legends_enabled_ubportal", Configuration.CATEGORY_GENERAL, true,
-                "whether legends is enabled.");
 
         ticksPerMirageSpawn = config.getInt("ticks_per_mirage_spawn", Configuration.CATEGORY_GENERAL, 6000, 0,
                 Integer.MAX_VALUE, "Time to Mirage Spot Generation, 0 to disable");
 
         ticksPerPortalSpawn = config.getInt("ticks_per_portal_spawn", Configuration.CATEGORY_GENERAL, 9000, 0,
                 Integer.MAX_VALUE, "Time for Ultra Wormhole Generation, 0 to disable");
-
-        ticksPerUBPortalSpawn = config.getInt("ticks_per_ub_portal_spawn", Configuration.CATEGORY_GENERAL, 9000, 0,
-                Integer.MAX_VALUE, "Time for Ultra Portal Generation, 0 to disable");
 
         config.save();
 
@@ -114,11 +104,6 @@ public class PokecubeLegends
         if (enabledportal) if (ticksPerPortalSpawn > 0)
         {
             MinecraftForge.EVENT_BUS.register(new WormHoleSpawnHandler());
-        }
-
-        if (enabledubportal) if (ticksPerUBPortalSpawn > 0)
-        {
-            MinecraftForge.EVENT_BUS.register(new UBsSpawnHandler());
         }
     }
 

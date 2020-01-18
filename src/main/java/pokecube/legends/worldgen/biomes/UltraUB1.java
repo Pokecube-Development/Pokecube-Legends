@@ -18,10 +18,10 @@ public class UltraUB1 extends Biome
 		topBlock = BlockInit.ULTRA_GRASSMUSS.getDefaultState();
 		fillerBlock = BlockInit.ULTRA_DIRTMUSS.getDefaultState();
 		this.decorator.treesPerChunk = 0;
-		this.decorator.grassPerChunk = 10;
+		this.decorator.grassPerChunk = 2;
 		this.decorator.flowersPerChunk = 0;
 		this.decorator.mushroomsPerChunk = 2;
-		this.decorator.bigMushroomsPerChunk = 7;
+		this.decorator.bigMushroomsPerChunk = 5;
 		this.spawnableCaveCreatureList.clear();
 		this.spawnableCreatureList.clear();
 		this.spawnableMonsterList.clear();
