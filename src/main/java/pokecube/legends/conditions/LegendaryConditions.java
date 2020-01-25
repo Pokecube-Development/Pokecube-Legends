@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
+import net.minecraft.init.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import pokecube.core.database.Pokedex;
 import pokecube.core.database.PokedexEntry;
@@ -12,30 +13,9 @@ import pokecube.core.database.stats.ISpecialSpawnCondition;
 import pokecube.core.database.stats.SpecialCaseRegister;
 import pokecube.core.interfaces.PokecubeMod;
 import pokecube.legends.handlers.GeneProtector;
-import pokecube.legends.spawns.ArceusSpawn;
-import pokecube.legends.spawns.CelebiSpawn;
-import pokecube.legends.spawns.DialgaSpawn;
-import pokecube.legends.spawns.GroudonSpawn;
-import pokecube.legends.spawns.HeatranSpawn;
-import pokecube.legends.spawns.HoohSpawn;
-import pokecube.legends.spawns.KeldeoSpawn;
-import pokecube.legends.spawns.KyogreSpawn;
-import pokecube.legends.spawns.LandorusSpawn;
-import pokecube.legends.spawns.LugiaSpawn;
-import pokecube.legends.spawns.PalkiaSpawn;
-import pokecube.legends.spawns.RegiceSpawn;
-import pokecube.legends.spawns.RegigigasSpawn;
-import pokecube.legends.spawns.RegirockSpawn;
-import pokecube.legends.spawns.RegisteelSpawn;
-import pokecube.legends.spawns.ReshiramSpawn;
-import pokecube.legends.spawns.ThundurusSpawn;
-import pokecube.legends.spawns.TornadusSpawn;
-import pokecube.legends.spawns.VictiniSpawn;
-import pokecube.legends.spawns.XerneasSpawn;
-import pokecube.legends.spawns.YveltalSpawn;
-import pokecube.legends.spawns.ZacianSpawn;
-import pokecube.legends.spawns.ZamazentaSpawn;
-import pokecube.legends.spawns.ZekromSpawn;
+import pokecube.legends.init.BlockInit;
+import pokecube.legends.init.ItemInit;
+import pokecube.legends.spawns.LegendarySpawn;
 import thut.lib.CompatParser.ClassFinder;
 
 public class LegendaryConditions
@@ -46,31 +26,40 @@ public class LegendaryConditions
     public LegendaryConditions()
     {
     	//Registring Event Lengendary Spawns
-        MinecraftForge.EVENT_BUS.register(new HoohSpawn());
-        MinecraftForge.EVENT_BUS.register(new LugiaSpawn());
-        MinecraftForge.EVENT_BUS.register(new DialgaSpawn());
-        MinecraftForge.EVENT_BUS.register(new RegisteelSpawn());
-        MinecraftForge.EVENT_BUS.register(new RegirockSpawn());
-        MinecraftForge.EVENT_BUS.register(new RegiceSpawn());
-        MinecraftForge.EVENT_BUS.register(new RegigigasSpawn());
-        MinecraftForge.EVENT_BUS.register(new CelebiSpawn());
-        MinecraftForge.EVENT_BUS.register(new PalkiaSpawn());
-        MinecraftForge.EVENT_BUS.register(new GroudonSpawn());
-        MinecraftForge.EVENT_BUS.register(new KyogreSpawn());
-        MinecraftForge.EVENT_BUS.register(new ArceusSpawn());
-        MinecraftForge.EVENT_BUS.register(new HeatranSpawn());
-        MinecraftForge.EVENT_BUS.register(new KeldeoSpawn());
-        MinecraftForge.EVENT_BUS.register(new LandorusSpawn());
-        MinecraftForge.EVENT_BUS.register(new ReshiramSpawn());
-        MinecraftForge.EVENT_BUS.register(new ThundurusSpawn());
-        MinecraftForge.EVENT_BUS.register(new TornadusSpawn());
-        MinecraftForge.EVENT_BUS.register(new VictiniSpawn());
-        MinecraftForge.EVENT_BUS.register(new XerneasSpawn());
-        MinecraftForge.EVENT_BUS.register(new YveltalSpawn());
-        MinecraftForge.EVENT_BUS.register(new ZekromSpawn());
-        MinecraftForge.EVENT_BUS.register(new ZacianSpawn());
-        MinecraftForge.EVENT_BUS.register(new ZamazentaSpawn());
-        //
+
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("ho-oh", ItemInit.LEGENDARYORB, BlockInit.LEGENDARY_SPAWN));
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("lugia", ItemInit.OCEANORB, BlockInit.LEGENDARY_SPAWN));
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("celebi", ItemInit.GREENORB, BlockInit.LEGENDARY_SPAWN));
+        
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("registeel", ItemInit.STEELCORE, BlockInit.REGISTEEL_CORE));
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("regirock", ItemInit.ROCKCORE, BlockInit.REGIROCK_CORE));
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("regice", ItemInit.ICECORE, BlockInit.REGICE_CORE));
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("regigigas", ItemInit.REGIS_ORB, BlockInit.REGIGIGA_CORE));
+        
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("groudon", ItemInit.REDORB, BlockInit.LEGENDARY_SPAWN));
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("kyogre", ItemInit.BLUEORB, BlockInit.LEGENDARY_SPAWN));
+        
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("arceus", ItemInit.AZURE_FLUTE, BlockInit.TIMESPACE_CORE));
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("palkia", ItemInit.LUSTROUSORB, BlockInit.TIMESPACE_CORE));
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("dialga", ItemInit.ADAMANTORB, BlockInit.TIMESPACE_CORE));
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("reshiram", ItemInit.LIGHTSTONE, BlockInit.TIMESPACE_CORE));
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("zekrom", ItemInit.DARKSTONE, BlockInit.TIMESPACE_CORE));
+        
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("heatran", ItemInit.MAGMA_CORE, Blocks.MAGMA));
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("keldeo", ItemInit.RAINBOW_SWORD, BlockInit.KELDEO_CORE));
+
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("landorusincarnate", ItemInit.ORANGE_RUNE, BlockInit.NATURE_CORE));
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("thundurusincarnate", ItemInit.BLUE_RUNE, BlockInit.NATURE_CORE));
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("tornadusincarnate", ItemInit.GREEN_RUNE, BlockInit.NATURE_CORE));
+        
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("victini", ItemInit.EMBLEM, BlockInit.VICTINI_CORE));
+        
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("xerneas", ItemInit.LIFEORB, BlockInit.XERNEAS_CORE));
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("yveltal", ItemInit.DESTRUCTORB, BlockInit.YVELTAL_CORE));
+        
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("zacian", ItemInit.RSWORD, BlockInit.LEGENDARY_SPAWN));
+        MinecraftForge.EVENT_BUS.register(new LegendarySpawn("zamazenta", ItemInit.RSHIELD, BlockInit.LEGENDARY_SPAWN));
+        
         
         //Register the thng that prevents genetic modification of protected mobs
         MinecraftForge.EVENT_BUS.register(new GeneProtector());

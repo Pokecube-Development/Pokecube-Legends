@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import pokecube.legends.blocks.BlockBase;
 import pokecube.legends.blocks.CobbleUltraBlock;
@@ -26,8 +27,6 @@ import pokecube.legends.blocks.UltraSpacePortal;
 import pokecube.legends.blocks.VictiniBlock;
 import pokecube.legends.blocks.XerneasTree;
 import pokecube.legends.blocks.YveltalEgg;
-import pokecube.legends.blocks.plants.MussPlant;
-import pokecube.legends.blocks.plants.MussPlant1;
 
 public class BlockInit 
 {
@@ -80,7 +79,6 @@ public class BlockInit
 	public static final Block XERNEAS_CORE = new XerneasTree("xerneas_tree", Material.WOOD);
 	
 	//Ores
-	public static final Block RUBY_ORE = new RubyOre("ruby_ore", Material.ROCK);
-	public static final Block SAPPHIRE_ORE = new SapphireOre("sapphire_ore", Material.ROCK);
-	
+	public static final Block RUBY_ORE = new RubyOre("ruby_ore", Material.ROCK).setHarvest("pickaxe", 2).setSound(SoundType.METAL).setHardness(5.0f).setResistance(15.0f);
+	public static final Block SAPPHIRE_ORE = new SapphireOre("sapphire_ore", Material.ROCK).setHarvest("pickaxe", 2).setSound(SoundType.METAL).setHardness(5.0f).setResistance(15.0f);
 }

@@ -28,6 +28,18 @@ public class BlockBase extends Block implements IHasModel
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 
     }
+    
+    public BlockBase setSound(SoundType type)
+    {
+        this.setSoundType(type);
+        return this;
+    }
+    
+    public BlockBase setHarvest(String key, int num)
+    {
+        this.setHarvestLevel(key, num);
+        return this;
+    }
 
     @Override
     @SideOnly(Side.CLIENT)
